@@ -1,5 +1,3 @@
-![Logo](img/logo.png)
-
 Welcome to OpenSensorHub Documentation Website
 ---
 

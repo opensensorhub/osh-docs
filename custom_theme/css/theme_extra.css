@@ -59,6 +59,8 @@ h3, h4, h5, h6 {
 }
 
 .wy-nav-top a {
+    background: #343131 url("/img/logo-light.png") no-repeat center left/38px 25px;
+    padding-left: 50px;
     font-size: 20px;
 }
 

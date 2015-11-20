@@ -14,4 +14,4 @@ The core APIs are:
 - [Event Manager API]() to implement queuing and dispatching of events between modules or even sensorhub instances 
 
 
-Before you start implementing SensorHub's modules using these APIs, we also strongly encourage you to take the time to read and understand the key [Design Principles](../design-principles.md) used in SensorHub software. 
+Before you start implementing SensorHub's modules using these APIs, we also strongly encourage you to take the time to read about SensorHub's [Architecture](../architecture.md). 

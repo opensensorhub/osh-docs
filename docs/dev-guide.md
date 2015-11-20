@@ -1,5 +1,5 @@
 Developer's Guide
----
+===
 
 This guide is meant to help you setup a development environment based on the Eclipse IDE so that you can extend OpenSensorHub (OSH for short) with your own sensor drivers, web services and other components.
 
@@ -23,7 +23,7 @@ To start with, the repositories of interest are [OpenSensorHub Core](https://git
 
 
 
-### Downloading and Building from Source
+### Building from Source
 
 Below are the steps to download and build the code using either command line tools or the Eclipse IDE.
 
@@ -32,13 +32,17 @@ Below are the steps to download and build the code using either command line too
 If you want to build the code and run it on your computer, you'll need `git` and `Maven 3`.
 To clone the code repository locally, first create a directory called `opensensorhub` (or anything else you want really) and `cd` in this directory:
 
-     > mkdir opensensorhub
-     > cd opensensorhub
+```bash
+$ mkdir opensensorhub
+$ cd opensensorhub
+```
 
 Then and use the following commands to clone the two main repositories:
 
-     > git clone --recursive https://github.com/opensensorhub/osh-core
-     > git clone https://github.com/opensensorhub/osh-sensors
+```bash
+$ git clone --recursive https://github.com/opensensorhub/osh-core
+$ git clone https://github.com/opensensorhub/osh-sensors
+```
 
 This will create folders containing the code of the different Maven modules. You can also clone other repositories of the project to get other types of modules. The `services` and `security` repositories are probably of interest if you want to go further. There are also some Android specific modules in the `android` repository if you are interested in deploying on Android.
 
@@ -46,15 +50,19 @@ You can then build the project and install it to your local Maven repository by 
 
 First build the core modules:
 
-     > cd core
-     > mvn clean install 
+```bash
+$ cd core
+$ mvn clean install 
+```
 
 Then build the sensor drivers you are interested in. To start with, you can build the simulated sensor since they don't require you to connect any hardware.
 
-     > cd ../osh-sensors/sensorhub-driver-fakegps
-     > mvn clean install
-     > cd ../sensorhub-driver-fakeweather
-     > mvn clean install
+```bash
+$ cd ../osh-sensors/sensorhub-driver-fakegps
+$ mvn clean install
+$ cd ../sensorhub-driver-fakeweather
+$ mvn clean install
+```
 
 _Note 1: The first time you launch Maven, the build process can take a while because Maven goes to fetch its own dependencies (i.e. Maven plugins) as well as OpenSensorHub's dependencies. Later builds will go faster because these dependencies are cached in a local Maven repository._
 
@@ -62,9 +70,10 @@ _Note 2: Some of the JUnit tests automatically run during the 'test' phase of th
 
 You can then run OpenSensorHub with an example configuration file. For instance, the following command launches OpenSensorHub configured with some simulated sensors, storage databases and an SOS service:
 
-     > cd ../../osh-core/sensorhub-test
-     > mvn -N -e exec:java -Dexec.mainClass="org.sensorhub.impl.SensorHub" -Dexec.args="sensorhub-test/src/test/resources/config_fakesensors_with_storage.json db"
-
+```bash
+$ cd ../../osh-core/sensorhub-test
+$ mvn -N -e exec:java -Dexec.mainClass="org.sensorhub.impl.SensorHub" -Dexec.args="sensorhub-test/src/test/resources/config_fakesensors_with_storage.json db"
+```
 
 #### Using Eclipse
 
@@ -104,7 +113,7 @@ There may be other repositories of interest for you:
   * Security Stuff : `https://github.com/opensensorhub/osh-security.git`
   
 
-### Contributing Code to the Project
+### Contributing
 
 If you want to contribute, we feel the best way is that you create your own fork on GitHub, work on it, and when you have something working and tested, send us a Pull Request. To set this up, please follow the steps below:
 
@@ -116,7 +125,7 @@ Forking the project this way will allow you to send us [Pull Requests](http://he
 
 #### Clone your GitHub repository
 
-Clone your new GitHub repository locally by following the steps in the [Download and Build](#downloading-and-building-from-source) section except you'll be using your own fork URL (e.g. https://github.com/yourusername/osh-***) instead of the *opensensorhub* version.
+Clone your new GitHub repository locally by following the steps in the [Building from Source](#building-from-source) section except you'll be using your own fork URL (e.g. https://github.com/yourusername/osh-***) instead of the *opensensorhub* version.
 
 #### Work on something new!
 
@@ -136,12 +145,16 @@ While you're working on your stuff, don't forget to pull changes from the main r
 
 First add a new remote pointing to the *opensensorhub* master branch (you only have to do that the first time). For example, for the osh-core repository:
 
-     > git remote add upstream https://github.com/opensensorhub/osh-core
+```bash
+$ git remote add upstream https://github.com/opensensorhub/osh-core
+```
 
 Then pull changes from the "upstream" remote:
 
-     > git pull upstream master
-     > git submodule update
+```bash
+$ git pull upstream master
+$ git submodule update
+```
 
 _Note 1: The `submodule update` command is only required in the `osh-core` repo that has submodules._
 
@@ -184,11 +197,15 @@ You won't be able to push directly to the opensensorhub repos directly since you
 
 To do this with git command line tool, first stage and commit your changes locally:
 
-     > git commit -am "Your commit message"
+```bash
+$ git commit -am "Your commit message"
+```
 
 and then push them to your remote GitHub repository:
 
-     > git push
+```bash
+$ git push
+```
 
 (Please see the [git online documentation](http://git-scm.com/book/en/v2) for more details and other ways to use git)
 

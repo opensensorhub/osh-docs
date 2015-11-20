@@ -1,7 +1,7 @@
 Architecture
----
+===
 
-This page describes some of the key design principles used within Open Sensor Hub. These are important concepts to understand if you want to contribute to the core or develop your own SensorHub modules (e.g. sensor drivers, database bindings, etc.)
+This page describes some of the key architecture and design principles used within OpenSensorHub. These are important concepts to understand if you want to contribute to the core or develop your own SensorHub modules (e.g. sensor drivers, database bindings, etc.)
 
 
 ### The Event Bus
@@ -62,9 +62,9 @@ The processing module is connected to the bus and the persistent storage and all
 Process chains can be configured using the SensorML language so that new algorithms can be easily created without writing any code simply by connecting basic functions in the diagram editor (not currently available). However, the use of SensorML is not required and one can also write a plain Java plugin compliant with the processing API for implementing a particular algorithm.
 
 
-### Example Configuration
+### Example Deployment
 
-The diagram below shows an example configuration with one sensor, one processing module, one storage module, SOS and SPS web services :
+The diagram below shows an example OSH instance configured with one sensor, one processing module, one storage module, SOS and SPS web services :
 
 ![Example Bus](images/bus_example.png "Example Bus")
 

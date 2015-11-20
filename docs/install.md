@@ -1,5 +1,5 @@
 How To Install
----
+===
 
 This page describes how to install OpenSensorHub (OSH for short) binary release so you can test it on your own platform. The process is actually really easy thanks to the use of embedded Jetty, so it should not take you more than 5 minutes to get a running OSH instance on your machine. (_NOTE: Installation on Android phones and tablets is through a separate APK file_).
 

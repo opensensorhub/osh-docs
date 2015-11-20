@@ -1,5 +1,5 @@
-Creating a new Maven module
----
+Adding New Modules
+===
 
 So that it can be more easily integrated to OpenSensorHub build process, we advise you to package each OSH module (or set of similar modules) as a separate eclipse project and corresponding Maven module. 
 

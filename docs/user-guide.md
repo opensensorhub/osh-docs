@@ -1,5 +1,5 @@
 User's Guide
----
+===
 
 This guide will walk you through basics of using OpenSensorHub. I you haven't installed it on your platform yet, please do so first by following instructions on the [Download](download.md) and [Install](install.md) pages.
 
@@ -36,12 +36,20 @@ You can also look at our other demo clients that are running online directly fro
 
 ### Configuration File
 
-SensorHub's configuration is centralized in a single file. It is in JSON format so it can be easily viewed or modified in any text editor.
+OpenSensorHub's configuration is centralized in a single file. It is in JSON format so it can be easily viewed or modified in any text editor.
 
-This file contains a list of module's configuration that are loaded in order* when starting SensorHub. 
+This file contains a list of module's configuration that are loaded in order when starting SensorHub. 
 
 
 
+### SWE Services
+
+OpenSensorHub includes implementations of standard web service interfaces from the OGC [Sensor Web Enablement](http://www.opengeospatial.org/projects/groups/sensorwebdwg) (SWE) initiative.
+ 
+Below are topics giving more information about these SWE services:
+
+- [Sensor Observation Service (SOS)](swe-services/sos.md)
+- [Sensor Planning Service (SPS)](swe-services/sps.md) (TODO)
 
 
 (*) Modules are loaded in order except if a module needs another module to start. In this case, the dependent module is loaded as needed by the calling module. 

@@ -1,12 +1,9 @@
-Temporal Filtering in SensorHub SOS
----
+SOS Service
+===
 
+OpenSensorHub's SOS implementation supports both **historical** and **real-time** requests for sensor data.
 
-SensorHub's SOS implementation supports both **historical** and **real-time** requests for sensor data.
-
-Historical requests are automatically enabled (and properly advertised in the capabilities) when a storage is configured and associated to a sensor.
-
-Likewise, real-time requests are automatically enabled when a sensor is directly connected to the SOS (and the sensor module is itself enabled and reports the sensor as connected).
+Historical requests are automatically enabled (and properly advertised in the capabilities) when a storage is configured and associated to a sensor. Likewise, real-time requests are automatically enabled when a sensor is directly connected to the SOS (and the sensor module is itself enabled and reports the sensor as connected).
 
 Regarding temporal filtering, SensorHub's implementation only supports the **TEquals** operator for time instants and **During** operator for time periods and, currently, filtering can only be done on the 'phenomenonTime' property. The special value 'now' represents the limit between historical and real-time data.
 

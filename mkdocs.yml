@@ -8,11 +8,14 @@ pages:
 - Introduction: index.md
 - Getting Started:
     - Download: download.md
-    - Install: install.md
-- Users's Guide: user-guide.md
-- Developer's Guide:
-    - Dev Environment: dev-guide.md
+    - Installation: install.md
+- User Documentation:
+    - Introduction: user-guide.md
+    - SOS Service: swe-services/sos.md
+- Developer Documentation:
+    - Introduction: dev-guide.md
     - Architecture: architecture.md
+    - Javadoc: apidocs/index.html
 - Tutorials:
     - Adding New Modules: tutos/adding-new-modules.md
     - Your First Sensor: tutos/your-first-sensor.md

@@ -10,6 +10,29 @@ h3, h4, h5, h6 {
     font-weight: 300
 }
 
+h3 {
+    font-size: 150%;
+    margin-top: 24px;
+    margin-bottom: 12px
+}
+
+h4, h5, h6 {
+    font-family: "Lato","proxima-nova","Helvetica Neue",Arial,sans-serif;
+    font-size: 130%;
+    margin-top: 18px; 
+    margin-bottom: 8px;
+}
+
+h5, h6 {
+    font-size: 16px;
+    margin-top: 12px; 
+    margin-bottom: 8px;
+}
+
+p {
+    margin: 0 0 12px;
+}
+
 /*
  * Sphinx doesn't have support for section dividers like we do in
  * MkDocs, this styles the section titles in the nav
@@ -23,6 +46,7 @@ h3, h4, h5, h6 {
     position: relative;
     font-size: 90%;
     color: #838383;
+    text-transform: uppercase;
 }
 
 .wy-menu-vertical .subnav a {

@@ -21,7 +21,7 @@ This admin page allows you to do the following actions:
   * Expose sensor commands through SPS
   
 
-For more details, see the [Web-based Interface Manual](webui-manual.md).
+For more details, see the [Web Admin Interface Manual](web-admin.md).
 
 
 
@@ -49,7 +49,7 @@ OpenSensorHub includes implementations of standard web service interfaces from t
 Below are topics giving more information about these SWE services:
 
 - [Sensor Observation Service (SOS)](swe-services/sos.md)
-- [Sensor Planning Service (SPS)](swe-services/sps.md) (TODO)
+- [Sensor Planning Service (SPS)](swe-services/sps.md)
 
 
 (*) Modules are loaded in order except if a module needs another module to start. In this case, the dependent module is loaded as needed by the calling module. 

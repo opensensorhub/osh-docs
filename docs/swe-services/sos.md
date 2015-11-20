@@ -1,4 +1,4 @@
-SOS Service
+Sensor Observation Service (SOS)
 ===
 
 OpenSensorHub's SOS implementation supports both **historical** and **real-time** requests for sensor data.

@@ -11,7 +11,9 @@ pages:
     - Installation: install.md
 - User Documentation:
     - Introduction: user-guide.md
+    - Web Admin: web-admin.md
     - SOS Service: swe-services/sos.md
+    - SPS Service: swe-services/sps.md
 - Developer Documentation:
     - Introduction: dev-guide.md
     - Architecture: architecture.md
@@ -23,7 +25,7 @@ pages:
     - Introduction: core-apis/index.md
     - SensorML API: core-apis/sensorml-api.md
     - Sensor API: core-apis/sensor-api.md
-    - Sensor Net API: core-apis/sensornet-api.md
+    - Sensor Network API: core-apis/sensornet-api.md
 - License: license.md
   
 #theme: readthedocs

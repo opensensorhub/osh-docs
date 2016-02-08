@@ -37,7 +37,7 @@ The demo configuration provided with the binary release instructs OSH to start t
 
 You can connect to the SOS deployed at `http://localhost:8181/sensorhub/sos` right away, to get sensor data and metadata:
 
-  * [GetCapabilities](http://localhost:8181/sensorhub/sos?service=SOS&amp;version=2.0&amp;request=GetCapabilities)
+  * [Get Capabilities](http://localhost:8181/sensorhub/sos?service=SOS&amp;version=2.0&amp;request=GetCapabilities)
   * [Get Weather Result Template](http://localhost:8181/sensorhub/sos?service=SOS&amp;version=2.0&amp;request=GetResultTemplate&amp;offering=urn:mysos:offering03&amp;observedProperty=http://sensorml.com/ont/swe/property/Weather)
   * [Get Latest Weather Measurement](http://localhost:8181/sensorhub/sos?service=SOS&amp;version=2.0&amp;request=GetResult&amp;offering=urn:mysos:offering03&amp;observedProperty=http://sensorml.com/ont/swe/property/Weather&amp;temporalFilter=phenomenonTime,now)
   * [Get Historical Weather Measurements](http://localhost:8181/sensorhub/sos?service=SOS&amp;version=2.0&amp;request=GetResult&amp;offering=urn:mysos:offering03&amp;observedProperty=http://sensorml.com/ont/swe/property/Weather&amp;temporalFilter=phenomenonTime,2015-01-01/now)
@@ -49,7 +49,7 @@ More example data feed are also available [Here](http://sensiasoft.net:8181/demo
 
 ### Connect to the Admin Console
 
-You can connect to the [Admin Console](images/webui1.png "OSH Admin Web UI") at <http://localhost:8181/sensorhub/admin>.
+You can connect to the [Admin Console](user/img/webui1.png "OSH Admin Web UI") at <http://localhost:8181/sensorhub/admin>.
 
 When active, the console allows you to manage all OSH modules including sensors, processing chains, storage units, as well as service interfaces such as Sensor Observation Services (SOS) or Sensor Planning Services (SPS).
 

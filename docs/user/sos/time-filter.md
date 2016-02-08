@@ -1,4 +1,4 @@
-Sensor Observation Service (SOS)
+Temporal Filtering
 ===
 
 OpenSensorHub's SOS implementation supports both **historical** and **real-time** requests for sensor data.
@@ -25,13 +25,13 @@ The following tables explain how the server responds to different temporal filte
 | Get observations for a historical time range      | `temporalFilter=phenomenonTime,2014-01-01/2014-02-01` |
 | Get historical data up to the latest observation  | `temporalFilter=phenomenonTime,2014-01-01/now`        |
 | Get real-time stream ending at specific time (1,2)  | `temporalFilter=phenomenonTime,now/2014-03-01`      |
-| Get observations for a time range overlapping past and future (1,3) (*not supported for now*) | `temporalFilter=time,2014-01-01/2014-03-01` |
+| Get observations for a time range overlapping past and future (1,3) (*not supported for now*) | `temporalFilter=phenomenonTime,2014-01-01/2014-03-01` |
 
-(1) A real-time stream is only available through a persistent connection if sampling period is lower than a certain threshold (usually a few seconds). For lower rate data producers, the subscription service can be used (**TODO:** implement SOS subscription service)
+(1) A real-time stream is only available through a persistent connection if sampling period is lower than a certain threshold (usually a few seconds). For lower rate data producers, the [WebSocket](websocket.md) protocol can be used instead.
 
 (2) The stream will be closed as soon as an observation more recent than the end date is produced. A date very far in the future can be used to get a virtually never ending data stream.
 
-(3) If real-time streaming is available, the stream will be closed as in (2). Otherwise it will be closed right after the latest available observation has been sent, even if it is much earlier than the end date (i.e. the request will be treated as `temporalFilter=time,2014-01-01/now`).
+(3) If real-time streaming is available, the stream will be closed as in (2). Otherwise it will be closed right after the latest available observation has been sent, even if it is much earlier than the end date (i.e. the request will be treated as `temporalFilter=phenomenonTime,2014-01-01/now`).
 
 *Note: Dates used are in the ISO8601 format and can include the time part or not (e.g. both 2014-01-01Z and 2013-05-06T12:05:00.111Z are valid). When no time is specified, midnight (00:00:00) is assumed.*
 

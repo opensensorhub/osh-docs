@@ -30,7 +30,7 @@ The [`ISensorModule`](https://github.com/opensensorhub/osh-core/blob/master/sens
 
 The main functions of the sensor module are shown on the figure below:
 
-![fig1](images/sensor_module.png)
+![fig1](img/sensor_module.png)
 
 Each data interface is an output that gives access to a stream of sensor measurements and is an implementation of [`ISensorDataInterface`](#isensordatainterface). Data interfaces are asynchornous in the sense that each of them can produce data at a different rate.
 
@@ -102,7 +102,7 @@ Consequently, the `AbstractSensorModule` class returns _false_ in the two method
 
 The default workflow shown on the figure below illustrates the way the current sensor decription is generated when you derive a concrete driver implementation from `AbstractSensorModule`:
 
-![fig2](images/sensorml_gen.png)
+![fig2](img/sensorml_gen.png)
 
 1. Output, control inputs and configuration parameter descriptions are actually defined by concrete driver implementation but appending to SensorML is done in `AbstractSensorModule`
 

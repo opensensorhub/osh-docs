@@ -3,7 +3,7 @@ Adding New Modules
 
 So that it can be more easily integrated to OpenSensorHub build process, we advise you to package each OSH module (or set of similar modules) as a separate eclipse project and corresponding Maven module. 
 
-If you are using Eclipse with the M2E plugin as described in the [Developer's Guide](../dev-guide.md), you can create the new project by following the steps below:
+If you are using Eclipse with the M2E plugin as described in the [Developer's Guide](../dev/dev-guide.md), you can create the new project by following the steps below:
 
 
 ### Create a new Maven Eclipse project

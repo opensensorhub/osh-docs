@@ -1,7 +1,7 @@
 User's Guide
 ===
 
-This guide will walk you through basics of using OpenSensorHub. I you haven't installed it on your platform yet, please do so first by following instructions on the [Download](download.md) and [Install](install.md) pages.
+This guide will walk you through basics of using OpenSensorHub. I you haven't installed it on your platform yet, please do so first by following instructions on the [Download](../download.md) and [Install](../install.md) pages.
 
 
 ### Web-based Admin Interface
@@ -48,8 +48,8 @@ OpenSensorHub includes implementations of standard web service interfaces from t
  
 Below are topics giving more information about these SWE services:
 
-- [Sensor Observation Service (SOS)](swe-services/sos.md)
-- [Sensor Planning Service (SPS)](swe-services/sps.md)
+- [Sensor Observation Service (SOS)](sos/intro.md)
+- [Sensor Planning Service (SPS)](sps/intro.md)
 
 
 (*) Modules are loaded in order except if a module needs another module to start. In this case, the dependent module is loaded as needed by the calling module. 

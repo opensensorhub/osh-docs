@@ -8,7 +8,7 @@ This page describes some of the key architecture and design principles used with
 
 SensorHub is designed around a generic bus through which transits all events coming from and going to the connected sensors and processes. SensorHub drivers convert standard or proprietary sensor/actuators protocols to the SWE common format so that the data can be communicated through the bus and made available to all other SensorHub components.
 
-![Event Bus](images/bus.png "Event Bus")
+![Event Bus](img/bus.png "Event Bus")
 
 All data sent through the bus is described using the [SWE Common Data Model](http://www.opengeospatial.org/standards/swecommon) so that each message is auto-describing and can be decoded by any sub-function connected to it.
 
@@ -66,7 +66,7 @@ Process chains can be configured using the SensorML language so that new algorit
 
 The diagram below shows an example OSH instance configured with one sensor, one processing module, one storage module, SOS and SPS web services :
 
-![Example Bus](images/bus_example.png "Example Bus")
+![Example Bus](img/bus_example.png "Example Bus")
 
   * The sensor is connected via a proper sensor driver that pushes data to the bus as soon as it's available. Full description of the data structure is made available to other module via the sensor API.
 

@@ -10,22 +10,30 @@ pages:
     - Download: download.md
     - Installation: install.md
 - User Documentation:
-    - Introduction: user-guide.md
-    - Web Admin: web-admin.md
-    - SOS Service: swe-services/sos.md
-    - SPS Service: swe-services/sps.md
+    - Introduction: user/user-guide.md
+    - Web Admin: user/web-admin.md
+    - SOS Interface:
+         - Introduction: user/sos/intro.md
+         - Retrieving Data: user/sos/get-data.md
+         - Temporal Filtering : user/sos/time-filter.md
+         - Spatial Filtering : user/sos/spatial-filter.md
+         - Filtering by Feature : user/sos/foi-filter.md
+         - WebSocket Support: user/sos/websocket.md
+         - Interconnecting SensorHubs: user/sos/interconnect.md
+    - SPS Interface: user/sps/intro.md
 - Developer Documentation:
-    - Introduction: dev-guide.md
-    - Architecture: architecture.md
+    - Developer's Guide: dev/dev-guide.md
+    - Architecture: dev/architecture.md
+    - Core APIs:
+         - Introduction: dev/core-apis/index.md
+         - SensorML API: dev/core-apis/sensorml-api.md
+         - Sensor API: dev/core-apis/sensor-api.md
+         - Sensor Network API: dev/core-apis/sensornet-api.md
     - Javadoc: apidocs/index.html
 - Tutorials:
     - Adding New Modules: tutos/adding-new-modules.md
     - Your First Sensor: tutos/your-first-sensor.md
-- Core APIs:
-    - Introduction: core-apis/index.md
-    - SensorML API: core-apis/sensorml-api.md
-    - Sensor API: core-apis/sensor-api.md
-    - Sensor Network API: core-apis/sensornet-api.md
+
 - License: license.md
   
 #theme: readthedocs

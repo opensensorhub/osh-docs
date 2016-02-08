@@ -72,24 +72,26 @@
 <li>
           
             <li>
-    <ul class="subnav">
-    <li><span>Getting Started</span></li>
-
-        
+    
+        <ul class="subnav">
+	    <li><span>Getting Started</span></li>
             
+	        
+	            
     <li class="toctree-l1 ">
         <a class="" href="../download/">Download</a>
         
     </li>
 
-        
-            
+	        
+	    
+	        
+	            
     <li class="toctree-l1 current">
         <a class="current" href="./">Installation</a>
         
             <ul>
             
-                <!--<li class="toctree-l3"><a href="#how-to-install">How To Install</a></li>-->
                 
                     <li><a class="toctree-l4" href="#prerequisistes">Prerequisistes</a></li>
                 
@@ -108,131 +110,131 @@
         
     </li>
 
-        
-    </ul>
+	        
+	    
+        </ul>
+    
 <li>
           
             <li>
-    <ul class="subnav">
-    <li><span>User Documentation</span></li>
-
-        
+    
+        <ul class="subnav">
+	    <li><span>User Documentation</span></li>
             
+	        
+	            
     <li class="toctree-l1 ">
-        <a class="" href="../user-guide/">Introduction</a>
+        <a class="" href="../user/user-guide/">Introduction</a>
         
     </li>
 
-        
-            
+	        
+	    
+	        
+	            
     <li class="toctree-l1 ">
-        <a class="" href="../web-admin/">Web Admin</a>
+        <a class="" href="../user/web-admin/">Web Admin</a>
         
     </li>
 
-        
+	        
+	    
+	        
+	            
+    
+        <li class="toctree-l1 ">
+            <a class="" href="../user/sos/intro/">SOS Interface</a>        
             
+        </li>
+    
+
+	        
+	    
+	        
+	            
     <li class="toctree-l1 ">
-        <a class="" href="../swe-services/sos/">SOS Service</a>
+        <a class="" href="../user/sps/intro/">SPS Interface</a>
         
     </li>
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../swe-services/sps/">SPS Service</a>
-        
-    </li>
-
-        
-    </ul>
+	        
+	    
+        </ul>
+    
 <li>
           
             <li>
-    <ul class="subnav">
-    <li><span>Developer Documentation</span></li>
-
-        
+    
+        <ul class="subnav">
+	    <li><span>Developer Documentation</span></li>
             
+	        
+	            
     <li class="toctree-l1 ">
-        <a class="" href="../dev-guide/">Introduction</a>
+        <a class="" href="../dev/dev-guide/">Developer's Guide</a>
         
     </li>
 
-        
-            
+	        
+	    
+	        
+	            
     <li class="toctree-l1 ">
-        <a class="" href="../architecture/">Architecture</a>
+        <a class="" href="../dev/architecture/">Architecture</a>
         
     </li>
 
-        
+	        
+	    
+	        
+	            
+    
+        <li class="toctree-l1 ">
+            <a class="" href="../dev/core-apis/">Core APIs</a>        
             
+        </li>
+    
+
+	        
+	    
+	        
+	            
     <li class="toctree-l1 ">
         <a class="" href="../apidocs/">Javadoc</a>
         
     </li>
 
-        
-    </ul>
+	        
+	    
+        </ul>
+    
 <li>
           
             <li>
-    <ul class="subnav">
-    <li><span>Tutorials</span></li>
-
-        
+    
+        <ul class="subnav">
+	    <li><span>Tutorials</span></li>
             
+	        
+	            
     <li class="toctree-l1 ">
         <a class="" href="../tutos/adding-new-modules/">Adding New Modules</a>
         
     </li>
 
-        
-            
+	        
+	    
+	        
+	            
     <li class="toctree-l1 ">
         <a class="" href="../tutos/your-first-sensor/">Your First Sensor</a>
         
     </li>
 
-        
-    </ul>
-<li>
-          
-            <li>
-    <ul class="subnav">
-    <li><span>Core APIs</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../core-apis/">Introduction</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../core-apis/sensorml-api/">SensorML API</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../core-apis/sensor-api/">Sensor API</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../core-apis/sensornet-api/">Sensor Network API</a>
-        
-    </li>
-
-        
-    </ul>
+	        
+	    
+        </ul>
+    
 <li>
           
             <li>
@@ -308,15 +310,15 @@
 <h3 id="connect-to-the-sensor-observation-service-sos">Connect to the Sensor Observation Service (SOS)</h3>
 <p>You can connect to the SOS deployed at <code>http://localhost:8181/sensorhub/sos</code> right away, to get sensor data and metadata:</p>
 <ul>
-<li><a href="http://localhost:8181/sensorhub/sos?service=SOS&amp;amp;version=2.0&amp;amp;request=GetCapabilities">Get Capabilities</a></li>
-<li><a href="http://localhost:8181/sensorhub/sos?service=SOS&amp;amp;version=2.0&amp;amp;request=GetResultTemplate&amp;amp;offering=urn:mysos:offering03&amp;amp;observedProperty=http://sensorml.com/ont/swe/property/Weather">Get Weather Result Template</a></li>
-<li><a href="http://localhost:8181/sensorhub/sos?service=SOS&amp;amp;version=2.0&amp;amp;request=GetResult&amp;amp;offering=urn:mysos:offering03&amp;amp;observedProperty=http://sensorml.com/ont/swe/property/Weather&amp;amp;temporalFilter=phenomenonTime,now">Get Latest Weather Measurement</a></li>
-<li><a href="http://localhost:8181/sensorhub/sos?service=SOS&amp;amp;version=2.0&amp;amp;request=GetResult&amp;amp;offering=urn:mysos:offering03&amp;amp;observedProperty=http://sensorml.com/ont/swe/property/Weather&amp;amp;temporalFilter=phenomenonTime,2015-01-01/now">Get Historical Weather Measurements</a></li>
+<li><a href="http://localhost:8181/sensorhub/sos?service=SOS&amp;version=2.0&amp;request=GetCapabilities">GetCapabilities</a></li>
+<li><a href="http://localhost:8181/sensorhub/sos?service=SOS&amp;version=2.0&amp;request=GetResultTemplate&amp;offering=urn:mysos:offering03&amp;observedProperty=http://sensorml.com/ont/swe/property/Weather">Get Weather Result Template</a></li>
+<li><a href="http://localhost:8181/sensorhub/sos?service=SOS&amp;version=2.0&amp;request=GetResult&amp;offering=urn:mysos:offering03&amp;observedProperty=http://sensorml.com/ont/swe/property/Weather&amp;temporalFilter=phenomenonTime,now">Get Latest Weather Measurement</a></li>
+<li><a href="http://localhost:8181/sensorhub/sos?service=SOS&amp;version=2.0&amp;request=GetResult&amp;offering=urn:mysos:offering03&amp;observedProperty=http://sensorml.com/ont/swe/property/Weather&amp;temporalFilter=phenomenonTime,2015-01-01/now">Get Historical Weather Measurements</a></li>
 </ul>
 <p>Also take a look at this simple <a href="http://sensiasoft.net:8181/osm_client_websockets.html">demo client</a> that connects to the fake GPS live feed through websockets to display it on a map using OpenLayers. You can easily reproduce this locally.</p>
 <p>More example data feed are also available <a href="http://sensiasoft.net:8181/demo.html">Here</a>.</p>
 <h3 id="connect-to-the-admin-console">Connect to the Admin Console</h3>
-<p>You can connect to the <a href="../images/webui1.png" title="OSH Admin Web UI">Admin Console</a> at <a href="http://localhost:8181/sensorhub/admin">http://localhost:8181/sensorhub/admin</a>.</p>
+<p>You can connect to the <a href="../user/img/webui1.png" title="OSH Admin Web UI">Admin Console</a> at <a href="http://localhost:8181/sensorhub/admin">http://localhost:8181/sensorhub/admin</a>.</p>
 <p>When active, the console allows you to manage all OSH modules including sensors, processing chains, storage units, as well as service interfaces such as Sensor Observation Services (SOS) or Sensor Planning Services (SPS).</p>
 <h3 id="logging-configuration">Logging Configuration</h3>
 <p>All logging is made via logback and the configuration is done via the <code>logback.xml</code> file included in the distribution.
@@ -334,7 +336,7 @@ For instance, you can enable SensorHub debug logs by changing the following line
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../user-guide/" class="btn btn-neutral float-right" title="Introduction"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../user/user-guide/" class="btn btn-neutral float-right" title="Introduction"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../download/" class="btn btn-neutral" title="Download"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -369,7 +371,7 @@ For instance, you can enable SensorHub debug logs by changing the following line
         <span><a href="../download/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../user-guide/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../user/user-guide/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

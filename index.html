@@ -70,7 +70,6 @@
         
             <ul>
             
-                <!--<li class="toctree-l3"><a href="#opensensorhub-documentation">OpenSensorHub Documentation</a></li>-->
                 
             
             </ul>
@@ -79,148 +78,151 @@
 <li>
           
             <li>
-    <ul class="subnav">
-    <li><span>Getting Started</span></li>
-
-        
+    
+        <ul class="subnav">
+	    <li><span>Getting Started</span></li>
             
+	        
+	            
     <li class="toctree-l1 ">
         <a class="" href="download/">Download</a>
         
     </li>
 
-        
-            
+	        
+	    
+	        
+	            
     <li class="toctree-l1 ">
         <a class="" href="install/">Installation</a>
         
     </li>
 
-        
-    </ul>
+	        
+	    
+        </ul>
+    
 <li>
           
             <li>
-    <ul class="subnav">
-    <li><span>User Documentation</span></li>
-
-        
+    
+        <ul class="subnav">
+	    <li><span>User Documentation</span></li>
             
+	        
+	            
     <li class="toctree-l1 ">
-        <a class="" href="user-guide/">Introduction</a>
+        <a class="" href="user/user-guide/">Introduction</a>
         
     </li>
 
-        
-            
+	        
+	    
+	        
+	            
     <li class="toctree-l1 ">
-        <a class="" href="web-admin/">Web Admin</a>
+        <a class="" href="user/web-admin/">Web Admin</a>
         
     </li>
 
-        
+	        
+	    
+	        
+	            
+    
+        <li class="toctree-l1 ">
+            <a class="" href="user/sos/intro/">SOS Interface</a>        
             
+        </li>
+    
+
+	        
+	    
+	        
+	            
     <li class="toctree-l1 ">
-        <a class="" href="swe-services/sos/">SOS Service</a>
+        <a class="" href="user/sps/intro/">SPS Interface</a>
         
     </li>
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="swe-services/sps/">SPS Service</a>
-        
-    </li>
-
-        
-    </ul>
+	        
+	    
+        </ul>
+    
 <li>
           
             <li>
-    <ul class="subnav">
-    <li><span>Developer Documentation</span></li>
-
-        
+    
+        <ul class="subnav">
+	    <li><span>Developer Documentation</span></li>
             
+	        
+	            
     <li class="toctree-l1 ">
-        <a class="" href="dev-guide/">Introduction</a>
+        <a class="" href="dev/dev-guide/">Developer's Guide</a>
         
     </li>
 
-        
-            
+	        
+	    
+	        
+	            
     <li class="toctree-l1 ">
-        <a class="" href="architecture/">Architecture</a>
+        <a class="" href="dev/architecture/">Architecture</a>
         
     </li>
 
-        
+	        
+	    
+	        
+	            
+    
+        <li class="toctree-l1 ">
+            <a class="" href="dev/core-apis/">Core APIs</a>        
             
+        </li>
+    
+
+	        
+	    
+	        
+	            
     <li class="toctree-l1 ">
         <a class="" href="apidocs/">Javadoc</a>
         
     </li>
 
-        
-    </ul>
+	        
+	    
+        </ul>
+    
 <li>
           
             <li>
-    <ul class="subnav">
-    <li><span>Tutorials</span></li>
-
-        
+    
+        <ul class="subnav">
+	    <li><span>Tutorials</span></li>
             
+	        
+	            
     <li class="toctree-l1 ">
         <a class="" href="tutos/adding-new-modules/">Adding New Modules</a>
         
     </li>
 
-        
-            
+	        
+	    
+	        
+	            
     <li class="toctree-l1 ">
         <a class="" href="tutos/your-first-sensor/">Your First Sensor</a>
         
     </li>
 
-        
-    </ul>
-<li>
-          
-            <li>
-    <ul class="subnav">
-    <li><span>Core APIs</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="core-apis/">Introduction</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="core-apis/sensorml-api/">SensorML API</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="core-apis/sensor-api/">Sensor API</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="core-apis/sensornet-api/">Sensor Network API</a>
-        
-    </li>
-
-        
-    </ul>
+	        
+	    
+        </ul>
+    
 <li>
           
             <li>
@@ -267,7 +269,7 @@
             <div class="section">
               
                 <h1 id="opensensorhub-documentation">OpenSensorHub Documentation</h1>
-<p>OpenSensorHub allows one to easily build interoperable and evolutive sensor networks, based on open-standards for all data exchanges, and providing advanced processing capabilities. The open-standards used are mostly <a href="http://www.opengeospatial.org">OGC</a> standards from the <a href="http://www.opengeospatial.org/projects/groups/sensorwebdwg">Sensor Web Enablement</a> (SWE) initiative and are key to design sensor networks that can largely evolve with time (addition of new types of sensors, reconfigurations, etc.).</p>
+<p>OpenSensorHub (OSH) allows one to easily build interoperable and evolutive sensor networks, based on open-standards for all data exchanges, and providing advanced processing capabilities. The open-standards used are mostly <a href="http://www.opengeospatial.org">OGC</a> standards from the <a href="http://www.opengeospatial.org/projects/groups/sensorwebdwg">Sensor Web Enablement</a> (SWE) initiative and are key to design sensor networks that can largely evolve with time (addition of new types of sensors, reconfigurations, etc.).</p>
 <p>The Java framework allows one to connect any kind of sensors and actuators to a common bus via a simple yet generic driver API. Sensors can be connected through any available hardware interface such as <a href="http://en.wikipedia.org/wiki/RS-232">RS232/422</a>, <a href="http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus">SPI</a>, <a href="http://en.wikipedia.org/wiki/I%C2%B2C">I2C</a>, <a href="http://en.wikipedia.org/wiki/USB">USB</a>, <a href="http://en.wikipedia.org/wiki/Ethernet">Ethernet</a>, <a href="http://en.wikipedia.org/wiki/Wi-Fi">Wifi</a>, <a href="http://en.wikipedia.org/wiki/Bluetooth">Bluetooth</a>, <a href="http://en.wikipedia.org/wiki/ZigBee">ZigBee</a>, <a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP</a>, etc... Once drivers are available for a specific sensor, it is automatically connected to the bus and it is then trivial to send commands and read data from it. An intuitive user interface allows the user to configure the network to suit its needs and more advanced processing capabilities are available via a plugin system.</p>
 <p>SensorHub embeds the full power of OGC web services (<a href="http://www.opengeospatial.org/standards/sos">Sensor Observation Service</a> or SOS, <a href="http://www.opengeospatial.org/standards/sps">Sensor Planning Service</a> or SPS) to communicate with all connected sensors in the network and provide robust metadata (owner, location and orientation, calibration, etc.). Through these standards, several SensorHub instances can also communicate with each other to form larger networks.</p>
 <p>Low level functions of SensorHub (send commands and read data from sensor) are coded efficiently and can be used on embedded hardware running <a href="http://www.oracle.com/technetwork/java/javase">Java SE®</a>, <a href="http://www.oracle.com/us/technologies/java/embedded/micro-edition/overview/index.html">Java ME®</a> or <a href="http://www.android.com">Android®</a> while more advanced data processing capabilities are fully multi-threaded and can thus benefit from a more powerful hardware platform (e.g. multi-processor servers or even clusters).</p>

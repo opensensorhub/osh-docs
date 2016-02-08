@@ -7,7 +7,7 @@
   
   
   
-  <title>Adding New Modules - OpenSensorHub</title>
+  <title>Web Admin - OpenSensorHub</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -22,9 +22,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Adding New Modules";
-    var mkdocs_page_input_path = "tutos/adding-new-modules.md";
-    var mkdocs_page_url = "/tutos/adding-new-modules/";
+    var mkdocs_page_name = "Web Admin";
+    var mkdocs_page_input_path = "user/web-admin.md";
+    var mkdocs_page_url = "/user/web-admin/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -106,7 +106,7 @@
 	        
 	            
     <li class="toctree-l1 ">
-        <a class="" href="../../user/user-guide/">Introduction</a>
+        <a class="" href="../user-guide/">Introduction</a>
         
     </li>
 
@@ -114,8 +114,22 @@
 	    
 	        
 	            
-    <li class="toctree-l1 ">
-        <a class="" href="../../user/web-admin/">Web Admin</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Web Admin</a>
+        
+            <ul>
+            
+                
+                    <li><a class="toctree-l4" href="#adding-modules">Adding Modules</a></li>
+                
+                    <li><a class="toctree-l4" href="#configuring-modules">Configuring Modules</a></li>
+                
+                    <li><a class="toctree-l4" href="#starting-and-stopping-modules">Starting and Stopping Modules</a></li>
+                
+                    <li><a class="toctree-l4" href="#securing-access">Securing Access</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -125,7 +139,7 @@
 	            
     
         <li class="toctree-l1 ">
-            <a class="" href="../../user/sos/intro/">SOS Interface</a>        
+            <a class="" href="../sos/intro/">SOS Interface</a>        
             
         </li>
     
@@ -135,7 +149,7 @@
 	        
 	            
     <li class="toctree-l1 ">
-        <a class="" href="../../user/sps/intro/">SPS Interface</a>
+        <a class="" href="../sps/intro/">SPS Interface</a>
         
     </li>
 
@@ -199,22 +213,8 @@
             
 	        
 	            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Adding New Modules</a>
-        
-            <ul>
-            
-                
-                    <li><a class="toctree-l4" href="#create-a-new-maven-eclipse-project">Create a new Maven Eclipse project</a></li>
-                
-                    <li><a class="toctree-l4" href="#move-the-project-inside-the-sensorhub-main-folder">Move the project inside the sensorhub main folder</a></li>
-                
-                    <li><a class="toctree-l4" href="#add-dependency-to-sensorhub-core-software-module">Add dependency to SensorHub core software module</a></li>
-                
-                    <li><a class="toctree-l4" href="#enable-git-version-control">Enable Git version control</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutos/adding-new-modules/">Adding New Modules</a>
         
     </li>
 
@@ -223,7 +223,7 @@
 	        
 	            
     <li class="toctree-l1 ">
-        <a class="" href="../your-first-sensor/">Your First Sensor</a>
+        <a class="" href="../../tutos/your-first-sensor/">Your First Sensor</a>
         
     </li>
 
@@ -262,11 +262,11 @@
     
       
         
-          <li>Tutorials &raquo;</li>
+          <li>User Documentation &raquo;</li>
         
       
     
-    <li>Adding New Modules</li>
+    <li>Web Admin</li>
     <li class="wy-breadcrumbs-aside">
       <!--
         
@@ -280,43 +280,23 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="adding-new-modules">Adding New Modules</h1>
-<p>So that it can be more easily integrated to OpenSensorHub build process, we advise you to package each OSH module (or set of similar modules) as a separate eclipse project and corresponding Maven module. </p>
-<p>If you are using Eclipse with the M2E plugin as described in the <a href="../../dev/dev-guide/">Developer's Guide</a>, you can create the new project by following the steps below:</p>
-<h3 id="create-a-new-maven-eclipse-project">Create a new Maven Eclipse project</h3>
-<ul>
-<li>Right click in package explorer and select <em>"New &gt; Other"</em></li>
-<li>Go down to the <em>"Maven"</em> section and select <em>"Maven Project"</em> then click <em>"Next"</em></li>
-<li>Check <em>"Create a simple project"</em> and click <em>"Next"</em></li>
-<li>Set <em>GroupId="org.sensorhub"</em> and <em>ArtifactId="sensorhub-{moduletype}-{modulename}"</em> (for instance <em>sensorhub-driver-axis</em> for an Axis camera driver)</li>
-<li>Fill up the name and description fields with meaningful information</li>
-<li>Set Parent Project to <em>GroupId="org.sensorhub"</em>, <em>ArtifactId="sensorhub-all"</em>, <em>Version=0.5</em> and click <em>"Finish"</em></li>
-</ul>
-<h3 id="move-the-project-inside-the-sensorhub-main-folder">Move the project inside the sensorhub main folder</h3>
-<p>By default your project should have been created at the root of the workspace. To move it into the correct sub-folder, follow these steps:</p>
-<ul>
-<li>Right click on the newly created project</li>
-<li>Select <em>"Refactor &gt; Move"</em> from the popup menu</li>
-<li>In the location field, insert "osh-xxx/" before the project name in order to obtain the following path: <em>"path/to/your/workspace/osh-xxx/sensorhub-{moduletype}-{modulename}"</em> </li>
-</ul>
-<h3 id="add-dependency-to-sensorhub-core-software-module">Add dependency to SensorHub core software module</h3>
-<ul>
-<li>Open the <em>pom.xml</em> that was created at the root of the project (It should open in a special editor if the M2E plugin was properly installed)</li>
-<li>Go to the <em>"Dependencies"</em> tab and click the <em>"Add"</em> button</li>
-<li>Enter <em>"sensorhub"</em> in the search box (above the Search Results section)</li>
-<li>Wait for results to appear, select <em>"sensorhub-core"</em> in the list and click OK</li>
-<li>You can also edit the pom.xml to override the organization and developer name that are inherited from the parent project by putting your own.</li>
-<li>Save the file and close it </li>
-<li>Depending on the type of module you develop, you may have to add depencendies to other modules as well, and even to external libraries that you module may depend on.</li>
-</ul>
-<h3 id="enable-git-version-control">Enable Git version control</h3>
-<p>To associate the new project with the Git repository within Eclipse, follow these steps:</p>
-<ul>
-<li>Right click on the project and select <em>"Team -&gt; Share"</em> from the context menu</li>
-<li>Select <em>"Git"</em> en click <em>"Next"</em></li>
-<li>Check <em>"Use or create repository in parent folder of project"</em> so that your new project can be associated to the main sensorhub repository</li>
-<li>Select you project in the list and click <em>"Finish"</em></li>
-</ul>
+                <h1 id="web-admin-user-interface">Web-Admin User Interface</h1>
+<p>The web based administration interface allows to change the configuration of all modules in OpenSensorHub. It can be secured or even completely disabled in the configuration file manually. If enabled, it is accessible on the local node at the following URL:</p>
+<p><a href="http://localhost:8181/sensorhub/admin">http://localhost:8181/sensorhub/admin</a></p>
+<p>Below is a screenshot of the user interface showing configuration settings for the simulated GPS sensor (used for testing).</p>
+<p><img alt="Admin Interface" src="../img/webui1.png" /></p>
+<h3 id="adding-modules">Adding Modules</h3>
+<p>Most installed modules for which code has been installed can be instantiated using the interface. This is done by simply right clicking in one of the appropriate section (i.e. one of the panels in the accordion on the left), and selecting "Add Module". For example, let's add a new sensor driver module:</p>
+<p><img alt="Admin Interface" src="../img/webui2.png" /></p>
+<p>You will then be presented with a choice of installed modules that can be instantiated on the current node. The list will only show the modules whose type can be added in the current section. In our example, we see all sensor drivers currently available on our node since we clicked in the "Sensors" section.</p>
+<p><img alt="Admin Interface" src="../img/webui3.png" /></p>
+<p>Once the module is added, it's configuration form is automatically shown on the right and you can start changing its parameters.</p>
+<h3 id="configuring-modules">Configuring Modules</h3>
+<p>To configure a module, simply select it on the left panel (after opening one of the main sections), and make the desired changes in the form that is displayed on the right. Once you're done, apply your changes, click the "Apply Changes" button. This makes the changes in the actual module configuration and, if the module handles configuration updates properly, the new configuration should be immediately reflected by the running module.</p>
+<h3 id="starting-and-stopping-modules">Starting and Stopping Modules</h3>
+<p>Modules are started and stopped by right clicking on the module in the left panel and selecting "Enable" or "Disable" respectively.</p>
+<h3 id="securing-access">Securing Access</h3>
+<p><strong>TODO</strong></p>
               
             </div>
           </div>
@@ -324,10 +304,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../your-first-sensor/" class="btn btn-neutral float-right" title="Your First Sensor"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../sos/intro/" class="btn btn-neutral float-right" title="Introduction"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../apidocs/" class="btn btn-neutral" title="Javadoc"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../user-guide/" class="btn btn-neutral" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -356,10 +336,10 @@
           <a href="https://github.com/opensensorhub/" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../apidocs/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../user-guide/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../your-first-sensor/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../sos/intro/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

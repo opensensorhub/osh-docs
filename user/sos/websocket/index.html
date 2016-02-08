@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>WebSocket Support - OpenSensorHub</title>
+  
+
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "WebSocket Support";
+    var mkdocs_page_input_path = "user/sos/websocket.md";
+    var mkdocs_page_url = "/user/sos/websocket/";
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../../js/highlight.pack.js"></script>
+  <script src="../../../js/theme.js"></script> 
+
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-36723568-3', 'opensensorhub.org');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <img src="/img/logo-light.png"/>
+        <a href="../../.." class="icon"> OpenSensorHub</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../..">Introduction</a>
+        
+    </li>
+<li>
+          
+            <li>
+    
+        <ul class="subnav">
+	    <li><span>Getting Started</span></li>
+            
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../download/">Download</a>
+        
+    </li>
+
+	        
+	    
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../install/">Installation</a>
+        
+    </li>
+
+	        
+	    
+        </ul>
+    
+<li>
+          
+            <li>
+    
+        <ul class="subnav">
+	    <li><span>User Documentation</span></li>
+            
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-guide/">Introduction</a>
+        
+    </li>
+
+	        
+	    
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../../web-admin/">Web Admin</a>
+        
+    </li>
+
+	        
+	    
+	        
+	            
+    
+        <li class="toctree-l1 current">
+            <a class="current" href="../intro/">SOS Interface</a>        
+            
+                <ul class="subnav">
+                    
+	                
+    <li class="toctree-l1 ">
+        <a class="" href="../intro/">Introduction</a>
+        
+    </li>
+
+	            
+	                
+    <li class="toctree-l1 ">
+        <a class="" href="../get-data/">Retrieving Data</a>
+        
+    </li>
+
+	            
+	                
+    <li class="toctree-l1 ">
+        <a class="" href="../time-filter/">Temporal Filtering</a>
+        
+    </li>
+
+	            
+	                
+    <li class="toctree-l1 ">
+        <a class="" href="../spatial-filter/">Spatial Filtering</a>
+        
+    </li>
+
+	            
+	                
+    <li class="toctree-l1 ">
+        <a class="" href="../foi-filter/">Filtering by Feature</a>
+        
+    </li>
+
+	            
+	                
+    <li class="toctree-l1 current">
+        <a class="current" href="./">WebSocket Support</a>
+        
+            <ul>
+            
+                
+                    <li><a class="toctree-l4" href="#principle">Principle</a></li>
+                
+                    <li><a class="toctree-l4" href="#javascript-example">JavaScript Example</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+	            
+	                
+    <li class="toctree-l1 ">
+        <a class="" href="../interconnect/">Interconnecting SensorHubs</a>
+        
+    </li>
+
+	            
+                </ul>
+            
+        </li>
+    
+
+	        
+	    
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../../sps/intro/">SPS Interface</a>
+        
+    </li>
+
+	        
+	    
+        </ul>
+    
+<li>
+          
+            <li>
+    
+        <ul class="subnav">
+	    <li><span>Developer Documentation</span></li>
+            
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../dev/dev-guide/">Developer's Guide</a>
+        
+    </li>
+
+	        
+	    
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../dev/architecture/">Architecture</a>
+        
+    </li>
+
+	        
+	    
+	        
+	            
+    
+        <li class="toctree-l1 ">
+            <a class="" href="../../../dev/core-apis/">Core APIs</a>        
+            
+        </li>
+    
+
+	        
+	    
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../apidocs/">Javadoc</a>
+        
+    </li>
+
+	        
+	    
+        </ul>
+    
+<li>
+          
+            <li>
+    
+        <ul class="subnav">
+	    <li><span>Tutorials</span></li>
+            
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../tutos/adding-new-modules/">Adding New Modules</a>
+        
+    </li>
+
+	        
+	    
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../tutos/your-first-sensor/">Your First Sensor</a>
+        
+    </li>
+
+	        
+	    
+        </ul>
+    
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../../license/">License</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">OpenSensorHub</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>User Documentation &raquo;</li>
+        
+      
+        
+          <li>SOS Interface &raquo;</li>
+        
+      
+    
+    <li>WebSocket Support</li>
+    <li class="wy-breadcrumbs-aside">
+      <!--
+        
+          <a href="https://github.com/opensensorhub/" class="icon icon-github"> Edit on GitHub</a>
+        
+      -->
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="websocket-extension">WebSocket Extension</h1>
+<p>Although it is possible to request a real-time data stream from OpenSensorHub's SOS using the "persistent HTTP" approach, this technique is hard to use within web browsers because the asynchronous <strong>XMLHttpRequest</strong> API is not designed for it and won't allow you to manage memory correctly (typically an ever growing buffer will be allocated to contain the endless stream of data).</p>
+<p>To circumvent this issue, OpenSensorHub introduced the <strong>WebSocket</strong> extension to SOS very early-on. It is super easy to use since <strong>WebSocket</strong> requests are identical to <strong>HTTP GET</strong> requests (only the protocol part of the URL changes).</p>
+<p>Note that the <strong>WebSocket</strong> protocol is only available for <strong>GetResult</strong> requests for now but we have plans to implement support for <strong>InsertResult</strong> as well.</p>
+<h3 id="principle">Principle</h3>
+<p>The <strong>WebSocket</strong> is constructed in the same way an <strong>HTTP GET</strong> URL would be except the <code>ws://</code> protocol is used instead of <code>http://</code>, as in the following example:</p>
+<pre><code>ws://sensiasoft.net:8181/sensorhub/sos?service=SOS&amp;version=2.0&amp;request=GetResult&amp;offering=urn:mysos:offering02&amp;observedProperty=http://www.opengis.net/def/property/OGC/0/SensorLocation&amp;temporalFilter=phenomenonTime,now/2055-01-01
+</code></pre>
+
+<p>Once you connect with this URL, the SOS server will send one <strong>WebSocket</strong> message for each record of measurement (i.e. corresponding to the record described in <strong>GetResultTemplate</strong>). With most <strong>WebSocket</strong> APIs, you will typically receive these messages via a callback function so that data can be processed in an event-based fashion.</p>
+<h3 id="javascript-example">JavaScript Example</h3>
+<p>The following JavaScript example shows how to issue a real-time <strong>GetResult</strong> request using <strong>WebSocket</strong>:</p>
+<pre><code>ws = new WebSocket(&quot;ws://sensiasoft.net:8181/sensorhub/sos?service=SOS&amp;version=2.0&amp;request=GetResult&amp;offering=urn:mysos:offering02&amp;observedProperty=http://www.opengis.net/def/property/OGC/0/SensorLocation&amp;temporalFilter=phenomenonTime,now/2055-01-01&quot;);
+ws.binaryType = 'arraybuffer';
+ws.onmessage = function (event) {
+
+  var rec = String.fromCharCode.apply(null, new Uint8Array(event.data));
+  //console.log(rec);
+
+  var tokens = rec.trim().split(&quot;,&quot;);
+  var lat = parseFloat(tokens[1]);
+  var lon = parseFloat(tokens[2]);
+  var alt = parseFloat(tokens[3]);
+
+  // do what you need with the data, like draw marker on a map
+}
+ws.onerror = function (event) {
+  // error handling code
+  ws.close();
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../interconnect/" class="btn btn-neutral float-right" title="Interconnecting SensorHubs"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../foi-filter/" class="btn btn-neutral" title="Filtering by Feature"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>© Copyright 2015 Sensia Software LLC</p>
+    
+  </div>
+
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensensorhub/" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../foi-filter/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../interconnect/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

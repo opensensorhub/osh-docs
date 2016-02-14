@@ -51,7 +51,7 @@ You can then build the project and install it to your local Maven repository by 
 First build the core modules:
 
 ```bash
-$ cd core
+$ cd osh-core
 $ mvn clean install 
 ```
 

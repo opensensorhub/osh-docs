@@ -141,6 +141,15 @@
 
 	        
 	    
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user/android-app/">Demo Android App</a>
+        
+    </li>
+
+	        
+	    
         </ul>
     
 <li>
@@ -201,6 +210,24 @@
 	            
     <li class="toctree-l1 ">
         <a class="" href="../../apidocs/">Javadoc</a>
+        
+    </li>
+
+	        
+	    
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../android/">Android Support</a>
+        
+    </li>
+
+	        
+	    
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../arduino/">Arduino Support</a>
         
     </li>
 
@@ -295,10 +322,16 @@
 <h3 id="sensor-drivers">Sensor Drivers</h3>
 <p>Drivers are responsible for converting data going to and from the sensors into <a href="http://www.opengeospatial.org/standards/swecommon">SWE Common</a> messages, as well as for building a <a href="http://www.opengeospatial.org/standards/sensorml">SensorML</a> description of the connected sensor. The sensor is then always represented by this description in the system.</p>
 <p>Whenever possible, this description is fully or partially generated automatically from information stored in the sensor device (i.e serial number, calibration tables, etc.). If the sensor does not contain any such information, the driver generates a very simple document containing only the sensor ID, type and measurement output structure. In any case, this SensorML description can be further completed by the user when installing the sensor (the user will have to input the sensor location for instance).</p>
-<p>Sensor drivers can be programmed to send data to the bus in various manners :
-  * In 'push' mode, the sensor is programmed to make measurements at regular intervals or when certain conditions are met. In this case, the user does not request a reading explicitely.
-  * In 'poll' mode, the user requests a reading from the sensor everytime. If no requests are made, no data is read.
-Both modes can be mixed.</p>
+<p>Sensor drivers can be programmed to send data to the bus in various manners :</p>
+<ul>
+<li>
+<p>In 'push' mode, the sensor is programmed to make measurements at regular intervals or when certain conditions are met. In this case, the user does not request a reading explicitely.</p>
+</li>
+<li>
+<p>In 'poll' mode, the user requests a reading from the sensor everytime. If no requests are made, no data is read.</p>
+</li>
+</ul>
+<p>Both modes can be mixed.</p>
 <h3 id="persistencestorage-modules">Persistence/Storage Modules</h3>
 <p>The persistence engine is able to store any data that transits on the bus in a persistent storage. A simple API and several storage implementations are provided as part of the SensorHub software :</p>
 <ul>

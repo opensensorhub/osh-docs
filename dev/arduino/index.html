@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Arduino Support - OpenSensorHub</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Arduino Support";
+    var mkdocs_page_input_path = "dev/arduino.md";
+    var mkdocs_page_url = "/dev/arduino/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-36723568-3', 'opensensorhub.org');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <img src="/img/logo-light.png"/>
+        <a href="../.." class="icon"> OpenSensorHub</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Introduction</a>
+        
+    </li>
+<li>
+          
+            <li>
+    
+        <ul class="subnav">
+	    <li><span>Getting Started</span></li>
+            
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../../download/">Download</a>
+        
+    </li>
+
+	        
+	    
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../../install/">Installation</a>
+        
+    </li>
+
+	        
+	    
+        </ul>
+    
+<li>
+          
+            <li>
+    
+        <ul class="subnav">
+	    <li><span>User Documentation</span></li>
+            
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user/user-guide/">Introduction</a>
+        
+    </li>
+
+	        
+	    
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user/web-admin/">Web Admin</a>
+        
+    </li>
+
+	        
+	    
+	        
+	            
+    
+        <li class="toctree-l1 ">
+            <a class="" href="../../user/sos/intro/">SOS Interface</a>        
+            
+        </li>
+    
+
+	        
+	    
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user/sps/intro/">SPS Interface</a>
+        
+    </li>
+
+	        
+	    
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user/android-app/">Demo Android App</a>
+        
+    </li>
+
+	        
+	    
+        </ul>
+    
+<li>
+          
+            <li>
+    
+        <ul class="subnav">
+	    <li><span>Developer Documentation</span></li>
+            
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../dev-guide/">Developer's Guide</a>
+        
+    </li>
+
+	        
+	    
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../architecture/">Architecture</a>
+        
+    </li>
+
+	        
+	    
+	        
+	            
+    
+        <li class="toctree-l1 ">
+            <a class="" href="../core-apis/">Core APIs</a>        
+            
+        </li>
+    
+
+	        
+	    
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../../apidocs/">Javadoc</a>
+        
+    </li>
+
+	        
+	    
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../android/">Android Support</a>
+        
+    </li>
+
+	        
+	    
+	        
+	            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Arduino Support</a>
+        
+            <ul>
+            
+                
+                    <li><a class="toctree-l4" href="#using-the-oshclient-arduino-library">Using the OSHClient Arduino library</a></li>
+                
+                    <li><a class="toctree-l4" href="#connecting-with-an-existing-sensor-driver">Connecting with an Existing Sensor Driver</a></li>
+                
+                    <li><a class="toctree-l4" href="#writing-a-custom-driver">Writing a Custom Driver</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+	        
+	    
+        </ul>
+    
+<li>
+          
+            <li>
+    
+        <ul class="subnav">
+	    <li><span>Tutorials</span></li>
+            
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutos/adding-new-modules/">Adding New Modules</a>
+        
+    </li>
+
+	        
+	    
+	        
+	            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutos/your-first-sensor/">Your First Sensor</a>
+        
+    </li>
+
+	        
+	    
+        </ul>
+    
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../license/">License</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OpenSensorHub</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Developer Documentation &raquo;</li>
+        
+      
+    
+    <li>Arduino Support</li>
+    <li class="wy-breadcrumbs-aside">
+      <!--
+        
+          <a href="https://github.com/opensensorhub/" class="icon icon-github"> Edit on GitHub</a>
+        
+      -->
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="opensensorhub-and-arduino">OpenSensorHub and Arduino</h1>
+<p>Although OpenSensorHub is Java software and cannot run directly on low power micro-controllers like the ones used on Arduino boards (Atmel), there are several ways one can interface projects developed with Arduino (or other similar frameworks) to OSH.</p>
+<p>Your options are:</p>
+<ul>
+<li>
+<p>Using the OSHClient C++ library on your µC to connect your project to OSH without writing a single line of Java code</p>
+</li>
+<li>
+<p>Making your µC software compatible with an existing sensor driver </p>
+</li>
+<li>
+<p>Writing a custom OSH driver that can talk to your µC board in any way you want</p>
+</li>
+</ul>
+<h3 id="using-the-oshclient-arduino-library">Using the OSHClient Arduino library</h3>
+<p>We have developed a small C++ library that makes it super easy to connect your (sensor related) Arduino project to an OSH node. You can find it on our <a href="https://github.com/opensensorhub/osh-arduino">osh-arduino GitHub Repo</a>. This library allows you to generate a minimum set of metadata about the sensor(s) you're using, register it with an OSH node, and send your measurement values in the proper format. The communication with OSH uses a standard web service called <a href="http://www.opengeospatial.org/standards/sos">Sensor Observation Service</a> (SOS) defined by the <a href="http://www.opengeospatial.org">OGC</a>.</p>
+<p>For instance, with a few lines of code, you create a Sensor object with temperature and pressure measurements:</p>
+<pre><code>Sensor s1;
+s1.setUniqueID(&quot;urn:osh:nano:temp:001&quot;);
+s1.setName(&quot;My Temp Sensor&quot;);
+s1.addTimeStampOBC(&quot;ms&quot;);
+s1.addMeasurement(&quot;temp&quot;, TEMP_URI, &quot;Cel&quot;, &quot;Air Temperature&quot;);
+s1.addMeasurement(&quot;press&quot;, PRESS_URI, &quot;hPa&quot;, &quot;Atmospheric Pressure&quot;);
+</code></pre>
+
+<p>You register your sensor on the OSH node with:</p>
+<pre><code>sos = new SOSClient(client, &quot;http://192.168.0.16:8181/sensorhub/sos&quot;);
+sos-&gt;registerDevice(&amp;s1);
+</code></pre>
+
+<p>And you publish measurements like this:</p>
+<pre><code>sos-&gt;startMeasurement(&amp;s1);
+sos-&gt;pushInt(millis());
+sos-&gt;pushFloat(random(15.0, 20.0)); // add random temperature value
+sos-&gt;pushFloat(random(950, 1120));  // add random pressure value
+sos-&gt;sendMeasurement();
+</code></pre>
+
+<p>These last 5 lines are typically called in your loop function to send measurements repeatedly.</p>
+<p>For more info, please visit our <a href="https://github.com/opensensorhub/osh-arduino">osh-arduino GitHub Repo</a>. You will find full examples in the "examples" folder of the OSHClient library.</p>
+<h3 id="connecting-with-an-existing-sensor-driver">Connecting with an Existing Sensor Driver</h3>
+<p>OpenSensorHub's community is continuously adding drivers for supporting various kinds of sensors. Some of these drivers implement generic protocols that could fit the need of your project. If this is the case, you could simply implement the protocol in your µC software and configure OSH to connect to it.</p>
+<p>For instance, the <a href="https://github.com/opensensorhub/osh-sensors">osh-sensors</a> repo contains a generic NMEA driver, so if your sensor is a GPS or compass, you can connect it to OSH by this means.</p>
+<h3 id="writing-a-custom-driver">Writing a Custom Driver</h3>
+<p>This is the most flexible option but also the one that requires the most work since you have to develop both the µC software and a sensor driver for OSH written in Java.</p>
+<p>Fortunately, OpenSensorHub already provides some components that you can use on the Java side to ease this process. In particular, low level communication via serial is supported on various platforms via the Java RXTX library, and SPI, I2C, GPIO are supported on Linux via the OpenJDK Device I/O implementation.</p>
+<p>We also provide support for wireless protocols such as Bluetooth, Bluetooth LE and WiFi (including device discovery through these channels) so you could also leverage these features in your project.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../tutos/adding-new-modules/" class="btn btn-neutral float-right" title="Adding New Modules"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../android/" class="btn btn-neutral" title="Android Support"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>© Copyright 2015 Sensia Software LLC</p>
+    
+  </div>
+
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensensorhub/" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../android/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../tutos/adding-new-modules/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

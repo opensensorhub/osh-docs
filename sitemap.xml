@@ -4,7 +4,7 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2016-02-14</lastmod>
+     <lastmod>2016-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,13 +13,13 @@
         
     <url>
      <loc>None/download/</loc>
-     <lastmod>2016-02-14</lastmod>
+     <lastmod>2016-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/install/</loc>
-     <lastmod>2016-02-14</lastmod>
+     <lastmod>2016-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -29,13 +29,13 @@
         
     <url>
      <loc>None/user/user-guide/</loc>
-     <lastmod>2016-02-14</lastmod>
+     <lastmod>2016-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/user/web-admin/</loc>
-     <lastmod>2016-02-14</lastmod>
+     <lastmod>2016-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -47,7 +47,13 @@
         
     <url>
      <loc>None/user/sps/intro/</loc>
-     <lastmod>2016-02-14</lastmod>
+     <lastmod>2016-03-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/user/android-app/</loc>
+     <lastmod>2016-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -57,13 +63,13 @@
         
     <url>
      <loc>None/dev/dev-guide/</loc>
-     <lastmod>2016-02-14</lastmod>
+     <lastmod>2016-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/dev/architecture/</loc>
-     <lastmod>2016-02-14</lastmod>
+     <lastmod>2016-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -75,7 +81,19 @@
         
     <url>
      <loc>None/apidocs/</loc>
-     <lastmod>2016-02-14</lastmod>
+     <lastmod>2016-03-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/dev/android/</loc>
+     <lastmod>2016-03-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/dev/arduino/</loc>
+     <lastmod>2016-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -85,13 +103,13 @@
         
     <url>
      <loc>None/tutos/adding-new-modules/</loc>
-     <lastmod>2016-02-14</lastmod>
+     <lastmod>2016-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/tutos/your-first-sensor/</loc>
-     <lastmod>2016-02-14</lastmod>
+     <lastmod>2016-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -100,7 +118,7 @@
     
     <url>
      <loc>None/license/</loc>
-     <lastmod>2016-02-14</lastmod>
+     <lastmod>2016-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

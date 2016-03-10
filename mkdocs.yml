@@ -21,6 +21,7 @@ pages:
          - WebSocket Support: user/sos/websocket.md
          - Interconnecting SensorHubs: user/sos/interconnect.md
     - SPS Interface: user/sps/intro.md
+    - Demo Android App: user/android-app.md
 - Developer Documentation:
     - Developer's Guide: dev/dev-guide.md
     - Architecture: dev/architecture.md
@@ -30,6 +31,8 @@ pages:
          - Sensor API: dev/core-apis/sensor-api.md
          - Sensor Network API: dev/core-apis/sensornet-api.md
     - Javadoc: apidocs/index.html
+    - Android Support: dev/android.md
+    - Arduino Support: dev/arduino.md
 - Tutorials:
     - Adding New Modules: tutos/adding-new-modules.md
     - Your First Sensor: tutos/your-first-sensor.md

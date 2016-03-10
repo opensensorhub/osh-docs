@@ -24,8 +24,11 @@ Drivers are responsible for converting data going to and from the sensors into [
 Whenever possible, this description is fully or partially generated automatically from information stored in the sensor device (i.e serial number, calibration tables, etc.). If the sensor does not contain any such information, the driver generates a very simple document containing only the sensor ID, type and measurement output structure. In any case, this SensorML description can be further completed by the user when installing the sensor (the user will have to input the sensor location for instance).
 
 Sensor drivers can be programmed to send data to the bus in various manners :
+
   * In 'push' mode, the sensor is programmed to make measurements at regular intervals or when certain conditions are met. In this case, the user does not request a reading explicitely.
+
   * In 'poll' mode, the user requests a reading from the sensor everytime. If no requests are made, no data is read.
+
 Both modes can be mixed.
 
 

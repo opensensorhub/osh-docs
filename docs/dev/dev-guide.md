@@ -19,7 +19,7 @@ This page provides instructions for three possible options, depending on your le
 
 If you just want to explore the code, you can browse the source online directly on [Github](https://github.com/opensensorhub). Alternatively, you can download it to your computer using the *Download ZIP* link on each GitHub repository or using the `git` program (please see the next section if you want to do just that).
 
-To start with, the repositories of interest are [OpenSensorHub Core](https://github.com/opensensorhub/osh-core) and [Sensor Drivers](https://github.com/opensensorhub/osh-sensors).
+To start with, the repositories of interest are OpenSensorHub [Core](https://github.com/opensensorhub/osh-core) and [Sensor Drivers](https://github.com/opensensorhub/osh-sensors).
 
 
 

@@ -107,7 +107,7 @@
         }, 
         {
             "location": "/user/protocols/", 
-            "text": "Supported Protocols\n\n\nOpenSensorHub (OSH) has built-in support (via modules) for various procotols that sensor adapters and other modules can be built onto.\n\n\nHardware Protocols\n\n\nHardware protocols are mainly used within a sensor adapter as they provide can be used by sensor adapters\n\n\n\n\nSerial / RS232\n\n\nUSB Serial\n\n\nBluetooth Serial\n\n\nBluetooth LE + GATT\n\n\nWiFi / Ethernet\n\n\n\n\nComing soon:\n\n\n\n\nZigbee\n\n\nZwave\n\n\nSigFox\n\n\nLoRaWAN\n\n\n\n\nIoT Protocols\n\n\n\n\nZeroConf Device Discovery\n\n\nMQTT\n\n\n\n\nComing soon:\n\n\n\n\nBLE \"Generic Measurement Profile\"\n\n\nAdafruit Unified Sensor Driver\n\n\n\n\nWeb Protocols\n\n\nWe also support OGC web services and RESTFul interfaces that can be used to access, task and discover sensors connected to a Sensor Hub:\n\n\n\n\nSensor Observation Service (SOS + SOS-T)\n\n\nSensor Planning Service (SPS) \n\n\n\n\nComing soon:\n\n\n\n\nSensor Things API\n\n\nP2P Discovery Layer", 
+            "text": "Supported Protocols\n\n\nOpenSensorHub (OSH) has built-in support (via modules) for various procotols that sensor adapters and other modules can be built onto.\n\n\nHardware Protocols\n\n\nHardware protocols modules are mainly used within a sensor adapter and provide the heavy lifting to support a particular type of hardware communication:\n\n\n\n\nSerial / RS232\n\n\nUSB Serial\n\n\nBluetooth Serial\n\n\nBluetooth LE + GATT\n\n\nWiFi / Ethernet\n\n\n\n\nComing soon:\n\n\n\n\nZigbee\n\n\nZwave\n\n\nSigFox\n\n\nLoRaWAN\n\n\n\n\nIoT Protocols\n\n\nIoT protocols provide more advanced Plug \n Play capabilities as well as communication with other IoT systems such as the AWS IoT cloud platform:\n\n\n\n\nZeroConf Device Discovery\n\n\nMQTT\n\n\n\n\nComing soon:\n\n\n\n\nBLE \"Generic Measurement Profile\"\n\n\nAdafruit Unified Sensor Driver\n\n\n\n\nWeb Protocols\n\n\nWe also support OGC web services and RESTFul interfaces that can be used to access, task and discover sensors connected to a Sensor Hub:\n\n\n\n\nSensor Observation Service (SOS + SOS-T)\n\n\nSensor Planning Service (SPS) \n\n\n\n\nComing soon:\n\n\n\n\nSensor Things API\n\n\nP2P Discovery Layer", 
             "title": "Supported Protocols"
         }, 
         {
@@ -117,12 +117,12 @@
         }, 
         {
             "location": "/user/protocols/#hardware-protocols", 
-            "text": "Hardware protocols are mainly used within a sensor adapter as they provide can be used by sensor adapters   Serial / RS232  USB Serial  Bluetooth Serial  Bluetooth LE + GATT  WiFi / Ethernet   Coming soon:   Zigbee  Zwave  SigFox  LoRaWAN", 
+            "text": "Hardware protocols modules are mainly used within a sensor adapter and provide the heavy lifting to support a particular type of hardware communication:   Serial / RS232  USB Serial  Bluetooth Serial  Bluetooth LE + GATT  WiFi / Ethernet   Coming soon:   Zigbee  Zwave  SigFox  LoRaWAN", 
             "title": "Hardware Protocols"
         }, 
         {
             "location": "/user/protocols/#iot-protocols", 
-            "text": "ZeroConf Device Discovery  MQTT   Coming soon:   BLE \"Generic Measurement Profile\"  Adafruit Unified Sensor Driver", 
+            "text": "IoT protocols provide more advanced Plug   Play capabilities as well as communication with other IoT systems such as the AWS IoT cloud platform:   ZeroConf Device Discovery  MQTT   Coming soon:   BLE \"Generic Measurement Profile\"  Adafruit Unified Sensor Driver", 
             "title": "IoT Protocols"
         }, 
         {

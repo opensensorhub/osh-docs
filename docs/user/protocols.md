@@ -6,7 +6,7 @@ OpenSensorHub (OSH) has built-in support (via modules) for various procotols tha
 
 ### Hardware Protocols
 
-Hardware protocols are mainly used within a sensor adapter as they provide can be used by sensor adapters
+Hardware protocols modules are mainly used within a sensor adapter and provide the heavy lifting to support a particular type of hardware communication:
 
 - Serial / RS232
 - USB Serial
@@ -23,6 +23,8 @@ Coming soon:
 
 
 ### IoT Protocols
+
+IoT protocols provide more advanced Plug & Play capabilities as well as communication with other IoT systems such as the AWS IoT cloud platform:
 
 - ZeroConf Device Discovery
 - MQTT

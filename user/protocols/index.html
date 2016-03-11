@@ -7,7 +7,7 @@
   
   
   
-  <title>Adding New Modules - OpenSensorHub</title>
+  <title>Supported Protocols - OpenSensorHub</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -22,9 +22,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Adding New Modules";
-    var mkdocs_page_input_path = "tutos/adding-new-modules.md";
-    var mkdocs_page_url = "/tutos/adding-new-modules/";
+    var mkdocs_page_name = "Supported Protocols";
+    var mkdocs_page_input_path = "user/protocols.md";
+    var mkdocs_page_url = "/user/protocols/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -106,7 +106,28 @@
 	        
 	            
     <li class="toctree-l1 ">
-        <a class="" href="../../user/user-guide/">Introduction</a>
+        <a class="" href="../user-guide/">Introduction</a>
+        
+    </li>
+
+	        
+	    
+	        
+	            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Supported Protocols</a>
+        
+            <ul>
+            
+                
+                    <li><a class="toctree-l4" href="#hardware-protocols">Hardware Protocols</a></li>
+                
+                    <li><a class="toctree-l4" href="#iot-protocols">IoT Protocols</a></li>
+                
+                    <li><a class="toctree-l4" href="#web-protocols">Web Protocols</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -115,16 +136,7 @@
 	        
 	            
     <li class="toctree-l1 ">
-        <a class="" href="../../user/protocols/">Supported Protocols</a>
-        
-    </li>
-
-	        
-	    
-	        
-	            
-    <li class="toctree-l1 ">
-        <a class="" href="../../user/web-admin/">Web Admin</a>
+        <a class="" href="../web-admin/">Web Admin</a>
         
     </li>
 
@@ -134,7 +146,7 @@
 	            
     
         <li class="toctree-l1 ">
-            <a class="" href="../../user/sos/intro/">SOS Interface</a>        
+            <a class="" href="../sos/intro/">SOS Interface</a>        
             
         </li>
     
@@ -144,7 +156,7 @@
 	        
 	            
     <li class="toctree-l1 ">
-        <a class="" href="../../user/sps/intro/">SPS Interface</a>
+        <a class="" href="../sps/intro/">SPS Interface</a>
         
     </li>
 
@@ -153,7 +165,7 @@
 	        
 	            
     <li class="toctree-l1 ">
-        <a class="" href="../../user/android-app/">Demo Android App</a>
+        <a class="" href="../android-app/">Demo Android App</a>
         
     </li>
 
@@ -235,22 +247,8 @@
             
 	        
 	            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Adding New Modules</a>
-        
-            <ul>
-            
-                
-                    <li><a class="toctree-l4" href="#create-a-new-maven-eclipse-project">Create a new Maven Eclipse project</a></li>
-                
-                    <li><a class="toctree-l4" href="#move-the-project-inside-the-sensorhub-main-folder">Move the project inside the sensorhub main folder</a></li>
-                
-                    <li><a class="toctree-l4" href="#add-dependency-to-sensorhub-core-software-module">Add dependency to SensorHub core software module</a></li>
-                
-                    <li><a class="toctree-l4" href="#enable-git-version-control">Enable Git version control</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutos/adding-new-modules/">Adding New Modules</a>
         
     </li>
 
@@ -259,7 +257,7 @@
 	        
 	            
     <li class="toctree-l1 ">
-        <a class="" href="../your-first-sensor/">Your First Sensor</a>
+        <a class="" href="../../tutos/your-first-sensor/">Your First Sensor</a>
         
     </li>
 
@@ -298,11 +296,11 @@
     
       
         
-          <li>Tutorials &raquo;</li>
+          <li>User Documentation &raquo;</li>
         
       
     
-    <li>Adding New Modules</li>
+    <li>Supported Protocols</li>
     <li class="wy-breadcrumbs-aside">
       <!--
         
@@ -316,42 +314,44 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="adding-new-modules">Adding New Modules</h1>
-<p>So that it can be more easily integrated to OpenSensorHub build process, we advise you to package each OSH module (or set of similar modules) as a separate eclipse project and corresponding Maven module. </p>
-<p>If you are using Eclipse with the M2E plugin as described in the <a href="../../dev/dev-guide/">Developer's Guide</a>, you can create the new project by following the steps below:</p>
-<h3 id="create-a-new-maven-eclipse-project">Create a new Maven Eclipse project</h3>
+                <h1 id="supported-protocols">Supported Protocols</h1>
+<p>OpenSensorHub (OSH) has built-in support (via modules) for various procotols that sensor adapters and other modules can be built onto.</p>
+<h3 id="hardware-protocols">Hardware Protocols</h3>
+<p>Hardware protocols are mainly used within a sensor adapter as they provide can be used by sensor adapters</p>
 <ul>
-<li>Right click in package explorer and select <em>"New &gt; Other"</em></li>
-<li>Go down to the <em>"Maven"</em> section and select <em>"Maven Project"</em> then click <em>"Next"</em></li>
-<li>Check <em>"Create a simple project"</em> and click <em>"Next"</em></li>
-<li>Set <em>GroupId="org.sensorhub"</em> and <em>ArtifactId="sensorhub-{moduletype}-{modulename}"</em> (for instance <em>sensorhub-driver-axis</em> for an Axis camera driver)</li>
-<li>Fill up the name and description fields with meaningful information</li>
-<li>Set Parent Project to <em>GroupId="org.sensorhub"</em>, <em>ArtifactId="sensorhub-all"</em>, <em>Version=0.5</em> and click <em>"Finish"</em></li>
+<li>Serial / RS232</li>
+<li>USB Serial</li>
+<li>Bluetooth Serial</li>
+<li>Bluetooth LE + GATT</li>
+<li>WiFi / Ethernet</li>
 </ul>
-<h3 id="move-the-project-inside-the-sensorhub-main-folder">Move the project inside the sensorhub main folder</h3>
-<p>By default your project should have been created at the root of the workspace. To move it into the correct sub-folder, follow these steps:</p>
+<p>Coming soon:</p>
 <ul>
-<li>Right click on the newly created project</li>
-<li>Select <em>"Refactor &gt; Move"</em> from the popup menu</li>
-<li>In the location field, insert "osh-xxx/" before the project name in order to obtain the following path: <em>"path/to/your/workspace/osh-xxx/sensorhub-{moduletype}-{modulename}"</em> </li>
+<li>Zigbee</li>
+<li>Zwave</li>
+<li>SigFox</li>
+<li>LoRaWAN</li>
 </ul>
-<h3 id="add-dependency-to-sensorhub-core-software-module">Add dependency to SensorHub core software module</h3>
+<h3 id="iot-protocols">IoT Protocols</h3>
 <ul>
-<li>Open the <em>pom.xml</em> that was created at the root of the project (It should open in a special editor if the M2E plugin was properly installed)</li>
-<li>Go to the <em>"Dependencies"</em> tab and click the <em>"Add"</em> button</li>
-<li>Enter <em>"sensorhub"</em> in the search box (above the Search Results section)</li>
-<li>Wait for results to appear, select <em>"sensorhub-core"</em> in the list and click OK</li>
-<li>You can also edit the pom.xml to override the organization and developer name that are inherited from the parent project by putting your own.</li>
-<li>Save the file and close it </li>
-<li>Depending on the type of module you develop, you may have to add depencendies to other modules as well, and even to external libraries that you module may depend on.</li>
+<li>ZeroConf Device Discovery</li>
+<li>MQTT</li>
 </ul>
-<h3 id="enable-git-version-control">Enable Git version control</h3>
-<p>To associate the new project with the Git repository within Eclipse, follow these steps:</p>
+<p>Coming soon:</p>
 <ul>
-<li>Right click on the project and select <em>"Team -&gt; Share"</em> from the context menu</li>
-<li>Select <em>"Git"</em> en click <em>"Next"</em></li>
-<li>Check <em>"Use or create repository in parent folder of project"</em> so that your new project can be associated to the main sensorhub repository</li>
-<li>Select you project in the list and click <em>"Finish"</em></li>
+<li>BLE "Generic Measurement Profile"</li>
+<li>Adafruit Unified Sensor Driver</li>
+</ul>
+<h3 id="web-protocols">Web Protocols</h3>
+<p>We also support OGC web services and RESTFul interfaces that can be used to access, task and discover sensors connected to a Sensor Hub:</p>
+<ul>
+<li>Sensor Observation Service (SOS + SOS-T)</li>
+<li>Sensor Planning Service (SPS) </li>
+</ul>
+<p>Coming soon:</p>
+<ul>
+<li>Sensor Things API</li>
+<li>P2P Discovery Layer</li>
 </ul>
               
             </div>
@@ -360,10 +360,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../your-first-sensor/" class="btn btn-neutral float-right" title="Your First Sensor"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../web-admin/" class="btn btn-neutral float-right" title="Web Admin"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../dev/arduino/" class="btn btn-neutral" title="Arduino Support"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../user-guide/" class="btn btn-neutral" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -392,10 +392,10 @@
           <a href="https://github.com/opensensorhub/" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../dev/arduino/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../user-guide/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../your-first-sensor/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../web-admin/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

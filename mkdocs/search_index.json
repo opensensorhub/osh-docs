@@ -106,6 +106,31 @@
             "title": "Module State"
         }, 
         {
+            "location": "/user/protocols/", 
+            "text": "Supported Protocols\n\n\nOpenSensorHub (OSH) has built-in support (via modules) for various procotols that sensor adapters and other modules can be built onto.\n\n\nHardware Protocols\n\n\nHardware protocols are mainly used within a sensor adapter as they provide can be used by sensor adapters\n\n\n\n\nSerial / RS232\n\n\nUSB Serial\n\n\nBluetooth Serial\n\n\nBluetooth LE + GATT\n\n\nWiFi / Ethernet\n\n\n\n\nComing soon:\n\n\n\n\nZigbee\n\n\nZwave\n\n\nSigFox\n\n\nLoRaWAN\n\n\n\n\nIoT Protocols\n\n\n\n\nZeroConf Device Discovery\n\n\nMQTT\n\n\n\n\nComing soon:\n\n\n\n\nBLE \"Generic Measurement Profile\"\n\n\nAdafruit Unified Sensor Driver\n\n\n\n\nWeb Protocols\n\n\nWe also support OGC web services and RESTFul interfaces that can be used to access, task and discover sensors connected to a Sensor Hub:\n\n\n\n\nSensor Observation Service (SOS + SOS-T)\n\n\nSensor Planning Service (SPS) \n\n\n\n\nComing soon:\n\n\n\n\nSensor Things API\n\n\nP2P Discovery Layer", 
+            "title": "Supported Protocols"
+        }, 
+        {
+            "location": "/user/protocols/#supported-protocols", 
+            "text": "OpenSensorHub (OSH) has built-in support (via modules) for various procotols that sensor adapters and other modules can be built onto.", 
+            "title": "Supported Protocols"
+        }, 
+        {
+            "location": "/user/protocols/#hardware-protocols", 
+            "text": "Hardware protocols are mainly used within a sensor adapter as they provide can be used by sensor adapters   Serial / RS232  USB Serial  Bluetooth Serial  Bluetooth LE + GATT  WiFi / Ethernet   Coming soon:   Zigbee  Zwave  SigFox  LoRaWAN", 
+            "title": "Hardware Protocols"
+        }, 
+        {
+            "location": "/user/protocols/#iot-protocols", 
+            "text": "ZeroConf Device Discovery  MQTT   Coming soon:   BLE \"Generic Measurement Profile\"  Adafruit Unified Sensor Driver", 
+            "title": "IoT Protocols"
+        }, 
+        {
+            "location": "/user/protocols/#web-protocols", 
+            "text": "We also support OGC web services and RESTFul interfaces that can be used to access, task and discover sensors connected to a Sensor Hub:   Sensor Observation Service (SOS + SOS-T)  Sensor Planning Service (SPS)    Coming soon:   Sensor Things API  P2P Discovery Layer", 
+            "title": "Web Protocols"
+        }, 
+        {
             "location": "/user/web-admin/", 
             "text": "Web-Admin User Interface\n\n\nThe web based administration interface allows to change the configuration of all modules in OpenSensorHub. It can be secured or even completely disabled in the configuration file manually. If enabled, it is accessible on the local node at the following URL:\n\n\nhttp://localhost:8181/sensorhub/admin\n\n\nBelow is a screenshot of the user interface showing configuration settings for the simulated GPS sensor (used for testing).\n\n\n\n\nAdding Modules\n\n\nMost installed modules for which code has been installed can be instantiated using the interface. This is done by simply right clicking in one of the appropriate section (i.e. one of the panels in the accordion on the left), and selecting \"Add Module\". For example, let's add a new sensor driver module:\n\n\n\n\nYou will then be presented with a choice of installed modules that can be instantiated on the current node. The list will only show the modules whose type can be added in the current section. In our example, we see all sensor drivers currently available on our node since we clicked in the \"Sensors\" section.\n\n\n\n\nOnce the module is added, it's configuration form is automatically shown on the right and you can start changing its parameters.\n\n\nConfiguring Modules\n\n\nTo configure a module, simply select it on the left panel (after opening one of the main sections), and make the desired changes in the form that is displayed on the right. Once you're done, apply your changes, click the \"Apply Changes\" button. This makes the changes in the actual module configuration and, if the module handles configuration updates properly, the new configuration should be immediately reflected by the running module.\n\n\nStarting and Stopping Modules\n\n\nModules are started and stopped by right clicking on the module in the left panel and selecting \"Enable\" or \"Disable\" respectively.\n\n\nSecuring Access\n\n\nTODO", 
             "title": "Web Admin"
@@ -602,12 +627,12 @@
         }, 
         {
             "location": "/dev/android/", 
-            "text": "OpenSensorHub on Android\n\n\nThe core modules of OpenSensorHub (OSH) can run natively on Android 5.0 (Lollipop) and later versions (We are working on a working version for Android 4.4 (KitKat).\n\n\nAndroid support is still experimental at this stage although it is already functional to send phone sensor data to a remote OSH node.\n\n\nThe Android specific part is composed of a Service component that wraps the OSH engine and an demo application that can be configured to send data from one or more phone sensors to the SOS server of a remote OSH node. \n\n\nAndroid Build\n\n\nAndroid code is not built with Maven for now, but using the Eclipse ADT plugin. In order to build it yourself, follow these instructions:\n\n\n\n\n\n\nFirst follow the main \nDeveloper's Guide\n to clone and build projects in \nosh-core\n and \nosh-sensors\n repositories\n\n\n\n\n\n\nInstall the ADT plugin for Eclipse if you haven't already\n\n\n\n\n\n\nClone the \nosh-android\n repo and import all projects into your Eclipse Workspace.\n\n\n\n\n\n\nFrom there on you should be able to build and run the android app on your phone using the \"Run As \n Android Application\" context menu on the \"sensorhub-android-app\" project.", 
+            "text": "OpenSensorHub on Android\n\n\nThe core modules of OpenSensorHub (OSH) can run natively on Android 5.0 (Lollipop) and later versions. We are also working on a working version for Android 4.4 (KitKat).\n\n\nAndroid support is still experimental at this stage although it is already functional to send phone sensor data to a remote OSH node.\n\n\nThe Android specific part is composed of a Service component that wraps the OSH engine and an demo application that can be configured to send data from one or more phone sensors to the SOS server of a remote OSH node. \n\n\nAndroid Build\n\n\nAndroid code is not built with Maven for now, but using the Eclipse ADT plugin. In order to build it yourself, follow these instructions:\n\n\n\n\n\n\nFirst follow the main \nDeveloper's Guide\n to clone and build projects in \nosh-core\n and \nosh-sensors\n repositories\n\n\n\n\n\n\nInstall the ADT plugin for Eclipse if you haven't already\n\n\n\n\n\n\nClone the \nosh-android\n repo and import all projects into your Eclipse Workspace.\n\n\n\n\n\n\nFrom there on you should be able to build and run the android app on your phone using the \"Run As \n Android Application\" context menu on the \"sensorhub-android-app\" project.", 
             "title": "Android Support"
         }, 
         {
             "location": "/dev/android/#opensensorhub-on-android", 
-            "text": "The core modules of OpenSensorHub (OSH) can run natively on Android 5.0 (Lollipop) and later versions (We are working on a working version for Android 4.4 (KitKat).  Android support is still experimental at this stage although it is already functional to send phone sensor data to a remote OSH node.  The Android specific part is composed of a Service component that wraps the OSH engine and an demo application that can be configured to send data from one or more phone sensors to the SOS server of a remote OSH node.", 
+            "text": "The core modules of OpenSensorHub (OSH) can run natively on Android 5.0 (Lollipop) and later versions. We are also working on a working version for Android 4.4 (KitKat).  Android support is still experimental at this stage although it is already functional to send phone sensor data to a remote OSH node.  The Android specific part is composed of a Service component that wraps the OSH engine and an demo application that can be configured to send data from one or more phone sensors to the SOS server of a remote OSH node.", 
             "title": "OpenSensorHub on Android"
         }, 
         {

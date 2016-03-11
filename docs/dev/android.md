@@ -1,7 +1,7 @@
 OpenSensorHub on Android
 ===
 
-The core modules of OpenSensorHub (OSH) can run natively on Android 5.0 (Lollipop) and later versions (We are working on a working version for Android 4.4 (KitKat).
+The core modules of OpenSensorHub (OSH) can run natively on Android 5.0 (Lollipop) and later versions. We are also working on a working version for Android 4.4 (KitKat).
 
 Android support is still experimental at this stage although it is already functional to send phone sensor data to a remote OSH node.
 

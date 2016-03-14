@@ -7,7 +7,7 @@
   
   
   
-  <title>Supported Protocols - OpenSensorHub</title>
+  <title>Supported Devices - OpenSensorHub</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -22,9 +22,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Supported Protocols";
-    var mkdocs_page_input_path = "user/protocols.md";
-    var mkdocs_page_url = "/user/protocols/";
+    var mkdocs_page_name = "Supported Devices";
+    var mkdocs_page_input_path = "user/sensors.md";
+    var mkdocs_page_url = "/user/sensors/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -114,20 +114,8 @@
 	    
 	        
 	            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Supported Protocols</a>
-        
-            <ul>
-            
-                
-                    <li><a class="toctree-l4" href="#network-protocols">Network Protocols</a></li>
-                
-                    <li><a class="toctree-l4" href="#iot-protocols">IoT Protocols</a></li>
-                
-                    <li><a class="toctree-l4" href="#web-protocols">Web Protocols</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../protocols/">Supported Protocols</a>
         
     </li>
 
@@ -135,8 +123,18 @@
 	    
 	        
 	            
-    <li class="toctree-l1 ">
-        <a class="" href="../sensors/">Supported Devices</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Supported Devices</a>
+        
+            <ul>
+            
+                
+                    <li><a class="toctree-l4" href="#sensor-types">Sensor Types</a></li>
+                
+                    <li><a class="toctree-l4" href="#sensor-drivers">Sensor Drivers</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -309,7 +307,7 @@
         
       
     
-    <li>Supported Protocols</li>
+    <li>Supported Devices</li>
     <li class="wy-breadcrumbs-aside">
       <!--
         
@@ -323,46 +321,42 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="supported-protocols">Supported Protocols</h1>
-<p>OpenSensorHub (OSH) has built-in support (via modules) for various procotols that sensor adapters and other modules can be built onto.</p>
-<h3 id="network-protocols">Network Protocols</h3>
-<p>Hardware protocols modules are mainly used within a sensor adapter and provide the heavy lifting to support a particular type of hardware communication:</p>
+                <h1 id="supported-sensors">Supported Sensors</h1>
+<p>OpenSensorHub (OSH) is designed to connect to any sensor or actuator thanks to its very flexible data model.</p>
+<h3 id="sensor-types">Sensor Types</h3>
 <ul>
-<li>Serial / RS232</li>
-<li>USB Serial</li>
-<li>Bluetooth Serial</li>
-<li>Bluetooth LE + GATT</li>
-<li>WiFi / Ethernet with ZeroConf Discovery</li>
+<li>Video Cameras</li>
+<li>Weather Stations</li>
+<li>Simple Mono-variable Insitu Sensors (thermometers, barometers, )</li>
 </ul>
-<p>Coming soon:</p>
+<h3 id="sensor-drivers">Sensor Drivers</h3>
+<h4 id="positioning">Positioning</h4>
 <ul>
-<li>Zigbee</li>
-<li>Zwave (via USB adapter)</li>
-<li>SigFox (via serial modem)</li>
-<li>LoRaWAN</li>
+<li>NMEA GPS</li>
+<li>MTi IMU</li>
+<li>Adafruit Orientation Sensor (BNO055)</li>
 </ul>
-<p>You'll find the code supporting these different protocols in the <a href="https://github.com/opensensorhub/osh-comm">osh-comm</a> repo.</p>
-<h3 id="iot-protocols">IoT Protocols</h3>
-<p>IoT protocols provide more advanced Plug &amp; Play capabilities as well as communication with other IoT systems such as the AWS IoT cloud platform:</p>
+<h4 id="video-cameras">Video Cameras</h4>
 <ul>
-<li>MQTT</li>
+<li>Axis PTZ Camera XXX Series</li>
+<li>Dahua PTZ XXX Series</li>
+<li>Video4Linux Cameras</li>
+<li>H264 RTP Cams</li>
+<li>FLIR One Thermal Camera</li>
 </ul>
-<p>Coming soon:</p>
+<h4 id="weather-sensors">Weather Sensors</h4>
 <ul>
-<li>BLE "Generic Measurement Profile"</li>
-<li>Adafruit Unified Sensor Driver</li>
-<li>CoAP</li>
+<li>NOAA Nexrad Doppler Radars (continental US)</li>
+<li>Vaisala Weather Station XXX Series</li>
 </ul>
-<h3 id="web-protocols">Web Protocols</h3>
-<p>We also support OGC web services and RESTFul interfaces that can be used to access, task and discover sensors connected to a Sensor Hub:</p>
+<h4 id="uav-drones">UAV / Drones</h4>
 <ul>
-<li>Sensor Observation Service (SOS + SOS-T)</li>
-<li>Sensor Planning Service (SPS) </li>
+<li>MAVLink Telemetry and Tasking (compatible with Ardupilot)</li>
 </ul>
-<p>Coming soon:</p>
+<h4 id="others">Others</h4>
 <ul>
-<li>Sensor Things API</li>
-<li>P2P Discovery Layer</li>
+<li>TruPulse Range Finder</li>
+<li>Adafruit Sensors via Unified Sensor Driver</li>
 </ul>
               
             </div>
@@ -371,10 +365,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../sensors/" class="btn btn-neutral float-right" title="Supported Devices"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../web-admin/" class="btn btn-neutral float-right" title="Web Admin"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../user-guide/" class="btn btn-neutral" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../protocols/" class="btn btn-neutral" title="Supported Protocols"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -403,10 +397,10 @@
           <a href="https://github.com/opensensorhub/" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../user-guide/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../protocols/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../sensors/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../web-admin/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

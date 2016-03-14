@@ -124,6 +124,15 @@
 	        
 	            
     <li class="toctree-l1 ">
+        <a class="" href="../../user/sensors/">Supported Devices</a>
+        
+    </li>
+
+	        
+	    
+	        
+	            
+    <li class="toctree-l1 ">
         <a class="" href="../../user/web-admin/">Web Admin</a>
         
     </li>
@@ -322,9 +331,15 @@
 <p>Of course, contributing new modules to the community is optional as our license does not prevent proprietary and commercial derived work. However, keep in mind that <strong>if you modify the source files we provide, you must make it available publicly in source form</strong>. </p>
 <p>This page provides instructions for three possible options, depending on your level of involvement:</p>
 <ul>
-<li>Exploring the code online</li>
-<li>Downloading and building from source with Maven or Eclipse</li>
-<li>Contributing software and fixes to the project</li>
+<li>
+<p>Exploring the code online</p>
+</li>
+<li>
+<p>Downloading and building from source with Maven or Eclipse</p>
+</li>
+<li>
+<p>Contributing software and fixes to the project</p>
+</li>
 </ul>
 <h3 id="exploring-the-code">Exploring the Code</h3>
 <p>If you just want to explore the code, you can browse the source online directly on <a href="https://github.com/opensensorhub">Github</a>. Alternatively, you can download it to your computer using the <em>Download ZIP</em> link on each GitHub repository or using the <code>git</code> program (please see the next section if you want to do just that).</p>
@@ -338,32 +353,58 @@ To clone the code repository locally, first create a directory called <code>open
 $ cd opensensorhub
 </code></pre>
 
-<p>Then and use the following commands to clone the two main repositories:</p>
+<h5 id="build-the-core">Build the core</h5>
+<p>Use the following commands to clone the <a href="https://github.com/opensensorhub/osh-core">osh-core</a> repository:</p>
 <pre><code class="bash">$ git clone --recursive https://github.com/opensensorhub/osh-core
-$ git clone https://github.com/opensensorhub/osh-sensors
 </code></pre>
 
-<p>This will create folders containing the code of the different Maven modules. You can also clone other repositories of the project to get other types of modules. The <code>services</code> and <code>security</code> repositories are probably of interest if you want to go further. There are also some Android specific modules in the <code>android</code> repository if you are interested in deploying on Android.</p>
-<p>You can then build the project and install it to your local Maven repository by launching the following commands:</p>
-<p>First build the core modules:</p>
+<p>This will create folders containing the code of the different Maven modules. You can then build the code and install it to your local Maven repository by launching the following commands:</p>
 <pre><code class="bash">$ cd osh-core
 $ mvn clean install 
 </code></pre>
 
-<p>Then build the sensor drivers you are interested in. To start with, you can build the simulated sensor since they don't require you to connect any hardware.</p>
+<p><em>Note 1: The first time you launch Maven, the build process can take a while because Maven goes to fetch its own dependencies (i.e. Maven plugins) as well as OpenSensorHub's dependencies. Later builds will go faster because these dependencies are cached in a local Maven repository.</em></p>
+<p><em>Note 2: Some of the JUnit tests automatically run during the 'test' phase of the OSH build process need to instantiate a server on port 8888. These tests will fail if something else is running on this port when you launch the commands above.</em></p>
+<h5 id="build-sensor-modules">Build sensor modules</h5>
+<p>Sensor driver modules are provided in the <a href="https://github.com/opensensorhub/osh-sensors">osh-sensors</a> repository:</p>
+<pre><code class="bash">$ git clone https://github.com/opensensorhub/osh-sensors
+</code></pre>
+
+<p>Sensor drivers can be built individually depending which one you are interested in. To start with, you can build the simulated sensor since they don't require you to connect any hardware.</p>
 <pre><code class="bash">$ cd ../osh-sensors/sensorhub-driver-fakegps
 $ mvn clean install
 $ cd ../sensorhub-driver-fakeweather
 $ mvn clean install
 </code></pre>
 
-<p><em>Note 1: The first time you launch Maven, the build process can take a while because Maven goes to fetch its own dependencies (i.e. Maven plugins) as well as OpenSensorHub's dependencies. Later builds will go faster because these dependencies are cached in a local Maven repository.</em></p>
-<p><em>Note 2: Some of the JUnit tests automatically run during the 'test' phase of the OSH build process need to instantiate a server on port 8888. These tests will fail if something else is running on this port when you launch the commands above.</em></p>
-<p>You can then run OpenSensorHub with an example configuration file. For instance, the following command launches OpenSensorHub configured with some simulated sensors, storage databases and an SOS service:</p>
-<pre><code class="bash">$ cd ../../osh-core/sensorhub-test
-$ mvn -N -e exec:java -Dexec.mainClass=&quot;org.sensorhub.impl.SensorHub&quot; -Dexec.args=&quot;sensorhub-test/src/test/resources/config_fakesensors_with_storage.json db&quot;
+<p>Some sensor drivers may need specific communication modules to work (for instance Bluetooth LE). For these you may need to first build modules from the <a href="https://github.com/opensensorhub/osh-comm">osh-comm</a> repository.</p>
+<h5 id="build-other-modules">Build other modules</h5>
+<p>You can also clone other repositories of the project to get other types of modules. The <code>comm</code>, <code>services</code> and <code>security</code> repositories are probably of interest if you want to go further. There are also some Android specific modules in the <code>android</code> repository if you are interested in deploying on Android.</p>
+<h5 id="build-zip-distributions">Build ZIP distributions</h5>
+<p>Distribution build scripts are located in the <a href="https://github.com/opensensorhub/osh-distros">osh-distros</a> repository:</p>
+<pre><code class="bash">$ git clone https://github.com/opensensorhub/osh-distros
 </code></pre>
 
+<p>You can build an installable ZIP package, complete with startup scripts by running:</p>
+<pre><code class="bash">$ cd osh-distros/sensorhub-classic
+$ mvn install -Pcore
+</code></pre>
+
+<p>Additional modules can be packaged in their own ZIP file similarly. You can build the network communication driver pack with:</p>
+<pre><code class="bash">$ mvn install -Pcomm
+</code></pre>
+
+<p>And the sensor pack with:</p>
+<pre><code class="bash">$ mvn install -Psensors
+</code></pre>
+
+<p>You can then install and run OpenSensorHub with the provided example configuration file, including some simulated sensors, storage databases and an SOS service:</p>
+<ul>
+<li>Unzip the packages you just built in the same folder</li>
+<li>Execute the launch.sh script (on Linux)</li>
+<li>Connect to the admin console to load new sensor drivers</li>
+</ul>
+<p>Please see the <a href="../../install/">Installation Guide</a> for more details.</p>
 <h4 id="using-eclipse">Using Eclipse</h4>
 <p>We provide Eclipse project configuration directly from the repository so it is the easiest way to get started, especially if you're already familiar with Eclipse. </p>
 <h5 id="pre-requisites">Pre-requisites</h5>
@@ -387,14 +428,14 @@ $ mvn -N -e exec:java -Dexec.mainClass=&quot;org.sensorhub.impl.SensorHub&quot; 
 <li>All projects should be imported successfully and visible in the "Package Explorer". Everything should compile without error.</li>
 <li>If you like to keep your workspace tidy, you can group all the projects we just imported in a single Working Set</li>
 </ul>
-<p>Repeat the steps above with the desired repositories of the opensensorhub github account. You'll need at least some sensor drivers to test the software. You can get these from the following repository:</p>
-<p><code>https://github.com/opensensorhub/osh-sensors.git</code></p>
-<p>There may be other repositories of interest for you:</p>
+<p>You'll probably need sensor drivers to fully test the software. To get more sensor drivers as well as other types of modules, repeat the steps above with the desired repositories of the opensensorhub github account. </p>
 <ul>
-<li>Android: <code>https://github.com/opensensorhub/osh-android.git</code></li>
+<li>Sensor Drivers: <code>https://github.com/opensensorhub/osh-sensors.git</code> </li>
+<li>Network Protocols: <code>https://github.com/opensensorhub/osh-comm.git</code></li>
 <li>Other Services : <code>https://github.com/opensensorhub/osh-services.git</code></li>
 <li>Data-Processing : <code>https://github.com/opensensorhub/osh-processing.git</code></li>
 <li>Security Stuff : <code>https://github.com/opensensorhub/osh-security.git</code></li>
+<li>Android: <code>https://github.com/opensensorhub/osh-android.git</code></li>
 </ul>
 <h3 id="contributing">Contributing</h3>
 <p>If you want to contribute, we feel the best way is that you create your own fork on GitHub, work on it, and when you have something working and tested, send us a Pull Request. To set this up, please follow the steps below:</p>

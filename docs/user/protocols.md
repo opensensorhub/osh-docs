@@ -4,7 +4,7 @@ Supported Protocols
 OpenSensorHub (OSH) has built-in support (via modules) for various procotols that sensor adapters and other modules can be built onto.
  
 
-### Hardware Protocols
+### Network Protocols
 
 Hardware protocols modules are mainly used within a sensor adapter and provide the heavy lifting to support a particular type of hardware communication:
 
@@ -12,27 +12,29 @@ Hardware protocols modules are mainly used within a sensor adapter and provide t
 - USB Serial
 - Bluetooth Serial
 - Bluetooth LE + GATT
-- WiFi / Ethernet
+- WiFi / Ethernet with ZeroConf Discovery
 
 Coming soon:
 
 - Zigbee
-- Zwave
-- SigFox
+- Zwave (via USB adapter)
+- SigFox (via serial modem)
 - LoRaWAN
 
+You'll find the code supporting these different protocols in the [osh-comm](https://github.com/opensensorhub/osh-comm) repo.
 
+ 
 ### IoT Protocols
 
 IoT protocols provide more advanced Plug & Play capabilities as well as communication with other IoT systems such as the AWS IoT cloud platform:
 
-- ZeroConf Device Discovery
 - MQTT
 
 Coming soon:
 
 - BLE "Generic Measurement Profile"
 - Adafruit Unified Sensor Driver
+- CoAP
 
 
 ### Web Protocols

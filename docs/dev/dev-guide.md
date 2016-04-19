@@ -93,7 +93,7 @@ $ git clone https://github.com/opensensorhub/osh-distros
 You can build an installable ZIP package, complete with startup scripts by running:
 
 ```bash
-$ cd osh-distros/sensorhub-classic
+$ cd osh-distros/osh-base
 $ mvn install -Pcore
 ```
 

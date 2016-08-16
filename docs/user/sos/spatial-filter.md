@@ -6,7 +6,7 @@ OpenSensorHub's SOS implementation supports simple spatial filtering of observat
 
 ### Filtering by BBOX
 
-The table below lists parameter of a *GetResult* request used to retrieve location data from a given time period only for emergency vehicle FE4:
+The table below lists parameter of a *GetResult* request used to retrieve data only from the weather stations located within the given region:
 
 | **Parameter** | **Value** |
 |:--------------|:----------|

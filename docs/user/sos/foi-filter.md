@@ -17,12 +17,12 @@ The table below lists parameter of a **GetResult** request used to retrieve loca
 | request | `GetResult` |
 | offering | `urn:mysos:avl` |
 | observedProperty | `http://www.opengis.net/def/property/OGC/0/SensorLocation` |
-| featureOfInterest | `urn:osh:sensors:avl:911:fleet:FE4` |
+| featureOfInterest | `urn:osh:sensor:avl:911:fleet:FE4` |
 | temporalFilter | `phenomenonTime,2014-03-29T06:16:12Z/2014-03-29T14:26:12Z` |
 
 **On Demo Server**:
 
-<http://sensiasoft.net:8181/sensorhub/sos?service=SOS&version=2.0&request=GetResult&offering=urn:mysos:avl&observedProperty=http://www.opengis.net/def/property/OGC/0/SensorLocation&featureOfInterest=urn:osh:sensors:avl:911:fleet:FE4&temporalFilter=phenomenonTime,2014-03-29T06:16:12Z/2014-03-29T14:26:12Z>
+<http://sensiasoft.net:8181/sensorhub/sos?service=SOS&version=2.0&request=GetResult&offering=urn:mysos:avl&observedProperty=http://www.opengis.net/def/property/OGC/0/SensorLocation&featureOfInterest=urn:osh:sensor:avl:911:fleet:FE4&temporalFilter=phenomenonTime,2014-03-29T06:16:12Z/2014-03-29T14:26:12Z>
 
 
 ### GetObservation Example
@@ -34,12 +34,12 @@ The table below lists parameter of a **GetObservation** request used to retrieve
 | request | `GetObservation` |
 | offering | `urn:mysos:avl` |
 | observedProperty | `http://www.opengis.net/def/property/OGC/0/SensorLocation` |
-| featureOfInterest | `urn:osh:sensors:avl:911:fleet:FE4` |
+| featureOfInterest | `urn:osh:sensor:avl:911:fleet:FE4` |
 | temporalFilter | `phenomenonTime,2014-03-29T06:16:12Z/2014-03-29T06:26:12Z` |
 
 **On Demo Server**:
 
-<http://sensiasoft.net:8181/sensorhub/sos?service=SOS&version=2.0&request=GetObservation&offering=urn:mysos:avl&observedProperty=http://www.opengis.net/def/property/OGC/0/SensorLocation&featureOfInterest=urn:osh:sensors:avl:911:fleet:FE4&temporalFilter=phenomenonTime,2014-03-29T06:16:12Z/2014-03-29T06:26:12Z>
+<http://sensiasoft.net:8181/sensorhub/sos?service=SOS&version=2.0&request=GetObservation&offering=urn:mysos:avl&observedProperty=http://www.opengis.net/def/property/OGC/0/SensorLocation&featureOfInterest=urn:osh:sensor:avl:911:fleet:FE4&temporalFilter=phenomenonTime,2014-03-29T06:16:12Z/2014-03-29T06:26:12Z>
 
 Notice that in this case we requested much less data because the response is much more verbose.
 
@@ -48,7 +48,7 @@ Notice that in this case we requested much less data because the response is muc
 
 In order to know which ID to use, one needs to know the list of all **FOIs** observed by a particular sensor. This can be done by issuing a **GetFeatureOfInterest** request such as below:
 
-<http://sensiasoft.net:8181/sensorhub/sos?service=SOS&version=2.0&request=GetFeatureOfInterest&procedure=urn:osh:sensors:avl:911:fleet>
+<http://sensiasoft.net:8181/sensorhub/sos?service=SOS&version=2.0&request=GetFeatureOfInterest&procedure=urn:osh:sensor:avl:911:fleet>
 
 
 

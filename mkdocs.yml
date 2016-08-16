@@ -12,6 +12,7 @@ pages:
 - User Documentation:
     - Introduction: user/user-guide.md
     - Supported Protocols: user/protocols.md
+    - Supported Devices: user/sensors.md
     - Web Admin: user/web-admin.md
     - SOS Interface:
          - Introduction: user/sos/intro.md

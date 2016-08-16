@@ -18,7 +18,7 @@ Fortunately, SOS v2.0 provides a way to request only observation results in an e
 
 **On Demo Server:**
 
-<http://sensiasoft.net:8181/sensorhub/sos?service=SOS&version=2.0&request=GetResult&offering=urn:mysos:offering03&observedProperty=http://sensorml.com/ont/swe/property/Weather&temporalFilter=phenomenonTime,2015-10-15T16:34:00Z/2015-10-15T17:34:00Z>
+<http://sensiasoft.net:8181/sensorhub/sos?service=SOS&version=2.0&request=GetResult&offering=urn:mysos:offering03&observedProperty=http://sensorml.com/ont/swe/property/Weather&temporalFilter=phenomenonTime,2016-08-11T19:58:00Z/2016-08-11T19:59:00Z>
 
 As you can see, the response only includes the measurement values themselves and no metadata. The actual choice of encoding depends on the server settings, which usually depends on the type of dataset: for instance a video stream will always be served as compressed binary, while low rate weather of GPS data is usually provided as ASCII tuples.
 
@@ -29,7 +29,7 @@ The description of tuples and their encoding can be retrieved using the **GetRes
 | request | `GetResultTemplate` |
 | offering | `urn:mysos:offering03` |
 | observedProperty | `http://sensorml.com/ont/swe/property/Weather` |
-| temporalFilter | `phenomenonTime,2015-10-15T16:34:00Z/2015-10-15T17:34:00Z` |
+| temporalFilter | `phenomenonTime,2016-08-11T19:58:00Z/2016-08-11T19:59:00Z` |
 
 **On Demo Server:**
 
@@ -53,6 +53,6 @@ The traditional way of requesting data from SOS is through the **GetObservation*
 
 **On Demo Server:**
 
-<http://sensiasoft.net:8181/sensorhub/sos?service=SOS&version=2.0&request=GetObservation&offering=urn:mysos:offering03&observedProperty=http://sensorml.com/ont/swe/property/Weather&temporalFilter=phenomenonTime,2015-10-15T16:34:00Z/2015-10-15T16:35:00Z>
+<http://sensiasoft.net:8181/sensorhub/sos?service=SOS&version=2.0&request=GetObservation&offering=urn:mysos:offering03&observedProperty=http://sensorml.com/ont/swe/property/Weather&temporalFilter=phenomenonTime,2016-08-11T19:58:00Z/2016-08-11T19:59:00Z>
 
 *Note: For faster response times and to limit server memory usage, OSH generates the XML in a streaming fashion so that the client doesn't have to wait until all observations are fetched from database before it can start parsing. Despite this efficient implementation, OSH imposes a limit on the number of observations that can be returned with this method*

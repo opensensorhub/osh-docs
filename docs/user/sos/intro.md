@@ -39,6 +39,10 @@ You must set the end point, and can add offerings at the bottom
 
 ![Configure SOS Interface](img/config-sos.png)
 
+For each offering, one can publish data for a sensor with or without its associated storage by using a **Sensor Data Source**. If a storage is attached, both live and historical data from that sensor are made available through the SOS interface; if not, only live data is made available.
+
+It is also possible to create an offering that serves historical data only. In this case, a **Storage Data Source** must be used. 
+
 
 ### Setting up in config file
 

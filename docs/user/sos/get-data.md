@@ -49,7 +49,7 @@ The traditional way of requesting data from SOS is through the **GetObservation*
 | request | `GetObservation` |
 | offering | `urn:mysos:offering03` |
 | observedProperty | `http://sensorml.com/ont/swe/property/Weather` |
-| temporalFilter | `phenomenonTime,2015-10-15T16:34:00Z/2015-10-15T16:35:00Z` |
+| temporalFilter | `phenomenonTime,2016-08-11T19:58:00Z/2016-08-11T19:59:00Z` |
 
 **On Demo Server:**
 

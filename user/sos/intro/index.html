@@ -405,6 +405,8 @@
 <h5 id="proceed-to-configuring-sos-options">Proceed to configuring SOS options</h5>
 <p>You must set the end point, and can add offerings at the bottom</p>
 <p><img alt="Configure SOS Interface" src="../img/config-sos.png" /></p>
+<p>For each offering, one can publish data for a sensor with or without its associated storage by using a <strong>Sensor Data Source</strong>. If a storage is attached, both live and historical data from that sensor are made available through the SOS interface; if not, only live data is made available.</p>
+<p>It is also possible to create an offering that serves historical data only. In this case, a <strong>Storage Data Source</strong> must be used. </p>
 <h3 id="setting-up-in-config-file">Setting up in config file</h3>
 <p>An SOS module can also be added by adding the proper JSON configuration in the main config file.</p>
 <p>Below is an example JSON configuration of the SOS module with two offerings serving both real-time and historical data from two different sensors and their associated data storage:</p>

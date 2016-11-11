@@ -35,7 +35,7 @@ The demo configuration provided with the binary release instructs OSH to start t
 
 ### Connect to the Sensor Observation Service (SOS)
 
-You can connect to the SOS deployed at `http://localhost:8181/sensorhub/sos` right away, to get sensor data and metadata:
+You can connect right away to the SOS endpoint to get sensor data and metadata. Here are some examples that work with the installed simulated sensors:
 
   * [GetCapabilities](http://localhost:8181/sensorhub/sos?service=SOS&version=2.0&request=GetCapabilities)
   * [Get Weather Result Template](http://localhost:8181/sensorhub/sos?service=SOS&version=2.0&request=GetResultTemplate&offering=urn:mysos:offering03&observedProperty=http://sensorml.com/ont/swe/property/Weather)

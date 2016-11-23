@@ -11,7 +11,7 @@ This page provides instructions for three possible options, depending on your le
 
   * Exploring the code online
 
-  * Downloading and building from source with Maven or Eclipse
+  * Downloading and building from source using Gradle from command-line or Eclipse
 
   * Contributing software and fixes to the project
 
@@ -29,58 +29,75 @@ To start with, the repositories of interest are OpenSensorHub [Core](https://git
 
 Below are the steps to download and build the code using either command line tools or the Eclipse IDE.
 
+
 #### Using Command-Line Tools
 
-If you want to build the code and run it on your computer, you'll need `git` and `Maven 3`.
-To clone the code repository locally, first create a directory called `opensensorhub` (or anything else you want really) and `cd` in this directory:
-
-```bash
-$ mkdir opensensorhub
-$ cd opensensorhub
-```
+If you want to build the code and run it on your computer, you'll need `git 2.7` and `gradle 3.1` or later versions. Beware that a recent version of Gradle may not be provided with your Linux distribution but can be downloaded [here](https://gradle.org/gradle-download/).
 
 ##### Build the core
 
-Use the following commands to clone the [osh-core](https://github.com/opensensorhub/osh-core) repository:
+Use the following command to clone the [osh-core](https://github.com/opensensorhub/osh-core) repository:
 
 ```bash
 $ git clone --recursive https://github.com/opensensorhub/osh-core
 ```
 
-This will create folders containing the code of the different Maven modules. You can then build the code and install it to your local Maven repository by launching the following commands:
+You can then build the code with:
 
 ```bash
 $ cd osh-core
-$ mvn clean install 
+$ gradle build
 ```
 
-_Note 1: The first time you launch Maven, the build process can take a while because Maven goes to fetch its own dependencies (i.e. Maven plugins) as well as OpenSensorHub's dependencies. Later builds will go faster because these dependencies are cached in a local Maven repository._
+This command will build a JAR file for each module in the corresponding subfolder `{module-name}/build/libs` as well as a ZIP file containing all built module JARs in `build/distributions`.
 
-_Note 2: Some of the JUnit tests automatically run during the 'test' phase of the OSH build process need to instantiate a server on port 8888. These tests will fail if something else is running on this port when you launch the commands above._
+You can optionally the artifacts to your local Maven repository with:
+
+```bash
+$ gradle install
+```
+
+_Note 1: The first time you launch Gradle, the build process can take a while because Gradle fetches its own dependencies (i.e. Gradle plugins) as well as OpenSensorHub's dependencies. Later builds will go faster because these dependencies are cached locally._
+
+_Note 2: Some of the JUnit tests automatically run during the 'test' phase of the OSH build process need to instantiate a server on port 8888. These tests will fail if something else is running on this port._
 
 ##### Build sensor modules
 
-Sensor driver modules are provided in the [osh-sensors](https://github.com/opensensorhub/osh-sensors) repository:
+Sensor drivers are provided in various [osh-sensors-***](https://github.com/opensensorhub?q=osh-sensors) repositories. First clone one of these repos in the same folder as osh-core (i.e. `osh-core` and `osh-sensors` must be sibbling directories):
 
 ```bash
 $ git clone https://github.com/opensensorhub/osh-sensors
 ```
 
- Sensor drivers can be built individually depending which one you are interested in. To start with, you can build the simulated sensor since they don't require you to connect any hardware.
+Some sensor drivers need specific communication modules to work (e.g. RXTX serial comm or Bluetooth LE). If you're building a dev version, you'll also have to build these modules from source code. For this, clone the [osh-comm](https://github.com/opensensorhub/osh-comm) repository at the same level as the other repos:
 
 ```bash
-$ cd ../osh-sensors/sensorhub-driver-fakegps
-$ mvn clean install
-$ cd ../sensorhub-driver-fakeweather
-$ mvn clean install
+$ git clone https://github.com/opensensorhub/osh-comm
 ```
 
-Some sensor drivers may need specific communication modules to work (for instance Bluetooth LE). For these you may need to first build modules from the [osh-comm](https://github.com/opensensorhub/osh-comm) repository.
+Sensor drivers can be built individually depending which one you are interested in. To start with, you can build the simulated sensors since they don't require you to connect any hardware.
 
+```bash
+$ cd osh-sensors
+$ gradle sensorhub-driver-fakegps:build
+$ gradle sensorhub-driver-fakeweather:build
+```
+
+You can also build all of them at once by running the following command in the `osh-sensors` folder:
+
+```bash
+$ gradle build
+```
+
+This will build ZIP files (one for stable modules, one for dev) containing all sensor drivers in the `build/distributions` folder.
 
 ##### Build other modules
 
-You can also clone other repositories of the project to get other types of modules. The `comm`, `services` and `security` repositories are probably of interest if you want to go further. There are also some Android specific modules in the `android` repository if you are interested in deploying on Android.
+You can also clone other repositories of the project to build other types of modules.
+
+The [osh-services](https://github.com/opensensorhub/osh-services), [osh-persistence](https://github.com/opensensorhub/osh-persistence) and [osh-security](https://github.com/opensensorhub/osh-security) repositories are probably of interest if you want to go further.
+
+There are also some Android specific modules and a demo app in the [osh-android](https://github.com/opensensorhub/osh-android) repository if you are interested in deploying on Android.
 
 ##### Build ZIP distributions
 
@@ -94,28 +111,10 @@ You can build an installable ZIP package, complete with startup scripts by runni
 
 ```bash
 $ cd osh-distros/osh-base
-$ mvn install -Pcore
+$ gradle build
 ```
 
-Additional modules can be packaged in their own ZIP file similarly. You can build the network communication driver pack with:
-
-```bash
-$ mvn install -Pcomm
-```
-
-And the sensor pack with:
-
-```bash
-$ mvn install -Psensors
-```
-
-You can then install and run OpenSensorHub with the provided example configuration file, including some simulated sensors, storage databases and an SOS service:
-
-  * Unzip the packages you just built in the same folder
-  * Execute the launch.sh script (on Linux)
-  * Connect to the admin console to load new sensor drivers
-
-Please see the [Installation Guide](../install.md) for more details.
+The distribution is built in the `build/distributions` folder. You can unzip it and run OpenSensorHub using the launch script (it will run with the provided example configuration file, including some simulated sensors, storage databases and an SOS service). Please see the [Installation Guide](../install.md) for more details.
 
 
 #### Using Eclipse
@@ -126,9 +125,20 @@ We provide Eclipse project configuration directly from the repository so it is t
 
 Make sure you have the following Eclipse components installed:
   
-  * Eclipse Helios or newer (the exact steps described here are for Luna)
+  * Eclipse Neon or newer (the exact steps described here are for Neon)
   * Egit plugin for Eclipse (included in "Eclipse IDE for Java Developers" release)
-  * Maven plugin for Eclipse M2E (you can install it using the "Help > Install New Software..". You will find it under the "Collaboration" section of the Eclipse releases repository) 
+  * Buildship plugin for Eclipse v2.0.0 or newer (Buildship is included in the "Eclipse IDE for Java Developers" release but you'll need to upgrade it to a newer version. See below for instructions)
+
+##### How to Upgrade the Buildship plugin
+
+  * Go to "Help > Install New Software" in the main menu
+  * Add a new **Update Site** by clicking "Add..." at the top right
+  * Set name to "Buildship Snapshots" and location to the following URL: https://builds.gradle.org/repository/download/Tooling_Master_IntegrationTests_Linux_Eclipse46Build/.lastSuccessful/update-site
+  * Select the newly created update site in the list
+  * Enter "guest" for login and password
+  * Select "Buildship: Eclipse Plug-ins for Gradle" in the tree
+  * Click "Next" to start the upgrade process to v2.0.0
+
 
 ##### Clone the project in your Eclipse workspace
 
@@ -199,7 +209,7 @@ $ git submodule update
 
 _Note 1: The `submodule update` command is only required in the `osh-core` repo that has submodules._
 
-_Note 2: that you may have to manually merge things with your working copy if you have made conflicting changes._
+_Note 2: that you may have to manually merge with your working copy if you have made conflicting changes._
 
 ##### Using Eclipse
 
@@ -282,11 +292,11 @@ So that we can better evaluate your contribution, please describe your improveme
 
 ### Eclipse Tips
 
-##### Update Maven Settings
+##### Update Gradle Settings
 
-One problem we have encountered several times with Eclipse is that the POM files and Projects Settings get out of sync and it causes various Java and/or Maven related dependency errors (e.g. dependency YYY cannot be found, etc). If you get such errors even though everything seems fine in your POM and code, you may have to follow these steps to resync eveything:
+Everytime a change is made to the Gradle build scripts, the Eclipse project settings must be updated with the following steps:
 
-  * Click one of the SensorHub module project
-  * Select "Maven > Update Project..." from the context menu
-  * Click the "Select All" button
-  * Confirm by clicking "OK" 
+  * Click one of the OSH module project
+  * Select "Gradle > Refresh Gradle Project..." from the context menu
+
+

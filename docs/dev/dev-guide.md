@@ -32,7 +32,7 @@ Below are the steps to download and build the code using either command line too
 
 #### Using Command-Line Tools
 
-If you want to build the code and run it on your computer, you'll need `git 2.7` and `gradle 3.1` or later versions. Beware that a recent version of Gradle may not be provided with your Linux distribution but can be downloaded [here](https://gradle.org/gradle-download/).
+If you want to build the code and run it on your computer, you'll need `git 2.7` or later version.
 
 ##### Build the core
 
@@ -42,19 +42,19 @@ Use the following command to clone the [osh-core](https://github.com/opensensorh
 $ git clone --recursive https://github.com/opensensorhub/osh-core
 ```
 
-You can then build the code with:
+You can then build the code using the gradle wrapper command `gradlew` (`gradlew.bat` on Windows):
 
 ```bash
 $ cd osh-core
-$ gradle build
+$ ./gradlew build
 ```
 
 This command will build a JAR file for each module in the corresponding subfolder `{module-name}/build/libs` as well as a ZIP file containing all built module JARs in `build/distributions`.
 
-You can optionally the artifacts to your local Maven repository with:
+You can optionally install the generated artifacts to your local Maven repository with:
 
 ```bash
-$ gradle install
+$ ./gradlew install
 ```
 
 _Note 1: The first time you launch Gradle, the build process can take a while because Gradle fetches its own dependencies (i.e. Gradle plugins) as well as OpenSensorHub's dependencies. Later builds will go faster because these dependencies are cached locally._
@@ -79,14 +79,14 @@ Sensor drivers can be built individually depending which one you are interested 
 
 ```bash
 $ cd osh-sensors
-$ gradle sensorhub-driver-fakegps:build
-$ gradle sensorhub-driver-fakeweather:build
+$ ./gradlew sensorhub-driver-fakegps:build
+$ ./gradlew sensorhub-driver-fakeweather:build
 ```
 
 You can also build all of them at once by running the following command in the `osh-sensors` folder:
 
 ```bash
-$ gradle build
+$ ./gradlew build
 ```
 
 This will build ZIP files (one for stable modules, one for dev) containing all sensor drivers in the `build/distributions` folder.
@@ -110,8 +110,8 @@ $ git clone https://github.com/opensensorhub/osh-distros
 You can build an installable ZIP package, complete with startup scripts by running:
 
 ```bash
-$ cd osh-distros/osh-base
-$ gradle build
+$ cd osh-distros
+$ ./gradlew osh-base:build
 ```
 
 The distribution is built in the `build/distributions` folder. You can unzip it and run OpenSensorHub using the launch script (it will run with the provided example configuration file, including some simulated sensors, storage databases and an SOS service). Please see the [Installation Guide](../install.md) for more details.
@@ -236,7 +236,7 @@ Note: Also don't forget to import new Eclipse projects that may have been added 
   * Right click in your workspace and select "Import..." in the context menu
   * Select "Existing project into workspace" from the "General" section and click "Next"
   * Browse to the folder where you cloned our repo (usually called "osh-core" for the core software)
-  * Select the missing projects in the list (all the projects that are not already in your workspace should already be selected) and click "Finish"   
+  * Select the missing projects in the list (all the projects that are not already in your workspace should already be selected) and click "Finish"
 
 #### Push your changes to your own repo
 

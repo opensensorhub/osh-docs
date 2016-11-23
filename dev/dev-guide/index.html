@@ -347,20 +347,20 @@
 <h3 id="building-from-source">Building from Source</h3>
 <p>Below are the steps to download and build the code using either command line tools or the Eclipse IDE.</p>
 <h4 id="using-command-line-tools">Using Command-Line Tools</h4>
-<p>If you want to build the code and run it on your computer, you'll need <code>git 2.7</code> and <code>gradle 3.1</code> or later versions. Beware that a recent version of Gradle may not be provided with your Linux distribution but can be downloaded <a href="https://gradle.org/gradle-download/">here</a>.</p>
+<p>If you want to build the code and run it on your computer, you'll need <code>git 2.7</code> or later version.</p>
 <h5 id="build-the-core">Build the core</h5>
 <p>Use the following command to clone the <a href="https://github.com/opensensorhub/osh-core">osh-core</a> repository:</p>
 <pre><code class="bash">$ git clone --recursive https://github.com/opensensorhub/osh-core
 </code></pre>
 
-<p>You can then build the code with:</p>
+<p>You can then build the code using the gradle wrapper command <code>gradlew</code> (<code>gradlew.bat</code> on Windows):</p>
 <pre><code class="bash">$ cd osh-core
-$ gradle build
+$ ./gradlew build
 </code></pre>
 
 <p>This command will build a JAR file for each module in the corresponding subfolder <code>{module-name}/build/libs</code> as well as a ZIP file containing all built module JARs in <code>build/distributions</code>.</p>
-<p>You can optionally the artifacts to your local Maven repository with:</p>
-<pre><code class="bash">$ gradle install
+<p>You can optionally install the generated artifacts to your local Maven repository with:</p>
+<pre><code class="bash">$ ./gradlew install
 </code></pre>
 
 <p><em>Note 1: The first time you launch Gradle, the build process can take a while because Gradle fetches its own dependencies (i.e. Gradle plugins) as well as OpenSensorHub's dependencies. Later builds will go faster because these dependencies are cached locally.</em></p>
@@ -376,12 +376,12 @@ $ gradle build
 
 <p>Sensor drivers can be built individually depending which one you are interested in. To start with, you can build the simulated sensors since they don't require you to connect any hardware.</p>
 <pre><code class="bash">$ cd osh-sensors
-$ gradle sensorhub-driver-fakegps:build
-$ gradle sensorhub-driver-fakeweather:build
+$ ./gradlew sensorhub-driver-fakegps:build
+$ ./gradlew sensorhub-driver-fakeweather:build
 </code></pre>
 
 <p>You can also build all of them at once by running the following command in the <code>osh-sensors</code> folder:</p>
-<pre><code class="bash">$ gradle build
+<pre><code class="bash">$ ./gradlew build
 </code></pre>
 
 <p>This will build ZIP files (one for stable modules, one for dev) containing all sensor drivers in the <code>build/distributions</code> folder.</p>
@@ -395,8 +395,8 @@ $ gradle sensorhub-driver-fakeweather:build
 </code></pre>
 
 <p>You can build an installable ZIP package, complete with startup scripts by running:</p>
-<pre><code class="bash">$ cd osh-distros/osh-base
-$ gradle build
+<pre><code class="bash">$ cd osh-distros
+$ ./gradlew osh-base:build
 </code></pre>
 
 <p>The distribution is built in the <code>build/distributions</code> folder. You can unzip it and run OpenSensorHub using the launch script (it will run with the provided example configuration file, including some simulated sensors, storage databases and an SOS service). Please see the <a href="../../install/">Installation Guide</a> for more details.</p>
@@ -491,7 +491,7 @@ $ git submodule update
 <li>Right click in your workspace and select "Import..." in the context menu</li>
 <li>Select "Existing project into workspace" from the "General" section and click "Next"</li>
 <li>Browse to the folder where you cloned our repo (usually called "osh-core" for the core software)</li>
-<li>Select the missing projects in the list (all the projects that are not already in your workspace should already be selected) and click "Finish"   </li>
+<li>Select the missing projects in the list (all the projects that are not already in your workspace should already be selected) and click "Finish"</li>
 </ul>
 <h4 id="push-your-changes-to-your-own-repo">Push your changes to your own repo</h4>
 <p>You can push your changes to your own GitHub repo at any time, even if your code doesn't work yet. Remember this is your own sandbox so you won't mess up anybody else code base. We actually recommend that you do that often since it will provide you a good backup of your work, with full history.</p>

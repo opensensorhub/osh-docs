@@ -48,7 +48,7 @@ There are many different repositories that contain various modules for OpenSenso
 
 ### Building with Gradle
 
-You can optionally install `gradle 3.1` or a later version but if you don't the gradle wrapper will do it automatically for you.
+The following instructions are for building using the Gradle Wrapper command `gradlew`. This small executable is included in the repository and will automatically fetch the correct version of Gradle for you. If you want to use your own version of Gradle, use the `gradle` command instead, but please note that our build scripts need version 3.1 or later to get support for composite builds. If you want to install Gradle yourself we recommend downloading it directly from the [Gradle Website](https://gradle.org/gradle-download/) as packages provided in Linux distributions may only include earlier versions.
 
 #### Build the core
 

@@ -99,6 +99,8 @@ $ ./gradlew sensorhub-driver-fakegps:build
 $ ./gradlew sensorhub-driver-fakeweather:build
 ```
 
+The resulting JAR files will be located in the `sensorhub-driver-fakegps/build/libs` and `sensorhub-driver-fakeweather/build/libs` folders respectively.
+
 You can also build all of them at once by running the following command in the `osh-sensors` folder:
 
 ```bash
@@ -117,17 +119,17 @@ There are also some Android specific modules and a demo app in the [osh-android]
 
 #### Build ZIP distributions
 
-Distribution build scripts are located in the [osh-distros](https://github.com/opensensorhub/osh-distros) repository:
+Distribution build scripts are located in the [osh-distros](https://github.com/opensensorhub/osh-distros) repository. Clone it in the same folder as the other repositories `osh-core`, `osh-comm`, `osh-sensors` (most distributions will require at least these three other folders to build):
 
 ```bash
 $ git clone https://github.com/opensensorhub/osh-distros
 ```
 
-You can build an installable ZIP package, complete with startup scripts by running:
+Each distribution has its own separate subfolder. The base distribution is in `osh-base` for example. You can build an installable ZIP package for each distribution, by going to the corresponding subfolder and launching `gradlew` from there (Note that the gradle wrapper `gradlew` is provided only once in the repo root folder, so you have to call it with `../`). For example, to build the `osh-base` distribution, run the following commands:
 
 ```bash
-$ cd osh-distros
-$ ./gradlew -p osh-base build
+$ cd osh-distros/osh-base
+$ ../gradlew build
 ```
 
 The distribution is built in the `build/distributions` folder. You can unzip it and run OpenSensorHub using the launch script (it will run with the provided example configuration file, including some simulated sensors, storage databases and an SOS service). Please see the [Installation Guide](../install.md) for more details.

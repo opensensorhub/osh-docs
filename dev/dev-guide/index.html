@@ -193,8 +193,6 @@
                 
                     <li><a class="toctree-l4" href="#contributing">Contributing</a></li>
                 
-                    <li><a class="toctree-l4" href="#eclipse-tips">Eclipse Tips</a></li>
-                
             
             </ul>
         
@@ -347,7 +345,7 @@
 </li>
 </ul>
 <h3 id="exploring-the-code">Exploring the Code</h3>
-<p>If you just want to explore the code, you can browse the source online directly on <a href="https://github.com/opensensorhub">Github</a>. Alternatively, you can download it to your computer using the <em>Download ZIP</em> link on each GitHub repository or using the <code>git</code> program (please see the next section if you want to do just that).</p>
+<p>If you just want to explore the code, you can browse the source online directly on <a href="https://github.com/opensensorhub">Github</a>. Alternatively, you can download it to your computer using the <strong>Download ZIP</strong> link on each GitHub repository or using the <code>git</code> program (see next section).</p>
 <p>There are many different repositories that contain various modules for OpenSensorHub. You can browse them all on <a href="https://github.com/opensensorhub">Github</a> so you can decide which ones are of interest for you but here is a summary of the most important ones:</p>
 <ul>
 <li>Core Modules: <a href="https://github.com/opensensorhub/osh-core">https://github.com/opensensorhub/osh-core</a> </li>
@@ -360,22 +358,22 @@
 <li>Android: <a href="https://github.com/opensensorhub/osh-android">https://github.com/opensensorhub/osh-android</a></li>
 </ul>
 <h3 id="getting-the-code">Getting the Code</h3>
-<p>Git (we use <code>git 2.7</code>) is used to download the code from the Github repositories. For example, you can download the code for the core modules using the following command:</p>
+<p>The <code>git</code> command is used to download the code from the Github repositories. For example, you can download the code for the core modules using the following command:</p>
 <pre><code class="bash">$ git clone --recursive https://github.com/opensensorhub/osh-core.git
 </code></pre>
 
 <p><em>Note: You need to use the <code>--recursive</code> option on the osh-core repository because it contains submodules</em></p>
 <h3 id="building-from-source">Building from Source</h3>
-<p>This guide covers building from source using Gradle on the command line or by importing the Gradle projects into an Eclipse workspace. In both cases you will need a working JDK8 installation (both OpenJDK 8 and OracleJDK 8 should work).</p>
-<p><em>Note that JDK8 is only needed for building. Once built, OpenSensorHub itself runs on Java 7 as well</em></p>
+<p>This guide covers building from source using Gradle on the command line or by importing the Gradle projects into an Eclipse workspace. In both cases you will need a working <strong>JDK8 installation</strong> (both OpenJDK 8 and OracleJDK 8 should work).</p>
+<p><em>Note: JDK8 is only needed for building. Once built, OpenSensorHub itself runs on Java 7 and up</em></p>
 <h4 id="building-with-gradle">Building with Gradle</h4>
-<p>The following instructions are for building using the Gradle Wrapper command <code>gradlew</code>. This small executable is included in the repository and will automatically fetch the correct version of Gradle for you. If you want to use your own version of Gradle, use the <code>gradle</code> command instead, but please note that our build scripts need version 3.1 or later to get support for composite builds. If you want to install Gradle yourself we recommend downloading it directly from the <a href="https://gradle.org/gradle-download/">Gradle Website</a> as packages provided in Linux distributions may only include earlier versions.</p>
+<p>The following instructions are for building using the Gradle Wrapper command <code>gradlew</code> (or <code>gradlew.bat</code> on Windows). This small executable is included in the repository and will automatically fetch the correct version of Gradle for you. If you want to use your own version of Gradle, use the <code>gradle</code> command instead, but please note that our build scripts need version 3.1 or later to get support for composite builds. If you want to install Gradle yourself we recommend downloading it directly from the <a href="https://gradle.org/gradle-download/">Gradle Website</a> as packages provided in Linux distributions may only include earlier versions.</p>
 <h5 id="building-the-core-modules">Building the core modules</h5>
 <p>Use the following command to clone the <a href="https://github.com/opensensorhub/osh-core">osh-core</a> repository:</p>
 <pre><code class="bash">$ git clone --recursive https://github.com/opensensorhub/osh-core
 </code></pre>
 
-<p>You can then build the code using the gradle wrapper command <code>gradlew</code> (<code>gradlew.bat</code> on Windows):</p>
+<p>You can then build the code using the gradle wrapper command <code>gradlew</code>:</p>
 <pre><code class="bash">$ cd osh-core
 $ ./gradlew build
 </code></pre>
@@ -458,6 +456,13 @@ $ git clone https://github.com/opensensorhub/osh-distros
 <li>All projects should be imported successfully and visible in the Package Explorer. Everything should compile without error.</li>
 </ul>
 <p>Since OSH consists of many modules, each of which will become a separate Eclipse project, we recommend that you group projects into Working Sets (for example, one working set per repo)</p>
+<h5 id="eclipse-tips">Eclipse Tips</h5>
+<h6 id="update-gradle-settings">Update Gradle Settings</h6>
+<pre><code>Everytime a change is made to the Gradle build scripts, the Eclipse project settings must be updated with the    following steps:
+
+* Click one of the OSH module project
+* Select "Gradle &gt; Refresh Gradle Project..." from the context menu
+</code></pre>
 <h3 id="contributing">Contributing</h3>
 <p>If you want to contribute, we feel the best way is that you create your own fork on GitHub, work on it, and when you have something working and tested, send us a Pull Request. To set this up, please follow the steps below:</p>
 <h4 id="fork-one-or-more-repository-of-the-project">Fork one or more repository of the project</h4>
@@ -483,7 +488,7 @@ $ git submodule update
 </code></pre>
 
 <p><em>Note 1: The <code>submodule update</code> command is only required in the <code>osh-core</code> repo that has submodules.</em></p>
-<p><em>Note 2: that you may have to manually merge with your working copy if you have made conflicting changes.</em></p>
+<p><em>Note 2: You may have to manually merge with your working copy if you have made conflicting changes.</em></p>
 <h5 id="using-eclipse">Using Eclipse</h5>
 <p>First add a new remote pointing to the <em>opensensorhub</em> master branch (you only have to do that the first time):</p>
 <ul>
@@ -543,13 +548,6 @@ $ git submodule update
 <p>When you feel you're ready to contribute all or some of your changes to the community, please send us a <a href="http://help.github.com/articles/using-pull-requests/">Pull Request</a> via GitHub.</p>
 <p>So that we can better evaluate your contribution, please describe your improvements in as much details as you can. We'll do our best to process <em>Pull Request</em> as fast as possible.</p>
 <p><strong>Thanks in advance for your contribution!</strong></p>
-<h3 id="eclipse-tips">Eclipse Tips</h3>
-<h5 id="update-gradle-settings">Update Gradle Settings</h5>
-<p>Everytime a change is made to the Gradle build scripts, the Eclipse project settings must be updated with the following steps:</p>
-<ul>
-<li>Click one of the OSH module project</li>
-<li>Select "Gradle &gt; Refresh Gradle Project..." from the context menu</li>
-</ul>
               
             </div>
           </div>

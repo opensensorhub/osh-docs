@@ -18,9 +18,10 @@ This page provides instructions for three possible options, depending on your le
   * [Contributing](#contributing) new features and bug fixes to the project
 
 
+
 ### Exploring the Code
 
-If you just want to explore the code, you can browse the source online directly on [Github](https://github.com/opensensorhub). Alternatively, you can download it to your computer using the *Download ZIP* link on each GitHub repository or using the `git` program (please see the next section if you want to do just that).
+If you just want to explore the code, you can browse the source online directly on [Github](https://github.com/opensensorhub). Alternatively, you can download it to your computer using the **Download ZIP** link on each GitHub repository or using the `git` program (see next section).
 
 There are many different repositories that contain various modules for OpenSensorHub. You can browse them all on [Github](https://github.com/opensensorhub) so you can decide which ones are of interest for you but here is a summary of the most important ones:
 
@@ -34,9 +35,10 @@ There are many different repositories that contain various modules for OpenSenso
   * Android: <https://github.com/opensensorhub/osh-android>
 
 
+
 ### Getting the Code
 
-Git (we use `git 2.7`) is used to download the code from the Github repositories. For example, you can download the code for the core modules using the following command:
+The `git` command is used to download the code from the Github repositories. For example, you can download the code for the core modules using the following command:
 
 ```bash
 $ git clone --recursive https://github.com/opensensorhub/osh-core.git
@@ -45,16 +47,17 @@ $ git clone --recursive https://github.com/opensensorhub/osh-core.git
 *Note: You need to use the `--recursive` option on the osh-core repository because it contains submodules*
 
 
+
 ### Building from Source
 
-This guide covers building from source using Gradle on the command line or by importing the Gradle projects into an Eclipse workspace. In both cases you will need a working JDK8 installation (both OpenJDK 8 and OracleJDK 8 should work).
+This guide covers building from source using Gradle on the command line or by importing the Gradle projects into an Eclipse workspace. In both cases you will need a working **JDK8 installation** (both OpenJDK 8 and OracleJDK 8 should work).
 
-*Note that JDK8 is only needed for building. Once built, OpenSensorHub itself runs on Java 7 as well*
+_Note: JDK8 is only needed for building. Once built, OpenSensorHub itself runs on Java 7 and up_
 
 
 #### Building with Gradle
 
-The following instructions are for building using the Gradle Wrapper command `gradlew`. This small executable is included in the repository and will automatically fetch the correct version of Gradle for you. If you want to use your own version of Gradle, use the `gradle` command instead, but please note that our build scripts need version 3.1 or later to get support for composite builds. If you want to install Gradle yourself we recommend downloading it directly from the [Gradle Website](https://gradle.org/gradle-download/) as packages provided in Linux distributions may only include earlier versions.
+The following instructions are for building using the Gradle Wrapper command `gradlew` (or `gradlew.bat` on Windows). This small executable is included in the repository and will automatically fetch the correct version of Gradle for you. If you want to use your own version of Gradle, use the `gradle` command instead, but please note that our build scripts need version 3.1 or later to get support for composite builds. If you want to install Gradle yourself we recommend downloading it directly from the [Gradle Website](https://gradle.org/gradle-download/) as packages provided in Linux distributions may only include earlier versions.
 
 ##### Building the core modules
 
@@ -64,7 +67,7 @@ Use the following command to clone the [osh-core](https://github.com/opensensorh
 $ git clone --recursive https://github.com/opensensorhub/osh-core
 ```
 
-You can then build the code using the gradle wrapper command `gradlew` (`gradlew.bat` on Windows):
+You can then build the code using the gradle wrapper command `gradlew`:
 
 ```bash
 $ cd osh-core
@@ -181,6 +184,15 @@ Then import each repository as a Gradle project using the following steps:
 
 Since OSH consists of many modules, each of which will become a separate Eclipse project, we recommend that you group projects into Working Sets (for example, one working set per repo)
 
+##### Eclipse Tips
+
+###### Update Gradle Settings
+
+    Everytime a change is made to the Gradle build scripts, the Eclipse project settings must be updated with the    following steps:
+
+    * Click one of the OSH module project
+    * Select "Gradle > Refresh Gradle Project..." from the context menu
+
 
 ### Contributing
 
@@ -227,7 +239,7 @@ $ git submodule update
 
 _Note 1: The `submodule update` command is only required in the `osh-core` repo that has submodules._
 
-_Note 2: that you may have to manually merge with your working copy if you have made conflicting changes._
+_Note 2: You may have to manually merge with your working copy if you have made conflicting changes._
 
 ##### Using Eclipse
 
@@ -305,16 +317,5 @@ When you feel you're ready to contribute all or some of your changes to the comm
 So that we can better evaluate your contribution, please describe your improvements in as much details as you can. We'll do our best to process *Pull Request* as fast as possible.
 
 **Thanks in advance for your contribution!**
-
-
-
-### Eclipse Tips
-
-##### Update Gradle Settings
-
-Everytime a change is made to the Gradle build scripts, the Eclipse project settings must be updated with the following steps:
-
-  * Click one of the OSH module project
-  * Select "Gradle > Refresh Gradle Project..." from the context menu
 
 

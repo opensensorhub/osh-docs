@@ -9,35 +9,23 @@ Of course, contributing new modules to the community is optional as our license 
 
 This page provides instructions for three possible options, depending on your level of involvement:
 
-  * Exploring the code online
+  * [Exploring the code online](#exploring-the-code)
 
-  * Building from source using [Gradle](#building-with-gradle) or [Eclipse](#building-with-eclipse)
+  * [Getting the code](#getting-the-code) using Git
 
-  * Contributing software and fixes to the project
+  * [Building from source](#building-from-source) using [Gradle](#building-with-gradle) or [Eclipse](#building-with-eclipse)
 
+  * [Contributing](#contributing) new features and bug fixes to the project
 
 
 ### Exploring the Code
 
 If you just want to explore the code, you can browse the source online directly on [Github](https://github.com/opensensorhub). Alternatively, you can download it to your computer using the *Download ZIP* link on each GitHub repository or using the `git` program (please see the next section if you want to do just that).
 
-To start with, the repositories of interest are OpenSensorHub [Core](https://github.com/opensensorhub/osh-core) and [Sensor Drivers](https://github.com/opensensorhub/osh-sensors).
-
-
-### Getting the Code
-
-Git (we use `git 2.7`) is used to download the code from the Github repositories.
-
-For instance, you can download the code for the core modules using the following command:
-
-```bash
-$ git clone --recursive https://github.com/opensensorhub/osh-core.git
-```
-
 There are many different repositories that contain various modules for OpenSensorHub. You can browse them all on [Github](https://github.com/opensensorhub) so you can decide which ones are of interest for you but here is a summary of the most important ones:
 
   * Core Modules: <https://github.com/opensensorhub/osh-core> 
-  * Comm Protocols: <https://github.com/opensensorhub/osh-comm>
+  * Communication Protocols: <https://github.com/opensensorhub/osh-comm>
   * Sensor Drivers: <https://github.com/opensensorhub/osh-sensors> 
   * Processing Modules: <https://github.com/opensensorhub/osh-processing>
   * Other Services: <https://github.com/opensensorhub/osh-services>
@@ -46,11 +34,29 @@ There are many different repositories that contain various modules for OpenSenso
   * Android: <https://github.com/opensensorhub/osh-android>
 
 
-### Building with Gradle
+### Getting the Code
+
+Git (we use `git 2.7`) is used to download the code from the Github repositories. For example, you can download the code for the core modules using the following command:
+
+```bash
+$ git clone --recursive https://github.com/opensensorhub/osh-core.git
+```
+
+*Note: You need to use the `--recursive` option on the osh-core repository because it contains submodules*
+
+
+### Building from Source
+
+This guide covers building from source using Gradle on the command line or by importing the Gradle projects into an Eclipse workspace. In both cases you will need a working JDK8 installation (both OpenJDK 8 and OracleJDK 8 should work).
+
+*Note that JDK8 is only needed for building. Once built, OpenSensorHub itself runs on Java 7 as well*
+
+
+#### Building with Gradle
 
 The following instructions are for building using the Gradle Wrapper command `gradlew`. This small executable is included in the repository and will automatically fetch the correct version of Gradle for you. If you want to use your own version of Gradle, use the `gradle` command instead, but please note that our build scripts need version 3.1 or later to get support for composite builds. If you want to install Gradle yourself we recommend downloading it directly from the [Gradle Website](https://gradle.org/gradle-download/) as packages provided in Linux distributions may only include earlier versions.
 
-#### Build the core
+##### Building the core modules
 
 Use the following command to clone the [osh-core](https://github.com/opensensorhub/osh-core) repository:
 
@@ -77,7 +83,7 @@ _Note 1: The first time you launch Gradle, the build process can take a while be
 
 _Note 2: Some of the JUnit tests automatically run during the 'test' phase of the OSH build process need to instantiate a server on port 8888. These tests will fail if something else is running on this port._
 
-#### Build sensor modules
+##### Building sensor modules
 
 Sensor drivers are provided in various [osh-sensors-***](https://github.com/opensensorhub?q=osh-sensors) repositories. First clone one of these repos in the same folder as osh-core (i.e. `osh-core` and `osh-sensors` must be sibbling directories):
 
@@ -109,15 +115,11 @@ $ ./gradlew build
 
 This will build ZIP files (one for stable modules, one for dev) containing all sensor drivers in the `build/distributions` folder.
 
-#### Build other modules
+##### Building other modules
 
-You can also clone other repositories of the project to build other types of modules.
+You can also clone other repositories of the project and build other types of modules by following the same approach. See the list of module repositories in the [Exploring the Code](#exploring-the-code) section.
 
-The [osh-services](https://github.com/opensensorhub/osh-services), [osh-persistence](https://github.com/opensensorhub/osh-persistence) and [osh-security](https://github.com/opensensorhub/osh-security) repositories are probably of interest if you want to go further.
-
-There are also some Android specific modules and a demo app in the [osh-android](https://github.com/opensensorhub/osh-android) repository if you are interested in deploying on Android.
-
-#### Build ZIP distributions
+##### Building ZIP distributions
 
 Distribution build scripts are located in the [osh-distros](https://github.com/opensensorhub/osh-distros) repository. Clone it in the same folder as the other repositories `osh-core`, `osh-comm`, `osh-sensors` (most distributions will require at least these three other folders to build):
 
@@ -135,31 +137,31 @@ $ ../gradlew build
 The distribution is built in the `build/distributions` folder. You can unzip it and run OpenSensorHub using the launch script (it will run with the provided example configuration file, including some simulated sensors, storage databases and an SOS service). Please see the [Installation Guide](../install.md) for more details.
 
 
-### Building with Eclipse
+#### Building with Eclipse
 
 You can build and run the code using the Eclipse IDE by importing the Gradle projects using Eclipse Buildship plugin. 
 
-#### Pre-requisites
+##### Pre-requisites
 
 Make sure you have the following Eclipse components installed:
   
-  * Eclipse Neon or newer (the exact steps described here are for Neon)
-  * Egit plugin for Eclipse (included in "Eclipse IDE for Java Developers" release)
-  * Buildship plugin for Eclipse v2.0.0 or newer (Buildship is included in the "Eclipse IDE for Java Developers" release but you'll need to upgrade it to a newer version. See below for instructions)
+  * **Eclipse Neon** or newer (the exact steps described here are for Neon)
+  * **Egit Plugin** for Eclipse (included in "Eclipse IDE for Java Developers" release)
+  * **Buildship Plugin** for Eclipse v2.0.0 or newer (Buildship is included in the "Eclipse IDE for Java Developers" release but you'll need to upgrade it to a newer version. See below for instructions)
 
-#### How to Upgrade the Buildship plugin
+##### Upgrade the Buildship plugin
 
   * Go to "Help > Install New Software" in the main menu
   * Add a new **Update Site** by clicking "Add..." at the top right
-  * Set name to "Buildship Snapshots" and location to the following URL: https://builds.gradle.org/repository/download/Tooling_Master_IntegrationTests_Linux_Eclipse46Build/.lastSuccessful/update-site
+  * Set name to "Buildship Snapshots" and location to the following URL: <https://builds.gradle.org/repository/download/Tooling_Master_IntegrationTests_Linux_Eclipse46Build/.lastSuccessful/update-site>
   * Select the newly created update site in the list
   * Enter "guest" for login and password
   * Select "Buildship: Eclipse Plug-ins for Gradle" in the tree
   * Click "Next" to start the upgrade process to v2.0.0
 
-#### Import the source code in your Eclipse workspace
+##### Import the source code in your Eclipse workspace
 
-First clone all the desired projects in your worskpace (see the [Getting the Code](#getting-the-code) section), for instance:
+First **clone all the desired projects** in your worskpace (see the [Getting the Code](#getting-the-code) section), for instance:
 
 ```bash
 $ git clone --recursive https://github.com/opensensorhub/osh-core
@@ -170,12 +172,12 @@ $ git clone https://github.com/opensensorhub/osh-distros
 
 Then import each repository as a Gradle project using the following steps:
 
-  * In the Package Explorer, right click and select "Import" from the popup menu
+  * In the **Package Explorer**, right click and select "Import" from the popup menu
   * Open the "Gradle" category, select "Existing Gradle Project" and click "Next"
   * Click "Next" on the wizard welcome page
   * Set the "Project root directory" by browsing to the location of your local clone of the repository
   * Click "Finish"
-  * All projects should be imported successfully and visible in the "Package Explorer". Everything should compile without error.
+  * All projects should be imported successfully and visible in the Package Explorer. Everything should compile without error.
 
 Since OSH consists of many modules, each of which will become a separate Eclipse project, we recommend that you group projects into Working Sets (for example, one working set per repo)
 

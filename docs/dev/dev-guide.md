@@ -186,12 +186,10 @@ Since OSH consists of many modules, each of which will become a separate Eclipse
 
 ##### Eclipse Tips
 
-###### Update Gradle Settings
+* Everytime a change is made to the Gradle build scripts, the Eclipse project settings must be updated with the    following steps:
 
-    Everytime a change is made to the Gradle build scripts, the Eclipse project settings must be updated with the    following steps:
-
-    * Click one of the OSH module project
-    * Select "Gradle > Refresh Gradle Project..." from the context menu
+    - Right click one of the OSH module project
+    - Select "Gradle > Refresh Gradle Project..." from the context menu
 
 
 ### Contributing

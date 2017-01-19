@@ -8,11 +8,11 @@ This page describes some of the key architecture and design principles used with
 
 OpenSensorHub has a modular architecture. It is made of modules (jar files) that can be deployed with or without an OSGi framework. In all cases, it is a pure Java solution and thus needs a JVM to run. Here is an overview of the main modules and how they depend on each other:
 
-<iframe frameborder="0" style="width:100%;height:463px" src="https://www.draw.io/?chrome=0&lightbox=1&nav=1#G0B3EZQJqOfG9selhFNDVkVGltaUE"></iframe>
+<iframe frameborder="0" style="width:100%;height:463px" src="https://www.draw.io/?chrome=0&lightbox=1&nav=1&url=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D0B3EZQJqOfG9selhFNDVkVGltaUE"></iframe>
 
 Some of the add-on modules, provided in the base distribution, are listed below:
 
-<iframe frameborder="0" style="width:100%;height:323px" src="https://www.draw.io/?chrome=0&lightbox=1&nav=1&page=2#G0B3EZQJqOfG9selhFNDVkVGltaUE"></iframe>
+<iframe frameborder="0" style="width:100%;height:323px" src="https://www.draw.io/?chrome=0&lightbox=1&nav=1&page=2&url=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D0B3EZQJqOfG9selhFNDVkVGltaUE"></iframe>
 
 
 ### The Event Bus

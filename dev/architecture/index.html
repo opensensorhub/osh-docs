@@ -194,6 +194,8 @@
             <ul>
             
                 
+                    <li><a class="toctree-l4" href="#architecture-overview">Architecture Overview</a></li>
+                
                     <li><a class="toctree-l4" href="#the-event-bus">The Event Bus</a></li>
                 
                     <li><a class="toctree-l4" href="#sensor-drivers">Sensor Drivers</a></li>
@@ -331,9 +333,16 @@
               
                 <h1 id="architecture">Architecture</h1>
 <p>This page describes some of the key architecture and design principles used within OpenSensorHub. These are important concepts to understand if you want to contribute to the core or develop your own SensorHub modules (e.g. sensor drivers, database bindings, etc.)</p>
+<h3 id="architecture-overview">Architecture Overview</h3>
+<p>OpenSensorHub has a modular architecture. It is made of modules (jar files) that can be deployed with or without an OSGi framework. In all cases, it is a pure Java solution and thus needs a JVM to run. Here is an overview of the main modules and how they depend on each other:</p>
+<iframe frameborder="0" style="width:100%;height:463px" src="https://www.draw.io/?chrome=0&lightbox=1&nav=1#G0B3EZQJqOfG9selhFNDVkVGltaUE"></iframe>
+
+<p>Some of the add-on modules, provided in the base distribution, are listed below:</p>
+<iframe frameborder="0" style="width:100%;height:323px" src="https://www.draw.io/?chrome=0&lightbox=1&nav=1&page=2#G0B3EZQJqOfG9selhFNDVkVGltaUE"></iframe>
+
 <h3 id="the-event-bus">The Event Bus</h3>
 <p>SensorHub is designed around a generic bus through which transits all events coming from and going to the connected sensors and processes. SensorHub drivers convert standard or proprietary sensor/actuators protocols to the SWE common format so that the data can be communicated through the bus and made available to all other SensorHub components.</p>
-<p><img alt="Event Bus" src="../img/bus.png" title="Event Bus" /></p>
+<p><img alt="Event Bus" src="../img/bus.png?centerme" title="Event Bus" /></p>
 <p>All data sent through the bus is described using the <a href="http://www.opengeospatial.org/standards/swecommon">SWE Common Data Model</a> so that each message is auto-describing and can be decoded by any sub-function connected to it.</p>
 <p>The persistence engine is also connected to the bus and can archive the desired messages (data, commands, status info, etc...).</p>
 <p>Web services that use real-time data are also connected to the bus and can distribute any data through standard web interfaces such as the <a href="http://www.opengeospatial.org/standards/sos">Sensor Observation Service</a> from OGC.</p>
@@ -381,7 +390,7 @@
 <p>Process chains can be configured using the SensorML language so that new algorithms can be easily created without writing any code simply by connecting basic functions in the diagram editor (not currently available). However, the use of SensorML is not required and one can also write a plain Java plugin compliant with the processing API for implementing a particular algorithm.</p>
 <h3 id="example-deployment">Example Deployment</h3>
 <p>The diagram below shows an example OSH instance configured with one sensor, one processing module, one storage module, SOS and SPS web services :</p>
-<p><img alt="Example Bus" src="../img/bus_example.png" title="Example Bus" /></p>
+<p><img alt="Example Bus" src="../img/bus_example.png?centerme" title="Example Bus" /></p>
 <ul>
 <li>
 <p>The sensor is connected via a proper sensor driver that pushes data to the bus as soon as it's available. Full description of the data structure is made available to other module via the sensor API.</p>
@@ -431,7 +440,7 @@
   <div role="contentinfo">
     <!-- Copyright etc -->
     
-      <p>© Copyright 2015 Sensia Software LLC</p>
+      <p>© Copyright 2015-2017 Sensia Software LLC</p>
     
   </div>
 

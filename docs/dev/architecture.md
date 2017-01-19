@@ -4,11 +4,22 @@ Architecture
 This page describes some of the key architecture and design principles used within OpenSensorHub. These are important concepts to understand if you want to contribute to the core or develop your own SensorHub modules (e.g. sensor drivers, database bindings, etc.)
 
 
+### Architecture Overview
+
+OpenSensorHub has a modular architecture. It is made of modules (jar files) that can be deployed with or without an OSGi framework. In all cases, it is a pure Java solution and thus needs a JVM to run. Here is an overview of the main modules and how they depend on each other:
+
+<iframe frameborder="0" style="width:100%;height:463px" src="https://www.draw.io/?chrome=0&lightbox=1&nav=1#G0B3EZQJqOfG9selhFNDVkVGltaUE"></iframe>
+
+Some of the add-on modules, provided in the base distribution, are listed below:
+
+<iframe frameborder="0" style="width:100%;height:323px" src="https://www.draw.io/?chrome=0&lightbox=1&nav=1&page=2#G0B3EZQJqOfG9selhFNDVkVGltaUE"></iframe>
+
+
 ### The Event Bus
 
 SensorHub is designed around a generic bus through which transits all events coming from and going to the connected sensors and processes. SensorHub drivers convert standard or proprietary sensor/actuators protocols to the SWE common format so that the data can be communicated through the bus and made available to all other SensorHub components.
 
-![Event Bus](img/bus.png "Event Bus")
+![Event Bus](img/bus.png?centerme "Event Bus")
 
 All data sent through the bus is described using the [SWE Common Data Model](http://www.opengeospatial.org/standards/swecommon) so that each message is auto-describing and can be decoded by any sub-function connected to it.
 
@@ -69,7 +80,7 @@ Process chains can be configured using the SensorML language so that new algorit
 
 The diagram below shows an example OSH instance configured with one sensor, one processing module, one storage module, SOS and SPS web services :
 
-![Example Bus](img/bus_example.png "Example Bus")
+![Example Bus](img/bus_example.png?centerme "Example Bus")
 
   * The sensor is connected via a proper sensor driver that pushes data to the bus as soon as it's available. Full description of the data structure is made available to other module via the sensor API.
 

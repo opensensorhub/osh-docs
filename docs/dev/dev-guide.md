@@ -156,9 +156,8 @@ Make sure you have the following Eclipse components installed:
 
   * Go to "Help > Install New Software" in the main menu
   * Add a new **Update Site** by clicking "Add..." at the top right
-  * Set name to "Buildship Snapshots" and location to the following URL: <https://builds.gradle.org/repository/download/Tooling_Master_IntegrationTests_Linux_Eclipse46Build/.lastSuccessful/update-site>
+  * Set name to "Buildship Snapshots" and location to the following URL: <http://download.eclipse.org/buildship/updates/e46/snapshots/2.x>
   * Select the newly created update site in the list
-  * Enter "guest" for login and password
   * Select "Buildship: Eclipse Plug-ins for Gradle" in the tree
   * Click "Next" to start the upgrade process to v2.0.0
 

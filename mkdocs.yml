@@ -1,7 +1,7 @@
 site_name: OpenSensorHub
 site_description: 'Software for building smart sensor networks'
 repo_url: https://github.com/opensensorhub/
-copyright: '© Copyright 2015 Sensia Software LLC'
+copyright: '© Copyright 2015-2017 Sensia Software LLC'
 google_analytics: ['UA-36723568-3', 'opensensorhub.org']
 
 pages:

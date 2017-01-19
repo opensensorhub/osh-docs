@@ -25,17 +25,19 @@ The demo android app is an example of how to connect to the service, configure i
 
 You first access the main menu (left) and configure your device name and the SOS endpoint (right):
 
+<center>
 ![Main Menu](img/app_screenshot_menu.png)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![SOS Configuration](img/app_screenshot_sosconf.png)
-
+</center>
 &nbsp;
 
 You then select sensors you want to enable (left), and after you start SensorHub from the main menu, their data is streamed to the SOS (right):
 
+<center>
 ![Sensors Configuration](img/app_screenshot_sensorconf.png)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![Sensor Data Streams On](img/app_screenshot_video.png)
- 
+</center> 
 
 

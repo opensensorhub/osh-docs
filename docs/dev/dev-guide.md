@@ -150,13 +150,13 @@ Make sure you have the following Eclipse components installed:
   
   * **Eclipse Neon** or newer (the exact steps described here are for Neon)
   * **Egit Plugin** for Eclipse (included in "Eclipse IDE for Java Developers" release)
-  * **Buildship Plugin** for Eclipse v2.0.0 or newer (Buildship is included in the "Eclipse IDE for Java Developers" release but you'll need to upgrade it to a newer version. See below for instructions)
+  * **Buildship Plugin** for Eclipse v2.0.0 or newer (Buildship is included in the "Eclipse IDE for Java Developers" release but you'll need to upgrade it unless you use Eclipse Oxygen or newer. See below for instructions)
 
-##### Upgrade the Buildship plugin
+##### Upgrade the Buildship plugin (not necessary with Eclipse Oxygen or newer)
 
   * Go to "Help > Install New Software" in the main menu
   * Add a new **Update Site** by clicking "Add..." at the top right
-  * Set name to "Buildship Snapshots" and location to the following URL: <http://download.eclipse.org/buildship/updates/e46/snapshots/2.x>
+  * Set name to "Buildship Snapshots" and location to the following URL: <http://download.eclipse.org/buildship/updates/e46/releases/2.x/>
   * Select the newly created update site in the list
   * Select "Buildship: Eclipse Plug-ins for Gradle" in the tree
   * Click "Next" to start the upgrade process to v2.0.0

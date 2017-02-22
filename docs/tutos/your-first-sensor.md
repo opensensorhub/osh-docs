@@ -2,7 +2,7 @@ Your First Sensor Driver
 ===
 
 
-This is a tutorial to help you write your first sensor driver, based on the [Fake Weather][] demo module that is provided with SensorHub source and binary releases. You may also find it easier to follow these steps in a [presentation](https://drive.google.com/open?id=0B3EZQJqOfG9sUFlPMkRZZ056VGc) with screenshots that we made during a FOSS4G workshop in July 2015.
+This is a tutorial to help you write your first sensor driver, based on the [Fake Weather][] demo module that is provided with SensorHub source and binary releases. You may also find it easier to follow these steps in a [presentation](https://drive.google.com/file/d/0B3EZQJqOfG9saGFkY0U2R2VBV00/view) with screenshots that we originally made during a FOSS4G workshop.
 
 
 

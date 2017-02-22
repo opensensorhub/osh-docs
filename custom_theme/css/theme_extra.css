@@ -2,7 +2,11 @@
  * Tweak the overal size to better match RTD.
  */
 body {
-    font-size: 90%;
+    /*font-size: 90%;*/
+}
+
+footer p {
+    font-size: 80%;
 }
 
 h3, h4, h5, h6 {

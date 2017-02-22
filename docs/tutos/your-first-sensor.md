@@ -7,9 +7,9 @@ This is a tutorial to help you write your first sensor driver, based on the [Fak
 [Fake Weather]: https://github.com/opensensorhub/osh-sensors/tree/master/sensorhub-driver-fakeweather/src/main/java/org/sensorhub/impl/sensor/fakeweather
 
 
-### Maven Project
+### Gradle Project
 
-The first step is to create a new Eclipse Maven project that will contain the new sensor module, as instructed on [this page](adding-new-modules.md). For the sake of coherency, you should name your driver project `sensorhub-driver-{your_driver_name}`. In the case of the Fake Weather module, we named it `sensorhub-driver-fakeweather`.
+The first step is to create a new Eclipse Gradle project that will contain the new sensor module, as instructed on [this page](adding-new-modules.md). For the sake of coherency, you should name your driver project `sensorhub-driver-{your_driver_name}`. In the case of the Fake Weather module, we named it `sensorhub-driver-fakeweather`.
 
 You then need to create at least 4 classes to add a new sensor module to the SensorHub system:
 

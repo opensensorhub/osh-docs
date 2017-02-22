@@ -340,43 +340,61 @@
 </ul>
 <h3 id="the-module-configuration-class">The Module Configuration Class</h3>
 <p>The sensor module configuration class must be derived from <a href="https://github.com/opensensorhub/osh-core/blob/master/sensorhub-core/src/main/java/org/sensorhub/api/sensor/SensorConfig.java">SensorConfig</a>. You can add any other properties that your sensor needs to be properly configured. This class will be directly initialized by parsing equivalent JSON properties in the main SensorHub configuration file.</p>
-<p>The configuration class for the Fake Weather module is <a href="https://github.com/opensensorhub/osh-sensors/blob/master/sensorhub-driver-fakeweather/src/main/java/org/sensorhub/impl/sensor/fakeweather/FakeWeatherConfig.java">FakeWeatherConfig</a>, where we simply added fields to specify the station location:</p>
+<p>The configuration class for the Fake Weather module is <a href="https://github.com/opensensorhub/osh-sensors/blob/master/sensorhub-driver-fakeweather/src/main/java/org/sensorhub/impl/sensor/fakeweather/FakeWeatherConfig.java">FakeWeatherConfig</a>, where we simply added fields to specify a seiral number and the station location:</p>
 <pre><code class="java">public class FakeWeatherConfig extends SensorConfig
 {
-  public double centerLatitude = 34.8038; // in deg
-  public double centerLongitude = -86.7228; // in deg
-  public double centerAltitude = 0.000; // in meters
+  public String serialNumber = &quot;0123456879&quot;;
+
+  public LLALocation location = new LLALocation();
+
+  @Override
+  public LLALocation getLocation()
+  {
+    return location;
+  }
 }
 </code></pre>
 
-<p>We recommend that you use the <code>@DisplayInfo</code> annotation to provide rendering hints for UI classes. An example of this is shown below:</p>
+<p>We recommend that you use annotations to provide rendering hints for UI classes (this is used by the admin console to display things nicely). You can also set default values for some of the config parameters. An example of this is shown below:</p>
 <pre><code class="java">public class FakeWeatherConfig extends SensorConfig
 {
-  @DisplayInfo(label=&quot;Latitude&quot;, desc=&quot;Latitude of Weather Station&quot;)
-  public double centerLatitude = 34.8038; // in deg
+  @Required
+  @DisplayInfo(desc=&quot;Serial number of the station used to generate its unique ID&quot;)
+  public String serialNumber = &quot;0123456879&quot;;
 
-  @DisplayInfo(label=&quot;Longitude&quot;, desc=&quot;Longitude of Weather Station&quot;)
-  public double centerLongitude = -86.7228; // in deg
+  @DisplayInfo(desc=&quot;Station Location&quot;)
+  public LLALocation location = new LLALocation();
 
-  @DisplayInfo(label=&quot;Altitude&quot;, desc=&quot;Altitude of Weather Station&quot;)
-  public double centerAltitude = 150.000; // in meters
+  public FakeWeatherConfig()
+  {
+    location.lat = 34.8038;
+    location.lon = -86.7228;
+    location.alt = 0.000;
+  }
+
+  @Override
+  public LLALocation getLocation()
+  {
+    return location;
+  }
 }
 </code></pre>
 
 <p>Below is a JSON snippet to be included in the main SensorHub configuration file, giving a possible configuration for the Fake Weather module:</p>
 <pre><code class="json">{
   &quot;objClass&quot;: &quot;org.sensorhub.impl.sensor.fakeweather.FakeWeatherConfig&quot;,
-  &quot;id&quot;: &quot;d136b6ea-3950-4691-bf56-c84ec7d89d73&quot;,
-  &quot;name&quot;: &quot;Fake Weather Sensor&quot;,
-  &quot;enabled&quot;: true,
-  &quot;moduleClass&quot;: &quot;org.sensorhub.impl.sensor.fakeweather.FakeWeatherSensor&quot;,
-  &quot;sensorML&quot;: null,
-  &quot;autoActivate&quot;: true,
-  &quot;enableHistory&quot;: false,
-  &quot;hiddenIO&quot;: null,
-  &quot;centerLatitude&quot;: 43.6182,
-  &quot;centerLongitude&quot;: 1.4238,
-  &quot;centerAltitude&quot;: 150.0
+  &quot;serialNumber&quot;: &quot;0123456879&quot;,
+    &quot;location&quot;: {
+      &quot;objClass&quot;: &quot;org.sensorhub.api.sensor.PositionConfig$LLALocation&quot;,
+      &quot;lat&quot;: 34.8038,
+      &quot;lon&quot;: -86.7228,
+      &quot;alt&quot;: 0.0
+    },
+    &quot;sensorML&quot;: &quot;base_description.xml&quot;,
+    &quot;id&quot;: &quot;d136b6ea-3950-4691-bf56-c84ec7d89d73&quot;,
+    &quot;moduleClass&quot;: &quot;org.sensorhub.impl.sensor.fakeweather.FakeWeatherSensor&quot;,
+    &quot;name&quot;: &quot;Fake Weather Sensor&quot;,
+    &quot;autoStart&quot;: true
 }
 </code></pre>
 
@@ -387,24 +405,58 @@
 </code></pre>
 
 <p>The sensor module class is responsible for creating an output interface object (implementation of <a href="https://github.com/opensensorhub/osh-core/blob/master/sensorhub-core/src/main/java/org/sensorhub/api/sensor/ISensorDataInterface.java">ISensorDataInterface</a>) for each sensor ouput and preparing the SensorML description of the sensor.</p>
-<p>For the Fake Weather example module, implementation is provided in <a href="https://github.com/opensensorhub/osh-sensors/blob/master/sensorhub-driver-fakeweather/src/main/java/org/sensorhub/impl/sensor/fakeweather/FakeWeatherSensor.java">FakeWeatherSensor</a>. This module only defines a single output and no control input. The next snippet shows the constructor where the output interface is instantiated, initialized, and appended to the output list using the <code>addOutput()</code> method provided by <a href="https://github.com/opensensorhub/osh-core/blob/master/sensorhub-core/src/main/java/org/sensorhub/impl/sensor/AbstractSensorModule.java">AbstractSensorModule</a>:</p>
-<pre><code class="java">public FakeWeatherSensor()
-{
-  dataInterface = new FakeWeatherOutput(this);
-  addOutput(dataInterface, false);
-  dataInterface.init();
-}
+<p>For the Fake Weather example module, implementation is provided in <a href="https://github.com/opensensorhub/osh-sensors/blob/master/sensorhub-driver-fakeweather/src/main/java/org/sensorhub/impl/sensor/fakeweather/FakeWeatherSensor.java">FakeWeatherSensor</a>. This module only defines a single output and no control input. The next snippet shows the init() method that is reponsible for the following actions:</p>
+<ul>
+<li>Generate proper identifiers for the sensor (in this case this is using the serial number provided in the configuration)</li>
+<li>Instantiate and initialize the output interface, and append it to the output list using the <code>addOutput()</code> method provided by <a href="https://github.com/opensensorhub/osh-core/blob/master/sensorhub-core/src/main/java/org/sensorhub/impl/sensor/AbstractSensorModule.java">AbstractSensorModule</a>:</li>
+</ul>
+<pre><code class="java">  public void init() throws SensorHubException
+  {
+     super.init();
+
+     // generate identifiers
+     generateUniqueID(&quot;urn:osh:sensor:simweather:&quot;, config.serialNumber);
+     generateXmlID(&quot;WEATHER_STATION_&quot;, config.serialNumber);
+
+     // init main data interface
+     dataInterface = new FakeWeatherOutput(this);
+     addOutput(dataInterface, false);
+     dataInterface.init();
+  }
 </code></pre>
 
 <p>The module <code>start()</code> and <code>stop()</code> methods must also be implemented. They must do all processing needed when the sensor is enabled or disabled respectively. In the case of the Fake Weather module, these methods simply delegate to the output interface since it is this class that actually starts/stops the measurement thread.</p>
 <pre><code class="java">public void start() throws SensorHubException
 {
-    dataInterface.start();        
+    dataInterface.start();
 }
 
 public void stop() throws SensorHubException
 {
     dataInterface.stop();
+}
+</code></pre>
+
+<p>In addition, the driver must implement the <code>isConnected()</code> method that indicates successfult connection to the device. In this simple example we just return true since it's a simulated sensor:</p>
+<pre><code class="java">public boolean isConnected()
+{
+  return true;
+}
+</code></pre>
+
+<p>You can also override <code>updateSensorDescription()</code> to let the driver add metadata to the electronic datasheet (SensorML language). For instance, it could be information that is obtained from the device itself (exact model number, IP address, etc.) or from the user configuration. For this example, we just set the description and the serial number:</p>
+<pre><code class="java">protected void updateSensorDescription()
+{
+  synchronized (sensorDescLock)
+  {
+    super.updateSensorDescription();
+
+    if (!sensorDescription.isSetDescription())
+      sensorDescription.setDescription(&quot;Simulated weather station generating realistic pseudo-random measurements&quot;);
+
+    SMLHelper helper = new SMLHelper(sensorDescription);
+    helper.addSerialNumber(config.serialNumber);
+  }
 }
 </code></pre>
 
@@ -465,42 +517,8 @@ public void stop() throws SensorHubException
 <p>When the rate is not known a-priori and/or can vary, an average can be computed online (This is what is done in the <a href="https://github.com/opensensorhub/osh-core/blob/master/sensorhub-service-swe/src/main/java/org/sensorhub/impl/sensor/sost/SOSVirtualSensorOutput.java">SOS-T Virtual Sensor</a> for example since there is no way to know the rate of incoming data in advance).</p>
 <h4 id="startstop-measurement-collection-thread">Start/stop measurement collection thread</h4>
 <p>The measurement thread gets readings from sensor hardware and package them in a <a href="https://github.com/sensiasoft/lib-swe-common/blob/master/swe-common-core/src/main/java/net/opengis/swe/v20/DataBlock.java">DataBlock</a>. The sensor output must thus provide methods to start/stop the measurement thread and implement the logic for connecting to the sensor and correctly generating the <a href="https://github.com/sensiasoft/lib-swe-common/blob/master/swe-common-core/src/main/java/net/opengis/swe/v20/DataBlock.java">DataBlock</a>.</p>
-<p>In the Fake Weather example, the <code>sendMeasurement()</code> method is implemented and is called regularly using a Timer thread set to execute at the frequency specified by <code>getAverageSamplingPeriod()</code>.</p>
-<pre><code class="java">private void sendMeasurement()
-{
-    // generate new weather values
-    double time = System.currentTimeMillis() / 1000.;
-
-    // temperature; value will increase or decrease by less than 1.0 deg
-    temp += 0.005 * (2.0 *Math.random() - 1.0);
-
-    // pressure; value will increase or decrease by less than 20 hPa
-    pressure += 20. * (2.0 * Math.random() - 1.0);
-
-    // wind speed; keep positive
-    // vary value between +/- 10 m/s
-    speed += 10.0 * (2.0 * Math.random() - 1.0);
-    speed = speed &lt; 0.0 ? 0.0 : speed;
-
-    // wind direction; keep between 0 and 360 degrees
-    direction += 4.0 * (2.0 * Math.random() - 1.0);
-    direction = direction &lt; 0.0 ? direction+360.0 : direction;
-    direction = direction &gt; 360.0 ? direction-360.0 : direction;
-
-    // build and publish datablock
-    DataBlock dataBlock = weatherData.createDataBlock();
-    dataBlock.setDoubleValue(0, time);
-    dataBlock.setDoubleValue(1, temp);
-    dataBlock.setDoubleValue(2, pressure);
-    dataBlock.setDoubleValue(3, speed);
-    dataBlock.setDoubleValue(4, direction);
-
-    // update latest record and send event
-    latestRecord = dataBlock;
-    eventHandler.publishEvent(new SensorDataEvent(time, FakeWeatherOutput.this, dataBlock));
-}
-
-protected void start()
+<p>In the Fake Weather example, the <code>sendMeasurement()</code> method implementation generates random varying measurements (it uses Exponentially Correlated Random Variables (ECRV) to generate something more realistic) and is called regularly using a Timer thread set to execute at the frequency specified by <code>getAverageSamplingPeriod()</code>.</p>
+<pre><code class="java">protected void start()
 {
     if (timer != null)
        return;
@@ -528,34 +546,10 @@ protected void stop()
 
 <h3 id="the-module-descriptor-class">The Module Descriptor Class</h3>
 <p>A module descriptor class must be provided to enable automatic discovery of your new module by the SensorHub module registry. By providing a class implementing the <code>IModuleProvider</code> interface, all SensorHub modules available on the classpath can indeed be discovered using the standard Java <a href="http://docs.oracle.com/javase/7/docs/api/java/util/ServiceLoader.html">ServiceLoader</a> API.</p>
-<p>The class provides metadata about the module such as a name, description and version. It also indicates which configuration class and module class make up the module. It should thus point to the classes you created in the first two steps of this tutorial.</p>
+<p>In addition, this factory class indicates which configuration class and module class to use for this particular module. It should thus point to the classes you created in the first two steps of this tutorial.</p>
 <p>The snippet below shows the module descriptor for the Fake Weather sensor module:</p>
-<pre><code class="java">public class FakeWeatherModuleDescriptor implements IModuleProvider
+<pre><code class="java">public class FakeWeatherModuleDescriptor extends JarModuleProvider implements IModuleProvider
 {
-  @Override
-  public String getModuleName()
-  {
-    return &quot;Fake Weather Sensor&quot;;
-  }
-
-  @Override
-  public String getModuleDescription()
-  {
-    return &quot;Fake weather station with randomly changing measurements&quot;;
-  }
-
-  @Override
-  public String getModuleVersion()
-  {
-    return &quot;0.1&quot;;
-  }
-
-  @Override
-  public String getProviderName()
-  {
-    return &quot;Botts Innovative Research Inc&quot;;
-  }
-
   @Override
   public Class&lt;? extends IModule&lt;?&gt;&gt; getModuleClass()
   {
@@ -570,8 +564,8 @@ protected void stop()
 }
 </code></pre>
 
-<p>In order to be discoverable by the <a href="http://docs.oracle.com/javase/7/docs/api/java/util/ServiceLoader.html">ServiceLoader</a> API, the module descriptor class also needs to be advertised in a provider-configuration file called <code>org.sensorhub.api.module.IModuleProvider</code> in the resource directory <code>META-INF/services</code> (see <a href="http://docs.oracle.com/javase/7/docs/api/java/util/ServiceLoader.html">ServiceLoader</a> documentation on Oracle website). For instance, the Fake Weather sensor module includes <a href="https://github.com/opensensorhub/osh-sensors/blob/master/sensorhub-driver-fakeweather/src/main/resources/META-INF/services/org.sensorhub.api.module.IModuleProvider">this file</a> file with the following line:</p>
-<pre><code>org.sensorhub.impl.sensor.fakeweather.FakeWeatherModuleDescriptor
+<p>In order to be discoverable by the <a href="http://docs.oracle.com/javase/7/docs/api/java/util/ServiceLoader.html">ServiceLoader</a> API, the module descriptor class also needs to be advertised in a provider-configuration file called <code>org.sensorhub.api.module.IModuleProvider</code> in the resource directory <code>META-INF/services</code>. For instance, the Fake Weather sensor module includes <a href="https://github.com/opensensorhub/osh-sensors/blob/master/sensorhub-driver-fakeweather/src/main/resources/META-INF/services/org.sensorhub.api.module.IModuleProvider">this file</a> file with the following line:</p>
+<pre><code>org.sensorhub.impl.sensor.fakeweather.FakeWeatherDescriptor
 </code></pre>
               
             </div>

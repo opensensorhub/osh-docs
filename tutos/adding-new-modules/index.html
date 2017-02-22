@@ -250,13 +250,11 @@
             <ul>
             
                 
-                    <li><a class="toctree-l4" href="#create-a-new-maven-eclipse-project">Create a new Maven Eclipse project</a></li>
+                    <li><a class="toctree-l4" href="#get-the-module-template-project">Get the module template project</a></li>
                 
-                    <li><a class="toctree-l4" href="#move-the-project-inside-the-sensorhub-main-folder">Move the project inside the sensorhub main folder</a></li>
+                    <li><a class="toctree-l4" href="#import-into-eclipse">Import into Eclipse</a></li>
                 
-                    <li><a class="toctree-l4" href="#add-dependency-to-sensorhub-core-software-module">Add dependency to SensorHub core software module</a></li>
-                
-                    <li><a class="toctree-l4" href="#enable-git-version-control">Enable Git version control</a></li>
+                    <li><a class="toctree-l4" href="#modify-the-gradle-build-file">Modify the Gradle Build File</a></li>
                 
             
             </ul>
@@ -326,42 +324,34 @@
             <div class="section">
               
                 <h1 id="adding-new-modules">Adding New Modules</h1>
-<p>So that it can be more easily integrated to OpenSensorHub build process, we advise you to package each OSH module (or set of similar modules) as a separate eclipse project and corresponding Maven module. </p>
-<p>If you are using Eclipse with the M2E plugin as described in the <a href="../../dev/dev-guide/">Developer's Guide</a>, you can create the new project by following the steps below:</p>
-<h3 id="create-a-new-maven-eclipse-project">Create a new Maven Eclipse project</h3>
+<p>So that it can be more easily integrated to OpenSensorHub build process, we advise you to package each OSH module (or set of related modules) as a separate Gradle Project. </p>
+<p>This guide assumes the following prerequisites:</p>
 <ul>
-<li>Right click in package explorer and select <em>"New &gt; Other"</em></li>
-<li>Go down to the <em>"Maven"</em> section and select <em>"Maven Project"</em> then click <em>"Next"</em></li>
-<li>Check <em>"Create a simple project"</em> and click <em>"Next"</em></li>
-<li>Set <em>GroupId="org.sensorhub"</em> and <em>ArtifactId="sensorhub-{moduletype}-{modulename}"</em> (for instance <em>sensorhub-driver-axis</em> for an Axis camera driver)</li>
-<li>Fill up the name and description fields with meaningful information</li>
-<li>Set Parent Project to <em>GroupId="org.sensorhub"</em>, <em>ArtifactId="sensorhub-all"</em>, <em>Version=0.5</em> and click <em>"Finish"</em></li>
+<li>You are using Eclipse Neon (or later) with the BuildShip plugin (version 2 or later)</li>
+<li>You have cloned at least the osh-core and osh-sensors repositories and correctly imported them into Eclipse.</li>
 </ul>
-<h3 id="move-the-project-inside-the-sensorhub-main-folder">Move the project inside the sensorhub main folder</h3>
-<p>By default your project should have been created at the root of the workspace. To move it into the correct sub-folder, follow these steps:</p>
+<p>If you haven't done this initial setup, first follow the <a href="../../dev/dev-guide/">Developer's Guide</a> before you create the new module project with the steps below:</p>
+<h3 id="get-the-module-template-project">Get the module template project</h3>
 <ul>
-<li>Right click on the newly created project</li>
-<li>Select <em>"Refactor &gt; Move"</em> from the popup menu</li>
-<li>In the location field, insert "osh-xxx/" before the project name in order to obtain the following path: <em>"path/to/your/workspace/osh-xxx/sensorhub-{moduletype}-{modulename}"</em> </li>
+<li>Download the <a href="https://raw.githubusercontent.com/opensensorhub/project-template/master/osh-node-package-with-source/release/sensorhub-template-module.zip">Template Project</a></li>
+<li>Unzip it inside one of the repository of your choice (e.g. osh-sensors)</li>
+<li>Change the folder name. By convention we use names such as <em>sensorhub-{moduletype}-{modulename}</em> (e.g. <em>sensorhub-driver-axis</em> for the Axis camera driver)</li>
 </ul>
-<h3 id="add-dependency-to-sensorhub-core-software-module">Add dependency to SensorHub core software module</h3>
+<p><em>Note that this template can only be used within an existing repository because it relies on the parent Gradle project residing at the root of the repository</em></p>
+<h3 id="import-into-eclipse">Import into Eclipse</h3>
 <ul>
-<li>Open the <em>pom.xml</em> that was created at the root of the project (It should open in a special editor if the M2E plugin was properly installed)</li>
-<li>Go to the <em>"Dependencies"</em> tab and click the <em>"Add"</em> button</li>
-<li>Enter <em>"sensorhub"</em> in the search box (above the Search Results section)</li>
-<li>Wait for results to appear, select <em>"sensorhub-core"</em> in the list and click OK</li>
-<li>You can also edit the pom.xml to override the organization and developer name that are inherited from the parent project by putting your own.</li>
-<li>Save the file and close it </li>
-<li>Depending on the type of module you develop, you may have to add depencendies to other modules as well, and even to external libraries that you module may depend on.</li>
+<li>Right-click on the repository folder in Eclipse (e.g. osh-sensors) or one of its subfolder or subproject</li>
+<li>Select <em>Gradle &gt; Refresh Gradle Project</em>. This will import the new module into your workspace  </li>
 </ul>
-<h3 id="enable-git-version-control">Enable Git version control</h3>
-<p>To associate the new project with the Git repository within Eclipse, follow these steps:</p>
+<p><em>Note that if you use Eclipse "Working Sets", the project is usually added to the default working set called "Other Projects" so you'll have to move it to the desired working set manually.</em></p>
+<h3 id="modify-the-gradle-build-file">Modify the Gradle Build File</h3>
 <ul>
-<li>Right click on the project and select <em>"Team -&gt; Share"</em> from the context menu</li>
-<li>Select <em>"Git"</em> en click <em>"Next"</em></li>
-<li>Check <em>"Use or create repository in parent folder of project"</em> so that your new project can be associated to the main sensorhub repository</li>
-<li>Select you project in the list and click <em>"Finish"</em></li>
+<li>Set the <em>description</em> and <em>details</em> fields to something meaningful for your module</li>
+<li>Also set the OSGi manifest and Maven POM entries so that your package is properly documented</li>
+<li>Add other dependencies if needed by your module (see <a href="https://docs.gradle.org/3.4/userguide/artifact_dependencies_tutorial.html">Gradle documentation</a> to learn how to do this)</li>
+<li>If you added new dependencies, select <em>Gradle &gt; Refresh Gradle Project</em> from the project context menu to update Eclipse configuration with the new depended-on libraries.</li>
 </ul>
+<p>You're all set!! You can now start writing the code for your module by building to one of <a href="../../dev/core-apis">OSH Core APIs</a>.</p>
               
             </div>
           </div>
@@ -382,7 +372,7 @@
   <div role="contentinfo">
     <!-- Copyright etc -->
     
-      <p>© Copyright 2015-2017 Sensia Software LLC</p>
+      <p>The content of this site is licensed under a Creative Commons Zero v1.0 Universal License</p>
     
   </div>
 

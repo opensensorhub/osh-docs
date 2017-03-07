@@ -696,8 +696,13 @@
             "title": "Network Output"
         }, 
         {
-            "location": "/apidocs/", 
-            "text": "", 
+            "location": "/dev/javadoc/", 
+            "text": "Javadoc\n\n\nYou can find Javadocs for the following osh-core versions online:\n\n\n\n\n\n\nosh-core v1.0\n\n\n\n\n\n\nosh-core v1.1\n\n\n\n\n\n\nosh-core v1.2", 
+            "title": "Javadoc"
+        }, 
+        {
+            "location": "/dev/javadoc/#javadoc", 
+            "text": "You can find Javadocs for the following osh-core versions online:    osh-core v1.0    osh-core v1.1    osh-core v1.2", 
             "title": "Javadoc"
         }, 
         {

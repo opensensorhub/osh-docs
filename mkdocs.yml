@@ -32,7 +32,7 @@ pages:
          - SensorML API: dev/core-apis/sensorml-api.md
          - Sensor API: dev/core-apis/sensor-api.md
          - Sensor Network API: dev/core-apis/sensornet-api.md
-    - Javadoc: apidocs/index.html
+    - Javadoc: dev/javadoc.md
     - Android Support: dev/android.md
     - Arduino Support: dev/arduino.md
 - Tutorials:

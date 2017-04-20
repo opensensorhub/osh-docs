@@ -73,17 +73,17 @@ Below is a JSON snippet to be included in the main SensorHub configuration file,
 {
   "objClass": "org.sensorhub.impl.sensor.fakeweather.FakeWeatherConfig",
   "serialNumber": "0123456879",
-    "location": {
-      "objClass": "org.sensorhub.api.sensor.PositionConfig$LLALocation",
-      "lat": 34.8038,
-      "lon": -86.7228,
-      "alt": 0.0
-    },
-    "sensorML": "base_description.xml",
-    "id": "d136b6ea-3950-4691-bf56-c84ec7d89d73",
-    "moduleClass": "org.sensorhub.impl.sensor.fakeweather.FakeWeatherSensor",
-    "name": "Fake Weather Sensor",
-    "autoStart": true
+  "location": {
+    "objClass": "org.sensorhub.api.sensor.PositionConfig$LLALocation",
+    "lat": 34.8038,
+    "lon": -86.7228,
+    "alt": 0.0
+  },
+  "sensorML": "base_description.xml",
+  "id": "d136b6ea-3950-4691-bf56-c84ec7d89d73",
+  "moduleClass": "org.sensorhub.impl.sensor.fakeweather.FakeWeatherSensor",
+  "name": "Fake Weather Sensor",
+  "autoStart": true
 }
 ```
 
@@ -149,16 +149,16 @@ You can also override `updateSensorDescription()` to let the driver add metadata
 ```java
 protected void updateSensorDescription()
 {
-  synchronized (sensorDescLock)
-  {
-    super.updateSensorDescription();
+    synchronized (sensorDescLock)
+    {
+        super.updateSensorDescription();
             
-    if (!sensorDescription.isSetDescription())
-      sensorDescription.setDescription("Simulated weather station generating realistic pseudo-random measurements");
+        if (!sensorDescription.isSetDescription())
+            sensorDescription.setDescription("Simulated weather station generating realistic pseudo-random measurements");
 
-    SMLHelper helper = new SMLHelper(sensorDescription);
-    helper.addSerialNumber(config.serialNumber);
-  }
+        SMLHelper helper = new SMLHelper(sensorDescription);
+        helper.addSerialNumber(config.serialNumber);
+    }
 }
 ```
 
@@ -244,10 +244,10 @@ protected void start()
     
     // start main measurement generation thread
     TimerTask task = new TimerTask() {
-       public void run()
-       {
-          sendMeasurement();
-       }
+        public void run()
+        {
+            sendMeasurement();
+        }
     };
     timer.scheduleAtFixedRate(task, 0, (long)(getAverageSamplingPeriod()*1000));
 }
@@ -274,17 +274,17 @@ The snippet below shows the module descriptor for the Fake Weather sensor module
 ```java
 public class FakeWeatherModuleDescriptor extends JarModuleProvider implements IModuleProvider
 {
-  @Override
-  public Class<? extends IModule<?>> getModuleClass()
-  {
-    return FakeWeatherSensor.class;
-  }
+    @Override
+    public Class<? extends IModule<?>> getModuleClass()
+    {
+        return FakeWeatherSensor.class;
+    }
 
-  @Override
-  public Class<? extends ModuleConfig> getModuleConfigClass()
-  {
-    return FakeWeatherConfig.class;
-  }
+    @Override
+    public Class<? extends ModuleConfig> getModuleConfigClass()
+    {
+        return FakeWeatherConfig.class;
+    }
 }
 ```
 

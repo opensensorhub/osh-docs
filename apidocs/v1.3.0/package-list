@@ -1,0 +1,17 @@
+net.opengis
+net.opengis.sensorml.v20
+net.opengis.sensorml.v20.bind
+net.opengis.sensorml.v20.impl
+net.opengis.swe.v20
+net.opengis.swe.v20.bind
+org.sensorhub.api.client
+org.sensorhub.api.comm
+org.sensorhub.api.common
+org.sensorhub.api.config
+org.sensorhub.api.data
+org.sensorhub.api.module
+org.sensorhub.api.persistence
+org.sensorhub.api.processing
+org.sensorhub.api.security
+org.sensorhub.api.sensor
+org.sensorhub.api.service

@@ -10,7 +10,8 @@
   <title>Download - OpenSensorHub</title>
   
 
-  <link rel="shortcut icon" href="../img/favicon.ico">
+  <link rel="shortcut icon" href="assets/images/logo.png">
+  
 
   
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
@@ -39,7 +40,7 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-36723568-3', 'opensensorhub.org');
+      ga('create', 'UA-5799482-4', 'opensensorhub.org');
       ga('send', 'pageview');
   </script>
   
@@ -311,8 +312,6 @@
     <li class="wy-breadcrumbs-aside">
       <!--
         
-          <a href="https://github.com/opensensorhub/" class="icon icon-github"> Edit on GitHub</a>
-        
       -->
     </li>
   </ul>
@@ -332,14 +331,15 @@
 <li>Windows</li>
 </ul>
 <p>See the <a href="../install/">Install Section</a> for instructions on how to set it up on your device.</p>
+<p>You can also find individual package from our <a href="https://bintray.com/sensiasoft/osh">Bintray Maven repository</a>.</p>
 <h3 id="maven">Maven</h3>
 <p>You can also use Maven to include OSH in your own project. 
 For instance, if you want to develop a new sensor driver, you can simply add a dependency to the OpenSensorHub Core module in your POM:</p>
 <pre><code class="xml">&lt;dependency&gt;
    &lt;groupId&gt;org.sensorhub&lt;/groupId&gt;
    &lt;artifactId&gt;sensorhub-core&lt;/artifactId&gt;
-   &lt;version&gt;1.0&lt;/version&gt;
-   &lt;type&gt;bundle&lt;/type&gt;
+   &lt;version&gt;1.3.2&lt;/version&gt;
+   &lt;type&gt;pom&lt;/type&gt;
 &lt;/dependency&gt; 
 </code></pre>
 
@@ -347,12 +347,10 @@ For instance, if you want to develop a new sensor driver, you can simply add a d
 <pre><code class="xml">&lt;repositories&gt;
    &lt;repository&gt;
       &lt;id&gt;sensiasoft&lt;/id&gt;
-      &lt;url&gt;http://sensiasoft.net/maven-repo&lt;/url&gt;
+      &lt;url&gt;https://dl.bintray.com/sensiasoft/osh/&lt;/url&gt;
    &lt;/repository&gt;
-&lt;/repositories&gt;   
+&lt;/repositories&gt;
 </code></pre>
-
-<p>Our Maven repository is also an OSGI Bundle Repository, so you can also use any OSGI implementation to download Bundles dynamically.</p>
               
             </div>
           </div>
@@ -373,7 +371,7 @@ For instance, if you want to develop a new sensor driver, you can simply add a d
   <div role="contentinfo">
     <!-- Copyright etc -->
     
-      <p>The content of this site is licensed under a Creative Commons Zero v1.0 Universal License</p>
+      <p>The content of this site is licensed under a Creative Commons Zero v1.0 Universal License. © 2017 OpenSensorHub</p>
     
   </div>
 
@@ -388,8 +386,6 @@ For instance, if you want to develop a new sensor driver, you can simply add a d
 
 <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      
-          <a href="https://github.com/opensensorhub/" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>

@@ -15,6 +15,8 @@ You'll soon find there pre-configured distributions for the most common devices 
 
 See the [Install Section](install.md) for instructions on how to set it up on your device.
 
+You can also find individual package from our [Bintray Maven repository](https://bintray.com/sensiasoft/osh).
+
 
 ### Maven
 
@@ -25,8 +27,8 @@ For instance, if you want to develop a new sensor driver, you can simply add a d
 <dependency>
    <groupId>org.sensorhub</groupId>
    <artifactId>sensorhub-core</artifactId>
-   <version>1.0</version>
-   <type>bundle</type>
+   <version>1.3.2</version>
+   <type>pom</type>
 </dependency> 
 ```
 
@@ -36,9 +38,8 @@ However, OpenSensorHub is not available from Maven Central yet, so you'll also h
 <repositories>
    <repository>
       <id>sensiasoft</id>
-      <url>http://sensiasoft.net/maven-repo</url>
+      <url>https://dl.bintray.com/sensiasoft/osh/</url>
    </repository>
-</repositories>   
+</repositories>
 ```
 
-Our Maven repository is also an OSGI Bundle Repository, so you can also use any OSGI implementation to download Bundles dynamically.

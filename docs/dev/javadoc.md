@@ -9,6 +9,8 @@ You can find Javadocs for the following osh-core versions online:
 
   * [osh-core v1.2](/apidocs/v1.2.0/index.html)
 
+  * [osh-core v1.3](/apidocs/v1.3.2/index.html)
+
 
 
 

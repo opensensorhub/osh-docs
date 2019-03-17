@@ -23,15 +23,16 @@ This page provides instructions for three possible options, depending on your le
 
 If you just want to explore the code, you can browse the source online directly on [Github](https://github.com/opensensorhub). Alternatively, you can download it to your computer using the **Download ZIP** link on each GitHub repository or using the `git` program (see next section).
 
-There are many different repositories that contain various modules for OpenSensorHub. You can browse them all on [Github](https://github.com/opensensorhub) so you can decide which ones are of interest for you but here is a summary of the most important ones:
+There are several repositories of interest in our main GitHub account:
 
   * Core Modules: <https://github.com/opensensorhub/osh-core> 
-  * Communication Protocols: <https://github.com/opensensorhub/osh-comm>
-  * Sensor Drivers: <https://github.com/opensensorhub/osh-sensors> 
-  * Processing Modules: <https://github.com/opensensorhub/osh-processing>
-  * Other Services: <https://github.com/opensensorhub/osh-services>
-  * Storage Backends: <https://github.com/opensensorhub/osh-persistence>
-  * Security Stuff: <https://github.com/opensensorhub/osh-security>
+  * Addons: <https://github.com/opensensorhub/osh-addons>; further organized into subfolders:
+    * Communication Protocols: [comm](https://github.com/opensensorhub/osh-addons/tree/master/comm)
+    * Sensor Drivers: [sensors](https://github.com/opensensorhub/osh-addons/tree/master/sensors) 
+    * Processing Modules: [processing](https://github.com/opensensorhub/osh-addons/tree/master/processing)
+    * Storage Backends: [persistence](https://github.com/opensensorhub/osh-addons/tree/master/persistence)
+    * Services for External Comm: [services](https://github.com/opensensorhub/osh-addons/tree/master/services)
+    * Security Stuff: [security](https://github.com/opensensorhub/osh-addons/tree/master/security)
   * Android: <https://github.com/opensensorhub/osh-android>
 
 
@@ -52,14 +53,14 @@ $ git clone --recursive https://github.com/opensensorhub/osh-core.git
 
 This guide covers building from source using Gradle on the command line or by importing the Gradle projects into an Eclipse workspace. In both cases you will need a working **JDK8 installation** (both OpenJDK 8 and OracleJDK 8 should work).
 
-_Note: JDK8 is only needed for building. Once built, OpenSensorHub itself runs on Java 7 and up_
+_Note: JDK8 is only needed for building. Once built, OpenSensorHub 1.3.x itself runs on Java 7 and up_
 
 
 #### Building with Gradle
 
 The following instructions are for building using the Gradle Wrapper command `gradlew` (or `gradlew.bat` on Windows). This small executable is included in the repository and will automatically fetch the correct version of Gradle for you. If you want to use your own version of Gradle, use the `gradle` command instead, but please note that our build scripts need version 3.1 or later to get support for composite builds. If you want to install Gradle yourself we recommend downloading it directly from the [Gradle Website](https://gradle.org/gradle-download/) as packages provided in Linux distributions may only include earlier versions.
 
-##### Building the core modules
+##### Building only core modules
 
 Use the following command to clone the [osh-core](https://github.com/opensensorhub/osh-core) repository:
 
@@ -86,58 +87,44 @@ _Note 1: The first time you launch Gradle, the build process can take a while be
 
 _Note 2: Some of the JUnit tests automatically run during the 'test' phase of the OSH build process need to instantiate a server on port 8888. These tests will fail if something else is running on this port._
 
-##### Building sensor modules
+##### Building core + add-on modules
 
-Sensor drivers are provided in various [osh-sensors-***](https://github.com/opensensorhub?q=osh-sensors) repositories. First clone one of these repos in the same folder as osh-core (i.e. `osh-core` and `osh-sensors` must be sibbling directories):
+Add-on modules are provided in the `osh-addons` repository, that also includes the correct version of `osh-core` as a submodule. So you don't need to clone `osh-core` separately. Simply clone `osh-addons` with:
 
 ```bash
-$ git clone https://github.com/opensensorhub/osh-sensors
+$ git clone --recursive https://github.com/opensensorhub/osh-addons
 ```
 
-Some sensor drivers need specific communication modules to work (e.g. RXTX serial comm or Bluetooth LE). If you're building a dev version, you'll also have to build these modules from source code. For this, clone the [osh-comm](https://github.com/opensensorhub/osh-comm) repository at the same level as the other repos:
+Addon modules can be built individually depending which one you are interested in. To start with, you can build the simulated sensors since they don't require you to connect any hardware.
 
 ```bash
-$ git clone https://github.com/opensensorhub/osh-comm
-```
-
-Sensor drivers can be built individually depending which one you are interested in. To start with, you can build the simulated sensors since they don't require you to connect any hardware.
-
-```bash
-$ cd osh-sensors
+$ cd osh-addons
 $ ./gradlew sensorhub-driver-fakegps:build
 $ ./gradlew sensorhub-driver-fakeweather:build
 ```
 
-The resulting JAR files will be located in the `sensorhub-driver-fakegps/build/libs` and `sensorhub-driver-fakeweather/build/libs` folders respectively.
+This will build modules located in the `sensors/simulated` subfolder of the repo. The resulting JAR files will be located in the `sensorhub-driver-fakegps/build/libs` and `sensorhub-driver-fakeweather/build/libs` folders respectively.
 
-You can also build all of them at once by running the following command in the `osh-sensors` folder:
+You can also build all of them at once by running the following command in the `osh-addons` folder:
 
 ```bash
 $ ./gradlew build
 ```
 
-This will build ZIP files (one for stable modules, one for dev) containing all sensor drivers in the `build/distributions` folder.
-
-##### Building other modules
-
-You can also clone other repositories of the project and build other types of modules by following the same approach. See the list of module repositories in the [Exploring the Code](#exploring-the-code) section.
+This will build ZIP files (one for stable modules, one for dev) containing all addons in the `build/distributions` folder.
 
 ##### Building ZIP distributions
 
-Distribution build scripts are located in the [osh-distros](https://github.com/opensensorhub/osh-distros) repository. Clone it in the same folder as the other repositories `osh-core`, `osh-comm`, `osh-sensors` (most distributions will require at least these three other folders to build):
+The `osh-addons` repository also includes scripts to build installable OSH packages. These distributions are located in subfolders of the `dist` directory.
+
+You can build an installable ZIP package for each distribution, by going to the corresponding subfolder and launching `gradlew` from there. The base distribution is in `osh-base` for example, so you can build it with the following commands:
 
 ```bash
-$ git clone https://github.com/opensensorhub/osh-distros
+$ cd osh-addons/dist/osh-base
+$ ./gradlew build
 ```
 
-Each distribution has its own separate subfolder. The base distribution is in `osh-base` for example. You can build an installable ZIP package for each distribution, by going to the corresponding subfolder and launching `gradlew` from there (Note that the gradle wrapper `gradlew` is provided only once in the repo root folder, so you have to call it with `../`). For example, to build the `osh-base` distribution, run the following commands:
-
-```bash
-$ cd osh-distros/osh-base
-$ ../gradlew build
-```
-
-The distribution is built in the `build/distributions` folder. You can unzip it and run OpenSensorHub using the launch script (it will run with the provided example configuration file, including some simulated sensors, storage databases and an SOS service). Please see the [Installation Guide](../install.md) for more details.
+The resulting package can be found in the `osh-base/build/distributions` folder. You just have to unzip it and run OpenSensorHub using the launch script (it will run with the provided example configuration file, including some simulated sensors, storage databases and an SOS service). Please see the [Installation Guide](../install.md) for more details.
 
 
 #### Building with Eclipse
@@ -163,16 +150,13 @@ Make sure you have the following Eclipse components installed:
 
 ##### Import the source code in your Eclipse workspace
 
-First **clone all the desired projects** in your worskpace (see the [Getting the Code](#getting-the-code) section), for instance:
+First **clone OSH repositories** in your worskpace (see the [Getting the Code](#getting-the-code) section):
 
 ```bash
-$ git clone --recursive https://github.com/opensensorhub/osh-core
-$ git clone https://github.com/opensensorhub/osh-comm
-$ git clone https://github.com/opensensorhub/osh-sensors
-$ git clone https://github.com/opensensorhub/osh-distros
+$ git clone --recursive https://github.com/opensensorhub/osh-addons
 ```
 
-Then import each repository as a Gradle project using the following steps:
+Then import the repository as a Gradle project using the following steps:
 
   * In the **Package Explorer**, right click and select "Import" from the popup menu
   * Open the "Gradle" category, select "Existing Gradle Project" and click "Next"
@@ -181,14 +165,12 @@ Then import each repository as a Gradle project using the following steps:
   * Click "Finish"
   * All projects should be imported successfully and visible in the Package Explorer. Everything should compile without error.
 
-Since OSH consists of many modules, each of which will become a separate Eclipse project, we recommend that you group projects into Working Sets (for example, one working set per repo)
+_Note 1: Since OSH consists of many modules, each of which will become a separate Eclipse project, we recommend that you group projects into Working Sets._
 
-##### Eclipse Tips
+_Note 2: Everytime a change is made to the Gradle build scripts, the Eclipse project settings must be updated with the following steps:_
 
-* Everytime a change is made to the Gradle build scripts, the Eclipse project settings must be updated with the    following steps:
-
-    - Right click one of the OSH module project
-    - Select "Gradle > Refresh Gradle Project..." from the context menu
+  * _Right click one of the OSH module project_
+  * _Select "Gradle > Refresh Gradle Project..." from the context menu_
 
 
 ### Contributing
@@ -234,7 +216,7 @@ $ git pull upstream master
 $ git submodule update
 ```
 
-_Note 1: The `submodule update` command is only required in the `osh-core` repo that has submodules._
+_Note 1: The `submodule update` command is only required in repositories that have submodules._
 
 _Note 2: You may have to manually merge with your working copy if you have made conflicting changes._
 

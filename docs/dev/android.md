@@ -11,17 +11,6 @@ The Android specific part is composed of a Service component that wraps the OSH 
 
 ### Android Build
 
-Android code is not built with Maven for now, but using the Eclipse ADT plugin. In order to build it yourself, follow these instructions:
-
-- First follow the main [Developer's Guide](dev-guide.md) to clone and build projects in [osh-core](https://github.com/opensensorhub/osh-core) and [osh-sensors](https://github.com/opensensorhub/osh-sensors) repositories
-
-- Install the ADT plugin for Eclipse if you haven't already
-
-- Clone the [osh-android](https://github.com/opensensorhub/osh-android) repo and import all projects into your Eclipse Workspace.
-
-
-From there on you should be able to build and run the android app on your phone using the "Run As > Android Application" context menu on the "sensorhub-android-app" project.
-
- 
+See the [osh-android repository](https://github.com/opensensorhub/osh-android) readme for build instructions.
 
 

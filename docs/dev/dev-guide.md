@@ -89,13 +89,14 @@ _Note 2: Some of the JUnit tests automatically run during the 'test' phase of th
 
 ##### Building core + add-on modules
 
-Add-on modules are provided in the `osh-addons` repository, that also includes the correct version of `osh-core` as a submodule. So you don't need to clone `osh-core` separately. Simply clone `osh-addons` with:
+Add-on modules are provided in the `osh-addons` repository. Simply clone the `osh-core` and `osh-addons` repositories with:
 
 ```bash
+$ git clone --recursive https://github.com/opensensorhub/osh-core
 $ git clone --recursive https://github.com/opensensorhub/osh-addons
 ```
 
-Addon modules can be built individually depending which one you are interested in. To start with, you can build the simulated sensors since they don't require you to connect any hardware.
+Add-on modules can be built individually depending which one you are interested in. To start with, you can build the simulated sensors since they don't require you to connect any hardware.
 
 ```bash
 $ cd osh-addons

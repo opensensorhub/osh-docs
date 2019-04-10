@@ -388,11 +388,12 @@ $ ./gradlew build
 <p><em>Note 1: The first time you launch Gradle, the build process can take a while because Gradle fetches its own dependencies (i.e. Gradle plugins) as well as OpenSensorHub's dependencies. Later builds will go faster because these dependencies are cached locally.</em></p>
 <p><em>Note 2: Some of the JUnit tests automatically run during the 'test' phase of the OSH build process need to instantiate a server on port 8888. These tests will fail if something else is running on this port.</em></p>
 <h5 id="building-core-add-on-modules">Building core + add-on modules</h5>
-<p>Add-on modules are provided in the <code>osh-addons</code> repository, that also includes the correct version of <code>osh-core</code> as a submodule. So you don't need to clone <code>osh-core</code> separately. Simply clone <code>osh-addons</code> with:</p>
-<pre><code class="bash">$ git clone --recursive https://github.com/opensensorhub/osh-addons
+<p>Add-on modules are provided in the <code>osh-addons</code> repository. Simply clone the <code>osh-core</code> and <code>osh-addons</code> repositories with:</p>
+<pre><code class="bash">$ git clone --recursive https://github.com/opensensorhub/osh-core
+$ git clone --recursive https://github.com/opensensorhub/osh-addons
 </code></pre>
 
-<p>Addon modules can be built individually depending which one you are interested in. To start with, you can build the simulated sensors since they don't require you to connect any hardware.</p>
+<p>Add-on modules can be built individually depending which one you are interested in. To start with, you can build the simulated sensors since they don't require you to connect any hardware.</p>
 <pre><code class="bash">$ cd osh-addons
 $ ./gradlew sensorhub-driver-fakegps:build
 $ ./gradlew sensorhub-driver-fakeweather:build

@@ -6,7 +6,7 @@ This page describes how to install OpenSensorHub (OSH for short) binary release 
 
 ### Prerequisistes
 
-In order for OSH to run, you will need a working installation of Java JDK 7.
+In order for OSH 1.3.x to run, you will need a working installation of Java JDK 7 or 8.
 
 On Linux, we have successfully tested SensorHub with both OpenJDK and Oracle JDK.
 

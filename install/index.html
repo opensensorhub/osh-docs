@@ -100,9 +100,9 @@
                 
                     <li><a class="toctree-l4" href="#demo-configuration">Demo Configuration</a></li>
                 
-                    <li><a class="toctree-l4" href="#connect-to-the-sensor-observation-service-sos">Connect to the Sensor Observation Service (SOS)</a></li>
-                
                     <li><a class="toctree-l4" href="#connect-to-the-admin-console">Connect to the Admin Console</a></li>
+                
+                    <li><a class="toctree-l4" href="#connect-to-the-sensor-observation-service-sos">Connect to the Sensor Observation Service (SOS)</a></li>
                 
                     <li><a class="toctree-l4" href="#logging-configuration">Logging Configuration</a></li>
                 
@@ -335,8 +335,8 @@
 <p>On Linux, we have successfully tested SensorHub with both OpenJDK and Oracle JDK.</p>
 <h3 id="setup">Setup</h3>
 <ul>
-<li>First download the latest OSH binary release (both 'core' and 'sensors' zip files) from our <a href="https://github.com/opensensorhub/osh-core/releases">GitHub Release Page</a></li>
-<li>Unzip both files to a directory of your choice</li>
+<li>First download the latest OSH binary release (osh-base-install-***.zip) from our <a href="https://github.com/opensensorhub/osh-core/releases">GitHub Release Page</a></li>
+<li>Unzip it to a directory of your choice</li>
 <li>Execute the <code>launch.sh</code> script (on Linux or MacOS) or <code>launch.bat</code> (on Windows)</li>
 <li>You should now be able to connect to <a href="http://localhost:8181/sensorhub/test">http://localhost:8181/sensorhub/test</a> and get the message <code>SensorHub web server is up</code></li>
 </ul>
@@ -351,6 +351,12 @@
 <li>Embedded storage instances for data produced by the 2 sensors</li>
 <li>An SOS service connected to the real-time feeds and storages</li>
 </ul>
+<h3 id="connect-to-the-admin-console">Connect to the Admin Console</h3>
+<p>You can connect to the <a href="../user/img/webui1.png" title="OSH Admin Web UI">Admin Console</a> at <a href="http://localhost:8181/sensorhub/admin">http://localhost:8181/sensorhub/admin</a>.</p>
+<p>When active, the console allows you to manage all OSH modules including sensors, processing chains, storage units, as well as service interfaces such as Sensor Observation Services (SOS) or Sensor Planning Services (SPS).</p>
+<p>The "Simulated Weather Sensor" should be started and work out of the box.</p>
+<p>However, if you select the "Simulated GPG Sensor" item in the Sensors tab, you'll see an error message asking for a Google API key. This key is necessary because the driver relies on <a href="https://developers.google.com/maps/documentation/directions/start">Google Directions API</a> to generate realistic routes between random locations. So for this driver to function, you'll have to create your own Google API key as instructed <a href="https://developers.google.com/maps/documentation/directions/get-api-key">here</a>.</p>
+<p>Once you generated your key, just copy-paste it in the "Google Api Key" field of the sensor configuration panel and click "Apply Changes" at the top right. You can then enable the sensor by right clicking the corresponding item in the left column and selecting "Start" in the drop-down menu. If the sensor starts without error, you should now see data in the "Outputs" section (under the config panel). If you click the "Refresh" button it will show data updating continuously.</p>
 <h3 id="connect-to-the-sensor-observation-service-sos">Connect to the Sensor Observation Service (SOS)</h3>
 <p>You can connect right away to the SOS endpoint to get sensor data and metadata. Here are some examples that work with the installed simulated sensors:</p>
 <ul>
@@ -361,9 +367,6 @@
 </ul>
 <p>Also take a look at this simple <a href="http://sensiasoft.net:8181/osm_client_websockets.html">demo client</a> that connects to the fake GPS live feed through websockets to display it on a map using OpenLayers. You can easily reproduce this locally.</p>
 <p>More example data feed are also available <a href="http://sensiasoft.net:8181/demo.html">Here</a>.</p>
-<h3 id="connect-to-the-admin-console">Connect to the Admin Console</h3>
-<p>You can connect to the <a href="../user/img/webui1.png" title="OSH Admin Web UI">Admin Console</a> at <a href="http://localhost:8181/sensorhub/admin">http://localhost:8181/sensorhub/admin</a>.</p>
-<p>When active, the console allows you to manage all OSH modules including sensors, processing chains, storage units, as well as service interfaces such as Sensor Observation Services (SOS) or Sensor Planning Services (SPS).</p>
 <h3 id="logging-configuration">Logging Configuration</h3>
 <p>All logging is made via logback and the configuration is done via the <code>logback.xml</code> file included in the distribution.
 For instance, you can enable SensorHub debug logs by changing the following line in this file:</p>

@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2019-04-10</lastmod>
+     <lastmod>2019-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,13 +13,13 @@
         
     <url>
      <loc>/download/</loc>
-     <lastmod>2019-04-10</lastmod>
+     <lastmod>2019-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/install/</loc>
-     <lastmod>2019-04-10</lastmod>
+     <lastmod>2019-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -29,25 +29,25 @@
         
     <url>
      <loc>/user/user-guide/</loc>
-     <lastmod>2019-04-10</lastmod>
+     <lastmod>2019-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/user/protocols/</loc>
-     <lastmod>2019-04-10</lastmod>
+     <lastmod>2019-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/user/sensors/</loc>
-     <lastmod>2019-04-10</lastmod>
+     <lastmod>2019-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/user/web-admin/</loc>
-     <lastmod>2019-04-10</lastmod>
+     <lastmod>2019-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -59,13 +59,13 @@
         
     <url>
      <loc>/user/sps/intro/</loc>
-     <lastmod>2019-04-10</lastmod>
+     <lastmod>2019-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/user/android-app/</loc>
-     <lastmod>2019-04-10</lastmod>
+     <lastmod>2019-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -75,13 +75,13 @@
         
     <url>
      <loc>/dev/dev-guide/</loc>
-     <lastmod>2019-04-10</lastmod>
+     <lastmod>2019-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/dev/architecture/</loc>
-     <lastmod>2019-04-10</lastmod>
+     <lastmod>2019-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -93,19 +93,19 @@
         
     <url>
      <loc>/dev/javadoc/</loc>
-     <lastmod>2019-04-10</lastmod>
+     <lastmod>2019-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/dev/android/</loc>
-     <lastmod>2019-04-10</lastmod>
+     <lastmod>2019-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/dev/arduino/</loc>
-     <lastmod>2019-04-10</lastmod>
+     <lastmod>2019-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -115,13 +115,13 @@
         
     <url>
      <loc>/tutos/adding-new-modules/</loc>
-     <lastmod>2019-04-10</lastmod>
+     <lastmod>2019-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutos/your-first-sensor/</loc>
-     <lastmod>2019-04-10</lastmod>
+     <lastmod>2019-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -130,7 +130,7 @@
     
     <url>
      <loc>/license/</loc>
-     <lastmod>2019-04-10</lastmod>
+     <lastmod>2019-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

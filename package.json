@@ -1,0 +1,23 @@
+{
+  "name": "OpenSensorHub",
+  "version": "0.0.1",
+  "description": "Java-based middleware for building better Sensor Webs and the Internet of Things",
+  "main": "index.js",
+  "authors": {
+    "name": "Alex Robin",
+    "email": "info@opensensorhub.org"
+  },
+  "repository": "https://github.com/opensensorhub/OpenSensorHub",
+  "scripts": {
+    "dev": "vuepress dev --host localhost src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  },
+  "dependencies": {
+    "vuepress-theme-book": "0.0.5",
+    "vuepress-theme-craftdocs": "^2.0.7"
+  }
+}

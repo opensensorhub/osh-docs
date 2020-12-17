@@ -104,7 +104,7 @@ module.exports = {
           collapsable: false,
           children: [
             'dev-setup',
-            'architecture-overview',
+            'concepts',
             'osgi-bundles',
           ]
         },
@@ -118,12 +118,12 @@ module.exports = {
           ]
         },
         {
-          title: 'Real-time Device Drivers',
+          title: 'Real-Time System Drivers',
           collapsable: false,
           children: [
             'procedure-registry',
             'driver-lifecycle',
-            'real-time-driver-api'
+            'java-apis/real-time-driver-api'
           ]
         },
         {
@@ -140,21 +140,21 @@ module.exports = {
           children: [
             'federated-database',
             'latest-state-database',
-            'datastore-api'
+            'java-apis/datastore-api'
           ]
         },
         {
           title: 'Processing',
           collapsable: false,
           children: [
-            'processing-api'
+            'java-apis/processing-api'
           ]
         },
         {
           title: 'Security',
           collapsable: false,
           children: [
-            'security-api'
+            'java-apis/security-api'
           ]
         }
       ]

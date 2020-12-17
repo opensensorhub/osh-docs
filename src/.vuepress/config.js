@@ -94,8 +94,8 @@ module.exports = {
           title: 'SWE Services',
           collapsable: false,
           children: [
-            'swe-services/intro',
-            'swe-services/examples',
+            'swe-services/sos',
+            'swe-services/sps'
           ]
         },
         {

@@ -1,3 +1,0 @@
-# Requests Examples
-
-## Coming soon

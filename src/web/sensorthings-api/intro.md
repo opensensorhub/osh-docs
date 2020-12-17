@@ -1,5 +1,8 @@
 # SensorThings API
 
+SensorThings is a **REST based API** modeled using **OData** principles that allows retrieval of procedure metadata, observation data and tasking. It is a **simple JSON API** but more limited than the SensorWeb API.
+
+
 ## Sensing Entities
 
 Sensing entities (resources) that can be retrieved from the SensorThings API are shown below:

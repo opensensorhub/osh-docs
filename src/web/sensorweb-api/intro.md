@@ -1,6 +1,6 @@
 # SensorWeb API
 
-The SensorWeb API allows access to all resources available on an OSH hub, including access to full history, real-time datastreams and tasking.
+The SensorWeb API allows access to all resources available on an OSH hub, including access to historical data, real-time data feeds and tasking.
 
 In addition to the **traditional REST operations**, this API also exposes **Websocket** and **MQTT** endpoints to retrieve **real-time events** corresponding to **resource additions, modifications and deletions**, as well as **push real-time observations** into the system.
 
@@ -56,7 +56,11 @@ Although it is simpler to use than the MQTT binding, one restriction of the Webs
 
 ### Data Push
 
-Observation data can also be ingested into OSH by using a Websocket channel opened on a `datastream/observations` sub-collection. The payload format must be indicated by the `resultFormat` query parameter.
+The Websocket incoming channel can also be used to push observations and commands into the system.
+
+Observation data can be ingested by opening a channel on a `datastream/observations` sub-collection. The payload format must be indicated by the `resultFormat` query parameter.
+
+Likewise, commands can be submitted by opening a channel on a `controls/tasks` sub-collection. 
 
 
 

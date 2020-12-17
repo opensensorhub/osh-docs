@@ -41,7 +41,7 @@ module.exports = {
     sidebar: {
       '/guide/': [
         {
-          title: 'Quick Start',
+          title: 'Get Started',
           collapsable: false,
           children: [
             '',
@@ -51,7 +51,7 @@ module.exports = {
             'quickstart/license'
           ]
         },{
-          title: 'General Concepts',
+          title: 'Concepts & Architecture',
           collapsable: false,
           children: [
             'concepts/architecture-overview',
@@ -71,6 +71,14 @@ module.exports = {
             'admin/osgi-bundles'
           ]
         },
+        {
+          title: 'Deployment',
+          collapsable: false,
+          children: [
+            'deploy/distributions',
+            'deploy/docker'
+          ]
+        }
       ],
       '/web/': [
         {
@@ -100,9 +108,10 @@ module.exports = {
       ],
       '/dev/': [
         {
-          title: 'Quick Start',
+          title: 'Get Started',
           collapsable: false,
           children: [
+            '',
             'dev-setup',
             'concepts',
             'osgi-bundles',

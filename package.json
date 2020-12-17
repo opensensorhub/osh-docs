@@ -1,6 +1,6 @@
 {
   "name": "OpenSensorHub",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Java-based middleware for building better Sensor Webs and the Internet of Things",
   "main": "index.js",
   "authors": {
@@ -12,12 +12,8 @@
     "dev": "vuepress dev --host localhost src",
     "build": "vuepress build src"
   },
-  "license": "MIT",
+  "license": "MPL v2",
   "devDependencies": {
-    "vuepress": "^1.5.3"
-  },
-  "dependencies": {
-    "vuepress-theme-book": "0.0.5",
-    "vuepress-theme-craftdocs": "^2.0.7"
+    "vuepress": "^1.7.1"
   }
 }

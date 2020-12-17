@@ -1,4 +1,4 @@
-# Modular Architecture
+# Architecture Overview
 
 OpenSensorHub's (OSH) **modular and flexible architecture** allows solving many different use cases related to sensor **data collection**, **harmonization**, **processing** and **distribution/sharing**.
 
@@ -9,7 +9,7 @@ The main OSH components are shown on the following diagram:
 ![Overall Architecture Diagram](./architecture-overview.svg)
 
 
-## OSH Core Components
+## Core Components
 
 The following components are part of the core engine and are thus present in all OSH deployments:
 
@@ -45,7 +45,7 @@ The **processing engine** provides functionality to **execute processing chains*
 Processing chains are made of atomic processing components that are provided as add-ons.
 
 
-## OSH Add-ons Components
+## Add-on Components
 
 Add-on components can be included at build time in a given OSH node distribution or they can be installed later using the new dynamic deployment features built on OSGi.
 

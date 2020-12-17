@@ -90,7 +90,7 @@ A given **procedure can have one or several features of interest**, and these fe
   - A stationary in-situ sensor typically observes a single feature of interest that doesn't change over time (or rarely changes).
   - A mobile remote sensor (i.e. whose location and/or orientation can change) usually targets a single feature of interest at a time, but may target different features of interest over time. 
   - A sensor network targets multiple features of interest simultaneously
-  - A fleet of mobile sensor can target multiple features of interest simultaneously, all of which can change over time.
+  - A fleet of mobile sensors can target multiple features of interest simultaneously, all of which can change over time.
 :::
 
 OSH APIs and internal models are designed to implement and document all cases described above.

@@ -9,7 +9,7 @@ In addition to the **traditional REST operations**, this API also exposes **Webs
 
 This API loosely follows REST principles, by providing read/write access to the following hierarchy of resources:
 
-  - /procedures
+  - **/procedures**
     - /specsheet
     - /history
     - /datastreams
@@ -18,10 +18,10 @@ This API loosely follows REST principles, by providing read/write access to the 
       - /status
     - /featuresOfInterest
     - /members
-  - /datastreams
+  - **/datastreams**
     - /observations
-  - /observations
-  - /features
+  - **/observations**
+  - **/features**
     - /history
     - /members
 
@@ -96,6 +96,9 @@ MQTT PUBLISH requests can also be used to post new observation resources. They m
 | qos           | 1             |
 | retainFlag    | true          |
 | payload       | "{ 'temp': 20.5, 'press': 1032, 'status': 'ok' }" |
+
+The datastream itself must have been previously created with the HTTP JSON API.
+
 
 ### MQTT over Websocket
 

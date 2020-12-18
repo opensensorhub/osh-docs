@@ -27,7 +27,12 @@ module.exports = {
       },
       {
         text: 'Web APIs',
-        link: '/web/',
+        link: '/web/'/*,
+        items: [
+          { text: 'SensorWeb API', link: '/web/sensorweb-api/intro'},
+          { text: 'SWE Web Services', link: '/web/swe-services/intro'},
+          { text: 'SensorThings API', link: '/web/sensorthings-api/intro'},
+        ]*/
       },
       {
         text: 'Developers',

@@ -1,8 +1,9 @@
-# SensorWeb API
+# API Principles
 
 The SensorWeb API allows access to all resources available on an OSH hub, including access to historical data, real-time data feeds and tasking.
 
 In addition to the **traditional REST operations**, this API also exposes **Websocket** and **MQTT** endpoints to retrieve **real-time events** corresponding to **resource additions, modifications and deletions**, as well as **push real-time observations** into the system.
+
 
 
 ## REST API
@@ -32,7 +33,7 @@ REST calls are implemented with the 4 traditional HTTP operations + the PATCH op
   - **PUT** and **PATCH** to modify an existing resource
   - **DELETE** to delete an existing resource
   
-**GET** operations supports query parameters to filter the retrieved content. See the [OpenAPI specification](./openapi) or the [request examples](./examples) for more details.
+**GET** operations support query parameters to further filter the retrieved content. See the [OpenAPI specification](./openapi) or the [request examples](./examples) for more details.
  
 
 
@@ -66,11 +67,11 @@ Likewise, commands can be submitted by opening a channel on a `controls/tasks` s
 
 ## MQTT Binding
 
-### Subscribe
-
 The MQTT binding works slightly differently as it is available through it's own TCP port, separate from OSH's embedded HTTP server port. The MQTT endpoint is thus always the same and the resource URLs (including any query parameters) are used as MQTT topics instead.
 
-So an example MQTT SUBSCRIBE request could be:
+### Subscribe
+
+An example MQTT SUBSCRIBE request is given below:
 
 | **SUBSCRIBE** |               |
 | ------------- |:--------------|

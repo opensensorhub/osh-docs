@@ -24,6 +24,7 @@ Below are the main steps to migrate sensor drivers (for more details, you can al
 **Control Inputs**
 - Replace references to `ISensorControlInterface` by `IStreamingControlInterface`
 - Pass the name of each cotnrol input as a constructor argument instead of overriding `getName()`
+- Create command structure using new SWE builders instead of deprecated factory methods
 
 **Generation of SensorML description**
 - Replace calls to `addIdentifier2(term)` by `addIdentifier(term)`

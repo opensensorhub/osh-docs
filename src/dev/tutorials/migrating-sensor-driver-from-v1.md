@@ -19,11 +19,11 @@ Below are the main steps to migrate sensor drivers (for more details, you can al
 - Replace references to `SensorDataEvent` by `DataEvent`
 - Replace calls to `IEventHandler.publishEvent(e)` by `IEventHandler.publish(e)`
 - Replace calls to `getParentModule()` by `getParentProducer()`
+- Create output structure using new SWE builders instead of deprecated factory methods
 
 **Control Inputs**
 - Replace references to `ISensorControlInterface` by `IStreamingControlInterface`
 - Pass the name of each cotnrol input as a constructor argument instead of overriding `getName()`
-- Provide
 
 **Generation of SensorML description**
 - Replace calls to `addIdentifier2(term)` by `addIdentifier(term)`

@@ -28,6 +28,9 @@ Below are the main steps to migrate sensor drivers (for more details, you can al
 **Generation of SensorML description**
 - Replace calls to `addIdentifier2(term)` by `addIdentifier(term)`
 
+**OSGi Metadata**
+- Make sure an `Activator` class exists and it is properly referenced from the `build.gradle` file with a `attributes('Bundle-Activator': 'org.sensorhub.impl.sensor.YOUR_PACKAGE')` instruction in the `osgi` section
+
 
 
 ### For drivers implementing the `IMultiSourceDataProducer` interface:

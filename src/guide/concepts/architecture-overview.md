@@ -68,7 +68,7 @@ All kind of storage backends can be supported once a proper connector is develop
   - Embedded object databases (e.g. H2 MVStore, Perst)
   - SQL databases (e.g. PostgreSQL, SQLLite, Oracle)
   - Distributed NoSQL data stores (e.g. Elastic Search, MongoDB)
-  - Remote datastores (e.g. proprietary web services or APIs providing access to observation archives)
+  - Proxies for remote data stores (e.g. proprietary web services or APIs providing access to observation archives)
   - File collections (e.g. NetCDF files)
   - etc.
 

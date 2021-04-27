@@ -34,15 +34,6 @@ In OSH, datastreams are always associated to a **procedure output**. If the sche
 Datastreams can be seen as the **real-time channel** through which data flows, or as a **collection of historical observations** over time. In fact, in OSH, a datastream represents both and allows for both methods of data consumption: real-time streaming or retrieval of historical data. Depending on how the acquisition pipeline for a particular procedure is configured, data records collected by a datastream can be discarded as soon as dispatched by the **event bus** (real-time datastream) or they can be persisted in a **data store** (historical datastream), or both.
 
 
-## Command Stream
-
-**Command streams** are the counterparts of datastreams that are used to model procedures' **command & control channels**. They are thus used to augment **procedures** with **tasking capabilities**.
-
-A command stream is essentially a time series of commands associated to a given **procedure taskable parameter**. If the schema of a **taskable parameter** changes, a new **command stream** is created, and in this case, there will be several command streams associated to the same taskable parameter, each one with a different validity period.
-
-Like datastreams, command streams represent both the **real-time channel** through which commands are delivered and the **collection of historical commands** that a procedure has received until the present time (but whose execution can actually be scheduled for a future time).
-
-
 ## Observation
 
 Observations are a specific type of event, where a **procedure** observes, estimates or forecasts the value of one or more properties of a **feature of interest**. Each observation is associated to a **datastream**, that in turn is associated to a specific **output** of the **procedure** that made the observation. Observations also have the following properties:
@@ -94,6 +85,19 @@ A given **procedure can have one or several features of interest**, and these fe
 :::
 
 OSH APIs and internal models are designed to implement and document all cases described above.
+
+
+## Command Stream
+
+**Command streams** are the counterparts of datastreams that are used to model procedures' **command & control channels**. They are thus used to augment **procedures** with **tasking capabilities**.
+
+A **command stream** is essentially a time series of **commands** associated to a given **procedure taskable parameter**. **Commands** are often low-level instructions but they can be further combined into **tasks**, which provide higher level functionality, managed by OSH, such as scheduling, batching and priority handling.
+
+If the schema of a **taskable parameter** changes, a new **command stream** is created, and in this case, there will be several command streams associated to the same taskable parameter, each one with a different validity period. Commands can only be posted to a command stream that is currently valid.
+
+Like datastreams, command streams represent both the **real-time channel** through which commands are delivered and the **collection of historical commands** that a procedure has received until the present time. Unless the procedure defines command with scheduling capabilities, commands are supposed to be low level commands
+
+As explained above, OSH has both concepts of **commands** and **tasks**. **Commands** are usually executed immediately (although asynchronously) by the receiver while **tasks** can take longer to execute and can be scheduled for execution at a later time. A **task** consists of a sequence of one or more **commands** to be executed at a given priority level. A **task** can also be used to reserve one or more **command channels** for exclusive access during a well defined time period. **Tasks** with a higher priority level can override an already executing or scheduled task.
 
 
 

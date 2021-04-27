@@ -17,14 +17,14 @@ This API loosely follows REST principles, by providing read/write access to the 
     - /controls
       - /tasks
       - /status
-    - /featuresOfInterest
-    - /members
+    - /featuresOfInterest (sampling features or refs to sampled/domain feature)
+    - /members (for procedure groups)
   - **/datastreams**
     - /observations
   - **/observations**
   - **/features**
     - /history
-    - /members
+    - /members (for feature collections)
 
 REST calls are implemented with the 4 traditional HTTP operations + the PATCH operation for more efficient partial updates:
 
@@ -47,13 +47,29 @@ Additional query parameters allow controling the kind of events to subscribe to.
 
   - **eventTypes**: The type of event(s) to subscribe to. Must be one or more string from the following enum [`ADDED, MODIFIED, REMOVED, ENABLED`]
   
-  - **eventOnly**: Boolean flag indicating if the resource data should be included in the message or if only a small notification containing the event type, the resource ID and timestamp should be sent to the websocket channel. This flag only applies to `ADDED` and `MODIFIED` events.
-  
-  - **replaySpeed**: This OSH extension allows replaying historical data at the desired speed. If this value is equal to `1.0`, the requested data is replayed at the same rate it was produced (corresponding to the phenomenonTime stamps). If greather than `1.0`, the playback will be accelerated by the corresponding factor. If lower than `1.0`, the playback will be slowed down by the corresponding factor.
+  - **replaySpeed**: This OSH extension allows replaying historical data at the desired speed. If this value is equal to `1.0`, the requested data is replayed at the same rate the phenomenon actually happened (as indicated by the phenomenonTime property). If greather than `1.0`, the playback will be accelerated by the corresponding factor. If lower than `1.0`, the playback will be slowed down by the corresponding factor.
   
 :::tip
 Although it is simpler to use than the MQTT binding, one restriction of the Websocket API is that it doesn't allow a client to subscribe to multiple collections at a time in the same connection.
 :::
+
+When subscribing to a websocket on an observation collection, the default time parameter is `now/..`, which corresponds to a request for real-time data. By changing the time parameter, it is possible to request a replay of historical data as well.
+
+The JSON object sent through a websocket connection includes extra property providing information about the event itself:
+
+```json
+{
+  '@eventType': 'ADDED',
+  '@eventTime': '2020-03-06T15:23:46.132Z'
+  'id': 'ef4c5a2',
+  'name': 'Weather station',
+  'description': 'Weather station',
+  ...
+}
+```
+
+The client can use a `select` filter (e.g. `select=id,name`) to strip some information and receive a minimal event object.
+
 
 ### Data Push
 

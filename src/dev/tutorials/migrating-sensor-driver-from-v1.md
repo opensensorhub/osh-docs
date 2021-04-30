@@ -32,10 +32,10 @@ Below are the main steps to migrate sensor drivers (for more details, you can al
 
 **Gradle Config**
 - Replace `compile` dependencies by `implementation`, `api`, `embeddedImpl` or `embeddedApi` as appropriate (`embedded` flavors instruct Gradle to embed the dependency and its transitive dependencies inside the OSGi bundle generated for the module)
-- Make sure an `Activator` class exists and it is properly referenced from the `build.gradle` file with a `attributes('Bundle-Activator': 'org.sensorhub.impl.sensor.YOUR_PACKAGE')` instruction in the `osgi` section
 - Rename the `jar` section of your module `build.gradle` to `osgi` (if you have one)
 - Inside the new `osgi` section, change `instruction` statements to the `attributes` syntax that is compatible with the new OSGi Gradle plugin.<br/>
   Ex: `instruction 'Bundle-Vendor' '....'` should become `attributes('Bundle-Vendor': '...')`
+- Make sure an OSGi `Activator` class exists and it is properly referenced from the `build.gradle` file with a `attributes('Bundle-Activator': 'org.your.package.YourActivatorClass')` instruction in the `osgi` section
 
 
 

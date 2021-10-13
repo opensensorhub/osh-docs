@@ -92,7 +92,7 @@ module.exports = {
           children: [
             'sensorweb-api/intro',
             'sensorweb-api/examples',
-            'sensorweb-api/openapi',
+            'http://docs.opensensorhub.org/v2/web/sensorweb-api/intro.html',
           ]
         },
         {
@@ -135,7 +135,7 @@ module.exports = {
           title: 'Real-Time System Drivers',
           collapsable: false,
           children: [
-            'procedure-registry',
+            'system-registry',
             'driver-lifecycle',
             'java-apis/real-time-driver-api'
           ]

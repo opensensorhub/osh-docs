@@ -26,9 +26,13 @@ Below are the main steps to migrate sensor drivers (for more details, you can al
 - Pass the name of each cotnrol input as a constructor argument instead of overriding `getName()`
 - Create command structure using new SWE builders instead of deprecated factory methods
 
-**Generation of SensorML description**
+**SensorML description**
 - Replace calls to `addIdentifier2(term)` by `addIdentifier(term)`
 - Use SensorML builders if you need to create a more complex description
+
+**Features of interest**
+- Replace all references to `IGeoFeature` and `ITemporalFeature` interfaces by `IFeature` (these 3 interfaces were merged into one)
+- FOIs created after driver is initialized should be registered by calling `addFoi()` of super class `AbstractSensorModule`
 
 **Gradle Config**
 - Replace `compile` dependencies by `implementation`, `api`, `embeddedImpl` or `embeddedApi` as appropriate (`embedded` flavors instruct Gradle to embed the dependency and its transitive dependencies inside the OSGi bundle generated for the module)

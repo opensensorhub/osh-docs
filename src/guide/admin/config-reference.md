@@ -17,9 +17,9 @@ Each module configuration contains a common set of parameters that are described
 Any other parameter is specific to the module and should be described in the module documentation.
   
   
-### Device Drivers Configuration
+### System Drivers Configuration
 
-Device drivers share some common configuration properties inherited from the `SensorConfig` class:
+System drivers share some common configuration properties inherited from the `SensorConfig` class:
 
   - **sensorML**: URL pointing to a SensorML file describing the sensor characteristics (the content of the file will be merged with information generated automatically by the framework, see below)
   
@@ -40,11 +40,11 @@ The **federated database** needs each storage module deployed on an OSH hub to b
 A common configuration field called **databaseNum** is shared by all modules implementing data stores. The configuration of each storage module must set a different positive integer number to this field or the hub won't start.
   
 
-### View Filters
+### Database View Filters
 
 Many modules make use of **filtered views** to select only a subset of the data available on an OSH hub. 
 
-In particular, **filtered views** are used to select what observations are exposed to external consumers via APIs or web services or data push clients. All modules maintained by the core team share a common `exposedResources` property that takes a `ObsFilter` object or, for the sake of simplicity, directly a `DataStreamFilter` or `ProcedureFilter`.
+In particular, **filtered views** are used to select what observations are exposed to external consumers via APIs or web services or data push clients. All modules maintained by the core team share a common `exposedResources` property that takes a `ObsFilter` object or, for the sake of simplicity, directly a `DataStreamFilter` or `SystemFilter`.
 
 
 **Example filters:**
@@ -53,7 +53,7 @@ Expose observations from all procedures with matching UIDs (exact match or prefi
 
 ```json
 includeFilter": {
-  "objClass": "org.sensorhub.api.datastore.procedure.ProcedureFilter",
+  "objClass": "org.sensorhub.api.datastore.system.SystemFilter",
   "uniqueIDs": [
     "urn:osh:sensor:simgps:d136b6ea",
     "urn:osh:sensor:simweather:0123456879",
@@ -87,8 +87,8 @@ Expose observations from selected procedures but only for a specific time period
   },
   "withDatastreams": {
     "objClass": "org.sensorhub.api.datastore.obs.DataStreamFilter",
-    "withProcedures": {
-      "objClass": "org.sensorhub.api.datastore.procedure.ProcedureFilter",
+    "withSystems": {
+      "objClass": "org.sensorhub.api.datastore.system.SystemFilter",
       "uniqueIDs": [
         "urn:osh:sensor:simgps:d136b6ea",
         "urn:osh:sensor:simweather:0123456879"

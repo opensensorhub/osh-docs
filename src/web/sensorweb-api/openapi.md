@@ -1,3 +1,0 @@
-# OpenAPI Spec
-
-## Coming soon

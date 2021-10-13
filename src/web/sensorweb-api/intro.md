@@ -10,19 +10,21 @@ In addition to the **traditional REST operations**, this API also exposes **Webs
 
 This API loosely follows REST principles, by providing read/write access to the following hierarchy of resources:
 
-  - **/procedures**
-    - /specsheet
+  - **/systems**
+    - /details
     - /history
+    - /fois
     - /datastreams
     - /controls
       - /tasks
       - /status
+      - /commands
     - /featuresOfInterest (sampling features or refs to sampled/domain feature)
     - /members (for procedure groups)
   - **/datastreams**
     - /observations
   - **/observations**
-  - **/features**
+  - **/fois**
     - /history
     - /members (for feature collections)
 
@@ -35,6 +37,7 @@ REST calls are implemented with the 4 traditional HTTP operations + the PATCH op
   
 **GET** operations support query parameters to further filter the retrieved content. See the [OpenAPI specification](./openapi) or the [request examples](./examples) for more details.
  
+The full **OpenAPI documentation** is available [here](https://opensensorhub.github.io/sensorweb-api/swagger-ui/)
 
 
 ## Websocket Binding
@@ -75,7 +78,7 @@ The client can use a `select` filter (e.g. `select=id,name`) to strip some infor
 
 The Websocket incoming channel can also be used to push observations and commands into the system.
 
-Observation data can be ingested by opening a channel on a `datastream/observations` sub-collection. The payload format must be indicated by the `resultFormat` query parameter.
+Observation data can be ingested by opening a channel on a `datastream/{id}/observations` sub-collection. The payload format must be indicated by the `format` query parameter or the `Content-Type` HTTP header.
 
 Likewise, commands can be submitted by opening a channel on a `controls/tasks` sub-collection. 
 

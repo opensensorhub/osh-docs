@@ -92,7 +92,7 @@ module.exports = {
           children: [
             'sensorweb-api/intro',
             'sensorweb-api/examples',
-            'http://docs.opensensorhub.org/v2/web/sensorweb-api/intro.html',
+            ['https://opensensorhub.github.io/sensorweb-api/swagger-ui', 'OpenAPI Spec'],
           ]
         },
         {

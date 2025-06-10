@@ -1,0 +1,8 @@
+{
+  "label": "Sensor Drivers",
+  "position": 0,
+  "link": {
+    "type": "generated-index",
+    "description": "A guide to developing Sensor Drivers"
+  }
+}

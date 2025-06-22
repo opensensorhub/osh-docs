@@ -3,6 +3,6 @@
   "position": 4,
   "link": {
     "type": "generated-index",
-    "description": "OSH Docs / Guides (Developer focused)"
+    "description": "OSH Docs / Guides (Developer focused). This section includes guides/usage examples for developing different components of OSH. It also includes usage examples of OSH Core APIs, as well as generic helpful tips and advice."
   }
 }

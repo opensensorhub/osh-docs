@@ -26,10 +26,12 @@ In order to use IDE features such as code completion, syntax highlighting, and d
 ### Project Settings
 If the driver is not already added to the project-level `settings.gradle`, such as through the following code block, then you will need to add it manually.
 ```gradle title="/osh-node-dev-template/settings.gradle"
+// Go through each file in "/osh-node-dev-template/sensors", and pick out the ones that are Gradle projects
 FileTree subprojects = fileTree("$rootDir/sensors").include('**/build.gradle')
 subprojects.files.each { File f ->
     File projectFolder = f.parentFile
     if (projectFolder != rootDir) {
+        // Include each subproject to be referenced by this root Gradle project (osh-node-dev-template)
         String projectName = ':' + projectFolder.name
         include projectName
         project(projectName).projectDir = projectFolder
@@ -38,7 +40,9 @@ subprojects.files.each { File f ->
 ```
 Or, if you need to manually add this module to your `settings.gradle` (only if above is not present):
 ```gradle title="/osh-node-dev-template/settings.gradle
+// Includes the driver as a subproject, simply named by the directory name
 include 'sensorhub-driver-simulated'
+// Telling Gradle where this driver subproject is located
 project(':sensorhub-driver-simulated').projectDir = "$rootDir/sensors/sensorhub-driver-simulated" as File
 ```
 :::tip
@@ -74,7 +78,7 @@ dependencies {
 Now that the module has been included in our project's build configuration, we can move on to customizing this template.
 ### Package Names
 Please provide a logical package name for your module.
-For this example, I will use the package name `com.mycompany.impl.sensor.simulated`, representing some abstract company.
+For this example, I will use the package name `com.mycompany.impl.sensor.simulated`, representing some abstract company, and stating that this will be the **impl**ementation of a **simulated sensor** driver.
 
 It is important to update this package name in a few different places.
 - In all Java files (including test classes), so their declared package is accurate.
@@ -143,6 +147,8 @@ A few things need to be specified in our `Output` class.
 We'll start with the first two edits.
 #### Description, Structure, Encoding
 Below shows our updated `Output`'s descriptive information, as well as some common weather station observations in our output data structure.
+
+To learn more about creating these SWE Common data structures, please reference the OSH Core [SWE Common page](../osh-core-apis/sensorml.md).
 ```java title="sensorhub-driver-simulated/src/main/java/com/mycompany/impl/sensor/simulated/Output.java"
 public class Output extends AbstractSensorOutput<Sensor> {
     // highlight-start
@@ -208,6 +214,10 @@ Now, we can update our `setData()` method using our newly defined data format.
 
 The highlighted portions show the new parameters for our `setData()` method,
 and the use of those parameters to update and publish a `DataBlock`.
+
+:::note
+The `DataBlock` must be populated in the order that the `DataComponent` structure was written.
+:::
 ```java title="sensorhub-driver-simulated/src/main/java/com/mycompany/impl/sensor/simulated/Output.java"
 // highlight-next-line
 public void setData(long timestamp, double temp, double press, double windSpeed, double windDir) {
@@ -396,7 +406,7 @@ This build process will fail if any of your unit tests fail.
 If you choose to build without testing, you may run `./gradlew build -x test`.
 
 :::warning
-pay attention to errors, see docs page about common errors and troubleshooting
+Pay attention to the errors that come up. Please see the section on [Common Errors and Troubleshooting](../common-errors/tips.md)
 :::
 
 ## Debugging

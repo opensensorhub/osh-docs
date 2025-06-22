@@ -7,7 +7,7 @@ sidebar_position: 5
 
 The easiest way to modify the configurations in your project will be within an IDE.
 
-Some later guides may include workflow & project setup in **IntelliJ Idea** but other IDEs can be used as well. 
+Some later guides may include workflow & project setup in **IntelliJ IDEA** (free version available) but other IDEs can be used as well. 
 
 Once you have cloned the project, open it in your IDE. 
 

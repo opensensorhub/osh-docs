@@ -26,6 +26,15 @@ function HomepageHeader() {
             <button className="button-light">OSH Connect</button>
           </Link>
         </div>
+      <div style={{ paddingTop: 30 }}>
+          <h2>
+              What's the difference?
+          </h2>
+          <ul style={{ textAlign:'center', maxWidth: 700, margin: 'auto' }}>
+              <li><strong>OSH Node</strong> is the Java-based server side of <strong>OpenSensorHub</strong> (commonly referred to as OSH).</li>
+              <li><strong>OSH Connect</strong> is the family of client SDKs for developing data-visualization clients, data-publishing clients, and other types of client applications.</li>
+          </ul>
+      </div>
       </div>
     </header>
   );
@@ -36,7 +45,6 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      // description="Documentation for all things OpenSensorHub"
       >
       <HomepageHeader />
       <main>

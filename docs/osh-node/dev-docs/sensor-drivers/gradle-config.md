@@ -7,6 +7,10 @@ sidebar_position: 1
 
 This page will show Gradle configuration for an OSH module (drivers, processes, services, etc.).
 
+:::info
+If you are unfamiliar with Gradle, please refer to the [Gradle User Guide](https://docs.gradle.org/current/userguide/getting_started_eng.html).
+:::
+
 The module used in this example can be found in `osh-node-dev-template/sensors/sensorhub-driver-template`.
 
 ## Build Config

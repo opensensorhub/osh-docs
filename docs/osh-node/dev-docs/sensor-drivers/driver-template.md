@@ -5,12 +5,17 @@ toc_max_heading_level: 5
 ---
 
 # Driver Development
-This guide will show example implementation from the `osh-node-dev-template` repository on **OpenSensorHub**'s public GitHub.
+This page will show example implementation from the `osh-node-dev-template` repository on **OpenSensorHub**'s public GitHub.
 Please refer to the [*Development Template*](../dev-template.md) page for setting up this repository, and learning more about what is included in the template.
 
 The example implementation will be under `osh-node-dev-template/sensors/sensorhub-driver-template`.
 
-This guide will cover all parts of the `sensorhub-driver-template`, broken down into smaller subsections to explain the code.
+This page will cover all parts of the `sensorhub-driver-template`, broken down into smaller subsections to explain the code.
+
+:::note
+While this page is mainly a dissection of the template driver, the next page titled [Driver Guide](driver-guide.md),
+will walk through actually developing a driver, based on this template.
+:::
 ## Driver Components
 In the Java implementation for a *Sensor Driver*, a few Java classes are required.
 
@@ -26,6 +31,11 @@ In the Java implementation for a *Sensor Driver*, a few Java classes are require
 | META-INF/services file | 1    | File used for exposing the driver's **Descriptor** class to OSH                                                                                                                                  |
 
 ## Activator Class
+:::info
+This section includes what to include in a driver to enable OSGi.
+Please refer to the [OSH OSGi docs](../osgi/overview.md) for reference.
+:::
+
 `Activator` does not require any implementation. 
 The existence of the class exposes it with the ability to build as an OSGi bundle.
 
@@ -83,6 +93,10 @@ public class Descriptor extends JarModuleProvider implements IModuleProvider {
 }
 ```
 The module descriptor simplifies the act of the module telling **OpenSensorHub** where to start and what configuration is needed.
+
+This `Descriptor` class is exposed to OSH via Java's `ServiceLoader` API.
+Simply put, OSH finds all module descriptors, and uses this as the entrypoint to instantiate the module's main class (`Sensor`, in this case)
+with the default configuration for the module (`Config`, in this case).
 ### Module Class
 The module class is your main `Sensor` or `Driver` class that implements `IModule`.
 Exposing this module class allows **OpenSensorHub** to create new instances of this module via core APIs used by the Admin UI and other services.
@@ -108,6 +122,9 @@ public class Config extends SensorConfig {
 The `@DisplayInfo` annotation allows you to specify additional information shown in the Admin UI, as well as additional functionality to populate or validate a field.
 ### Fields
 All `public` fields will be exposed in configuration shown in the Admin UI, as well as the node's `config.json`.
+### SensorConfig
+The `Config` class extends `SensorConfig`, which acts as a common set of configuration options for all sensor drivers.
+This configuration class includes fields relating to SensorML description, location & orientation, and basic OSH module configuration such as the module's ID, name, description, etc.
 ## Sensor/Driver Class
 ```java title="sensorhub-driver-template/src/main/java/com/sample/impl/sensor/drivername/Sensor.java"
 package com.sample.impl.sensor.drivername;
@@ -721,12 +738,16 @@ protected boolean execCommand(DataBlock command) throws CommandException {
 ```
 
 ## META-INF/services File
-This file located in `/sensorhub-driver-template/src/main/resources/META-INF/services` is required to allow **OpenSensorHub** 
-to find the implementation of the driver's `Descriptor` class, which allows OSH to instantiate and use this driver's main module class and config class.
+**OpenSensorHub** uses Java's `ServiceLoader` to dynamically load implementations of certain classes.
+In the case of **Sensor Drivers** and other OSH modules, the `ServiceLoader` is used to load the module, based on the implementation of the `IModuleProvider` class.
+To support this interaction, **all** OSH modules must have their specific implementation of the `IModuleProvider` class included under `/resources/META-INF/services`, 
+inside a file that is titled by the classpath of the interface (`IModuleProvider`, in this case).
+
+In this implementation of a **Sensor Driver**, the `Descriptor` class implements `IModuleProvider`, so it must have an entry in a service file.
 
 This file should always be named with the classpath of the service being implemented, and contain a list of the implementations of that service.
 
-For example, this driver's `Descriptor` class implements the `IModuleProvider` from `osh-core`, so the file must be named `org.sensorhub.api.module.IModuleProvider`, and the file must contain the line `com.sample.impl.sensor.drivername.Descriptor`.
+So the file must be named `org.sensorhub.api.module.IModuleProvider`, and the file must contain the line `com.sample.impl.sensor.drivername.Descriptor`.
 See below.
 
 ```txt title="../resources/META-INF/services/org.sensorhub.api.module.IModuleProvider"

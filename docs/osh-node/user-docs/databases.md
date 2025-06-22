@@ -9,6 +9,11 @@ sidebar_position: 2
 
 **OpenSensorHub** comes pre-packaged with a basic H2 database module, and a *System Driver Database*, which uses the basic H2 database, but with additional features.
 
+:::info
+An H2 database is a Java-based SQL database, that is embedded in **OpenSensorHub** via the **H2 database module**.
+You can learn more at the [H2 database website](https://h2database.com/html/main.html).
+:::
+
 ## Federated Database
 
 The federated database will always appear at the top of the *Databases* tab, and contains data from all running databases on the **OpenSensorHub** node.

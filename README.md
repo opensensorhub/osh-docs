@@ -8,7 +8,7 @@ Documentation site for all things OpenSensorHub!
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/earocorn/osh-docs
+git clone https://github.com/opensensorhub/osh-docs
 cd osh-docs
 npm install
 ```

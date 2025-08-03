@@ -8,11 +8,7 @@ Documentation site for all things OpenSensorHub!
 Clone the repository and install dependencies:
 
 ```bash
-<<<<<<< HEAD
-git clone https://github.com/opensensorhub/osh-docs
-=======
 git clone https://github.com/opensensorhub/osh-docs.git
->>>>>>> 97187cd (Basic OSGi user/dev docs, and updated process docs. Also, updated general docs from feedback comments)
 cd osh-docs
 npm install
 ```

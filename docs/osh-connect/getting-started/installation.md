@@ -31,10 +31,16 @@ OSHConnect can be installed in Python and Java, using *pip* (or *poetry*) for Py
 
 **OSHConnect-Java**
 
-[*Link to the GitHub Repository*](https://github.com/Botts-Innovative-Research/OSHConnect-Java)
+[*Link to the GitHub Repository*](https://github.com/opensensorhub/OSHConnect-Java)
 
 Please clone/download the git repository for OSHConnect-Java and include it as a submodule in your gradle project.
 
 ```gradle title="settings.gradle"
 includeBuild('path/to/OSHConnect-Java')
 ```
+
+**OSHConnect-C++**
+
+[*Link to the GitHub Repository*](https://github.com/opensensorhub/OSHConnect-Cpp)
+
+Please clone/download the git repository for OSHConnect-Java and include it as a submodule in your project.

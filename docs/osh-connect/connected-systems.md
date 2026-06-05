@@ -67,6 +67,10 @@ Again, **OSHConnect** is a family of client libraries that provides support for 
 
 **OSHConnect** also provides helper methods to create Feature and Dynamic Data Resources that you can push to **OpenSensorHub** nodes via the Connected Systems RESTful interface.
 
+**OSHConnect-Python**
+- [API Documentation](https://botts-innovative-research.github.io/OSHConnect-Python/)
+- [GitHub Repository](https://github.com/Botts-Innovative-Research/OSHConnect-Python)
+
 ## Hands-on Guide and Examples
 
 These examples will be using the **GeoRobotix** test node, which is an **OpenSensorHub** node used for testing and client examples.

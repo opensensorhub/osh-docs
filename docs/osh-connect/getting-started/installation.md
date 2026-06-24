@@ -43,4 +43,12 @@ includeBuild('path/to/OSHConnect-Java')
 
 [*Link to the GitHub Repository*](https://github.com/opensensorhub/OSHConnect-Cpp)
 
-Please clone/download the git repository for OSHConnect-Java and include it as a submodule in your project.
+Please clone/download the git repository for OSHConnect-C++ and include it as a submodule in your project.
+
+**OSHConnect-JavaScript**
+
+[*Link to the GitHub Repository*](https://github.com/opensensorhub/osh-js)
+
+```shell
+npm install osh-js
+```

@@ -6,6 +6,10 @@ sidebar_position: 5
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::info
+For information regarding usage of OSHConnect-JavaScript, please refer to the [OSHConnect-JavaScript section](../osh-js/introduction.md)
+:::
+
 ## Instantiating OSHConnect
 The intended method of interacting with OpenSensorHub is through the main OSHConnect class. 
 To do this you must first create an instance of OSHConnect:

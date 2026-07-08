@@ -3,14 +3,15 @@ title: Build
 sidebar_position: 3
 ---
 
+
 # How to Build an OSH Node
 
-This page guides you through building an OSH Node from source using the command line.
+This page guides you through how to build your OSH Node in your command line. Starting from your requirements and ending with a zip file housing the architecture to build your own customizable OSH Node.
 
 ## Getting the Code
 The `git` command is used to download the code from the GitHub repositories hosting **OpenSensorHub**. 
 
-For example, you can download the code for an OSH Node Development Template using the following command:
+You can download the code for an OSH Node Development Template, using the HTTPS with the following command:
 
 ```git 
 git clone --recursive https://github.com/opensensorhub/osh-node-dev-template.git
@@ -21,7 +22,7 @@ The `--recursive` flag is required because the repository contains submodules.
 :::
 
 ## Building from the Command Line
-You can the build the code from source using Gradle on the command line.
+You can build the Node, using Gradle, on the command line.
 
 Change into the directory where you cloned the repository:
 
@@ -39,7 +40,7 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-7.3.3-bin.zip
 distri...
 ```
 :::
-To build, run the following:   
+To build your local OSH node, enter the following:   
 ```sh
 ./gradlew build -x test
 ```
@@ -47,7 +48,10 @@ To build, run the following:
 `-x test` excludes unit tests from the build process 
 :::
 
+This will result in a build of your OSH node, formed in a zip file. Later steps will help you unzip the file and begin running your OSH node
 
-The result OSH node will build in:
+Finally, locate the file, by opening build then distributions to find your file. 
 
-`/osh-node-dev-template/build/distributions/osh-node-..*.zip`
+Path:`/osh-node-dev-template/build/distributions/osh-node-..*.zip`
+
+Titled: `osh-node-..*.zip`

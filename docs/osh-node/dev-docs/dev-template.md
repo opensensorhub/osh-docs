@@ -1,6 +1,6 @@
 ---
 title: Development Template
-sidebar_position: 0
+sidebar_position: 1
 ---
 
 # Setting up Node Development Template

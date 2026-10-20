@@ -4,17 +4,12 @@ sidebar_position: 0
 ---
 # OSH Driver Style Guide
 
-> **Audience:** Developers implementing and reviewing OpenSensorHub (OSH) sensor and actuator drivers.
->
-> **Status:** Recommended conventions. Verify API signatures against the version of `osh-core` used by your project.
-
 ## 1. Purpose and scope
 
 This guide establishes consistent conventions for driver structure, configuration, sensor identity, SWE Common outputs, lifecycle management, connectivity, controls, SensorML, testing, and documentation. It expands the original team style guide with guidance from OSH Core and the published OSH driver-development materials.
 
 An OSH driver should be maintainable, resilient to communication failures, lifecycle-safe, and interoperable through OGC Sensor Web Enablement (SWE) standards. OSH supports sensors and actuators over a range of interfaces, including serial, USB, Ethernet, Wi-Fi, Bluetooth, and HTTP; the driver should separate transport-specific logic from the data and control interfaces exposed to OSH.
 
-**Terminology:** In this document, **must** describes a correctness or safety requirement; **should** describes a recommended project convention; **may** describes an optional approach.
 
 ## 2. Standard driver structure
 
@@ -76,10 +71,6 @@ A physical sensor should have a stable, unique identifier across restarts. When 
 generateUniqueID("urn:osh:sensor:example:weather:", config.serialNumber);
 generateXmlID("WEATHER", config.serialNumber);
 ```
-
-The namespace above is illustrative; use your project's registered or agreed namespace. Do not regenerate an unrelated random UID on every initialization. **Important OSH Core detail:** `AbstractSensorModule` can generate a default UUID-based unique ID and preserve it between restarts through module state; this is a valid fallback when a hardware-derived identity is unavailable. Do not imply that the base class generates a new ID on each initialization.
-
-Do not conflate the physical sensor UID, the OSH module ID, and the SensorML XML ID; they serve different purposes.
 
 ## 4. Configuration classes and UI metadata
 
@@ -386,22 +377,3 @@ Each driver should include a README that allows another developer or operator to
 8. Startup and reconnect behavior.
 9. Known limitations and troubleshooting steps.
 10. How to run tests and reproduce sample data.
-
-## 19. Pull request review checklist
-
-- [ ] Names, packages, and class responsibilities follow established conventions.
-- [ ] Module descriptor and service registration are present.
-- [ ] Sensor identity is stable and meaningful.
-- [ ] User-facing configuration fields have appropriate UI metadata.
-- [ ] Invalid configuration fails with actionable messages.
-- [ ] Outputs and controls are registered during initialization.
-- [ ] SWE definitions, units, and timestamps are correct.
-- [ ] No data is published before start or after stop.
-- [ ] `isConnected()` reflects actual readiness.
-- [ ] Failed connections, reconnection, and cleanup are handled safely.
-- [ ] Logging and error reporting are informative without leaking secrets.
-- [ ] SensorML metadata accurately represents the sensor.
-- [ ] Parser, lifecycle, and failure-path tests are included.
-- [ ] README lists verified hardware/firmware and setup instructions.
-
-> **Compatibility caution:** API names and annotation forms may differ between OSH branches. Validate examples against the project's actual dependency versions before treating them as copy-and-paste implementations.
